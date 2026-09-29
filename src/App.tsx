@@ -5,7 +5,6 @@ import { Header } from './components/Header';
 import { BottomNav } from './components/BottomNav';
 import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
-import { AuthModal } from './components/AuthModal';
 import { StoryModal } from './views/StoryModal';
 import { HomeView } from './views/HomeView';
 import { ExploreView } from './views/ExploreView';
@@ -25,18 +24,31 @@ export default function App() {
   });
 
   // User Authentication State (Mandatory login/signup before browsing or purchasing)
-  const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
-    if (typeof window !== 'undefined') {
-      try {
-        const savedUser = localStorage.getItem('topvent_user');
-        if (savedUser) return JSON.parse(savedUser);
-      } catch {
-        // Fallback
-      }
+ const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
+  if (typeof window !== 'undefined') {
+    try {
+      const savedUser = localStorage.getItem('topvent_user');
+      if (savedUser) return JSON.parse(savedUser);
+    } catch {
+      // Fallback
     }
-    // Initially null to enforce mandatory signup/login flow
-    return null;
-  });
+  }
+  // ⭐ Default guest user — no login required
+  return {
+    id: 'guest-user',
+    fullName: 'Guest User',
+    email: 'guest@topvent.com',
+    mobile: '',
+    isEmailVerified: true,
+    isMobileVerified: true,
+    avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80',
+    clothingSize: 'L',
+    shoeSize: 'UK 9',
+    favoriteCategories: ['men', 'women'],
+    joinedDate: 'September 2026',
+    vipTier: 'Guest Member',
+  };
+});
 
   // Active Tab & Search
   const [currentTab, setCurrentTab] = useState<TabType>('home');
@@ -338,12 +350,7 @@ const handleClearCartAndCheckout = () => {
           <span className="text-sm font-bold">{toast.message}</span>
         </div>
       )}
-      {/* Mandatory User Authentication Modal (Block until logged in / signed up) */}
-      <AuthModal
-        isOpen={currentUser === null}
-        onLoginSuccess={handleLoginSuccess}
-      />
-
+      
       {/* Fixed Sticky Header */}
       <Header
         currentTab={currentTab}
