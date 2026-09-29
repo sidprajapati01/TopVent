@@ -1,0 +1,6 @@
+{
+  "name": "TopVent - Exclusive Luxury Fashion Drops",
+  "description": "Discover curated luxury fashion, VIP lightning deals, and trending drops with interactive 3D WebGL experience.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
