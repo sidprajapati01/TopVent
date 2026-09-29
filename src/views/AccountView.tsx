@@ -15,11 +15,21 @@ interface AccountViewProps {
   orders: Order[];
   onOpenCart: () => void;
   onUpdateUserSizes: (clothingSize: string, shoeSize: string) => void;
+  onUpdateUserProfile?: (updates: Partial<UserProfile>) => void;
   onLogout: () => void;
 }
 
 const CLOTHING_SIZES = ['XS', 'S', 'M', 'L', 'XL', 'XXL'];
 const SHOE_SIZES = ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11', 'UK 12'];
+
+const PRESET_AVATARS = [
+  'https://plus.unsplash.com/premium_photo-1739786996022-5ed5b56834e2?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1740252117044-2af197eea287?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://plus.unsplash.com/premium_photo-1739786996040-32bde1db0610?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1740252117070-7aa2955b25f8?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://images.unsplash.com/photo-1740252117027-4275d3f84385?q=80&w=580&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+  'https://plus.unsplash.com/premium_photo-1723028769916-a767a6b0f719?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+];
 
 export const AccountView: React.FC<AccountViewProps> = ({
   user,
@@ -35,6 +45,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
   orders,
   onOpenCart,
   onUpdateUserSizes,
+  onUpdateUserProfile,
   onLogout,
 }) => {
   const [dealAlerts, setDealAlerts] = useState(true);
@@ -46,11 +57,62 @@ export const AccountView: React.FC<AccountViewProps> = ({
   const [savedFeedback, setSavedFeedback] = useState(false);
   const [activeTab, setActiveTab] = useState<'profile' | 'orders' | 'wishlist'>('profile');
 
+  // ⭐ Edit Profile Modal state
+  const [showEditProfile, setShowEditProfile] = useState(false);
+  const [editName, setEditName] = useState(user?.fullName || '');
+  const [editEmail, setEditEmail] = useState(user?.email || '');
+  const [editMobile, setEditMobile] = useState(user?.mobile || '');
+  const [editAvatar, setEditAvatar] = useState(user?.avatarUrl || PRESET_AVATARS[0]);
+
   const handleSaveSizes = () => {
     onUpdateUserSizes(tempClothingSize, tempShoeSize);
     setIsEditingSizes(false);
     setSavedFeedback(true);
     setTimeout(() => setSavedFeedback(false), 2500);
+  };
+
+  // ⭐ Open Edit Profile Modal
+  const handleOpenEditProfile = () => {
+    setEditName(user?.fullName || '');
+    setEditEmail(user?.email || '');
+    setEditMobile(user?.mobile || '');
+    setEditAvatar(user?.avatarUrl || PRESET_AVATARS[0]);
+    setShowEditProfile(true);
+  };
+
+  // ⭐ Save Profile
+  const handleSaveProfile = () => {
+    if (!editName.trim()) {
+      alert('Please enter your name');
+      return;
+    }
+    if (onUpdateUserProfile) {
+      onUpdateUserProfile({
+        fullName: editName.trim(),
+        email: editEmail.trim(),
+        mobile: editMobile.trim(),
+        avatarUrl: editAvatar,
+      });
+    }
+    setShowEditProfile(false);
+  };
+
+  // ⭐ Handle Photo Upload
+  const handlePhotoUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert('Image must be less than 5MB');
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        if (typeof reader.result === 'string') {
+          setEditAvatar(reader.result);
+        }
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const categoryLabels: Record<string, string> = {
@@ -64,6 +126,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
 
   return (
     <div className="w-full flex flex-col p-4 pb-24 gap-4">
+      {/* Profile Card */}
       <div className="relative overflow-hidden rounded-3xl p-5 bg-gradient-to-br from-[#16062a] via-[#240845] to-[#16062a] text-white shadow-xl border border-purple-900/40">
         <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full bg-orange-500/20 blur-2xl pointer-events-none" />
 
@@ -71,11 +134,8 @@ export const AccountView: React.FC<AccountViewProps> = ({
           <div className="flex items-center gap-4">
             <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden ring-2 ring-orange-500 p-0.5 bg-purple-950 shadow-lg shrink-0">
               <img
-                src={
-                  user?.avatarUrl ||
-                  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'
-                }
-                alt={user?.fullName || 'VIP Profile'}
+                src={user?.avatarUrl || PRESET_AVATARS[0]}
+                alt={user?.fullName || 'Guest'}
                 className="w-full h-full object-cover rounded-[14px]"
               />
               <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 ring-2 ring-[#16062a]" />
@@ -84,7 +144,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
             <div className="flex flex-col">
               <div className="flex items-center gap-1.5 flex-wrap">
                 <h1 className="text-lg sm:text-xl font-extrabold text-white tracking-tight">
-                  {user?.fullName || 'VIP Member'}
+                  {user?.fullName || 'Guest User'}
                 </h1>
                 <span
                   className="material-symbols-outlined text-orange-400 text-[20px]"
@@ -97,24 +157,28 @@ export const AccountView: React.FC<AccountViewProps> = ({
 
               <div className="inline-flex items-center gap-1 mt-1 px-2.5 py-0.5 rounded-full bg-orange-500/20 border border-orange-500/30 text-orange-300 text-[10px] font-bold w-fit">
                 <span className="material-symbols-outlined text-[12px]">diamond</span>
-                <span>{user?.vipTier || 'VIP Premiere Member'}</span>
+                <span>{user?.vipTier || 'Guest Member'}</span>
               </div>
 
               <span className="text-[11px] text-purple-200/70 mt-1">
-                Member Since {user?.joinedDate || 'September 2026'}
+                {user?.email || 'guest@topvent.com'}
               </span>
             </div>
           </div>
 
-          <button
-            onClick={onLogout}
-            className="self-end sm:self-center px-3.5 py-2 rounded-xl bg-white/10 hover:bg-rose-500/20 hover:text-rose-300 border border-white/15 text-xs font-bold text-white flex items-center gap-1.5 transition-all active:scale-95"
-          >
-            <span className="material-symbols-outlined text-[16px]">logout</span>
-            <span>Sign Out</span>
-          </button>
+          <div className="flex gap-2 self-end sm:self-center">
+            {/* ⭐ Edit Profile Button */}
+            <button
+              onClick={handleOpenEditProfile}
+              className="px-3.5 py-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white text-xs font-bold flex items-center gap-1.5 transition-all active:scale-95 shadow-md"
+            >
+              <span className="material-symbols-outlined text-[16px]">edit</span>
+              <span>Edit Profile</span>
+            </button>
+          </div>
         </div>
 
+        {/* Tabs */}
         <div className="grid grid-cols-3 gap-2 mt-5 pt-4 border-t border-purple-900/40">
           <button
             onClick={() => setActiveTab('profile')}
@@ -137,7 +201,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">receipt_long</span>
-            <span>Orders & Cart ({cart.length + orders.length})</span>
+            <span>Orders ({cart.length + orders.length})</span>
           </button>
 
           <button
@@ -157,12 +221,13 @@ export const AccountView: React.FC<AccountViewProps> = ({
       {savedFeedback && (
         <div className="p-3 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 text-xs font-semibold flex items-center justify-center gap-1.5 animate-in fade-in">
           <span className="material-symbols-outlined text-[16px]">check_circle</span>
-          <span>Your size preferences have been updated!</span>
+          <span>Profile updated successfully!</span>
         </div>
       )}
 
       {activeTab === 'profile' && (
         <div className="flex flex-col gap-4">
+          {/* Sizes Card */}
           <div className="rounded-2xl p-4 bg-white dark:bg-[#1a0833] border border-slate-200/80 dark:border-purple-950/60 shadow-sm flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
@@ -263,6 +328,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
             )}
           </div>
 
+          {/* Categories Card */}
           <div className="rounded-2xl p-4 bg-white dark:bg-[#1a0833] border border-slate-200/80 dark:border-purple-950/60 shadow-sm flex flex-col gap-3">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center">
@@ -295,6 +361,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
             </div>
           </div>
 
+          {/* Theme Card */}
           <div className="rounded-2xl p-4 bg-white dark:bg-[#1a0833] border border-slate-200/80 dark:border-purple-950/60 shadow-sm flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2.5">
@@ -560,7 +627,6 @@ export const AccountView: React.FC<AccountViewProps> = ({
                         <span>ADD TO CART</span>
                       </button>
 
-                      {/* ⭐ BUY NOW → Direct Amazon Affiliate Link */}
                       <a
                         href={product.amazonUrl}
                         target="_blank"
@@ -589,6 +655,7 @@ export const AccountView: React.FC<AccountViewProps> = ({
         </div>
       )}
 
+      {/* Privacy Card */}
       <div className="rounded-2xl p-4 bg-slate-100 dark:bg-[#16062a] border border-slate-200/80 dark:border-purple-950/40 flex flex-col gap-1.5 text-xs text-slate-500 dark:text-purple-300/70 mt-2">
         <div className="flex items-center gap-1.5 text-slate-800 dark:text-slate-200 font-bold">
           <span className="material-symbols-outlined text-orange-500 text-[16px]">verified_user</span>
@@ -598,6 +665,125 @@ export const AccountView: React.FC<AccountViewProps> = ({
           Your account credentials and email address are never exposed publicly. All purchases are secure and verified.
         </p>
       </div>
+
+      {/* ⭐ EDIT PROFILE MODAL */}
+      {showEditProfile && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+        >
+          <div className="relative w-full max-w-md bg-white dark:bg-[#1a0833] text-slate-900 dark:text-white rounded-3xl border border-slate-200 dark:border-purple-800/40 shadow-2xl overflow-hidden my-auto">
+            {/* Header */}
+            <div className="px-5 py-4 bg-gradient-to-r from-[#16062a] to-[#240845] flex items-center justify-between border-b border-purple-900/40">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-orange-400 text-[22px]">edit</span>
+                <h2 className="font-extrabold text-base text-white">Edit Your Profile</h2>
+              </div>
+              <button
+                onClick={() => setShowEditProfile(false)}
+                aria-label="Close"
+                className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              >
+                <span className="material-symbols-outlined text-[18px]">close</span>
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="px-5 py-4 max-h-[70vh] overflow-y-auto flex flex-col gap-4">
+              {/* Avatar */}
+              <div className="flex flex-col gap-2">
+                <label className="text-xs font-bold text-slate-700 dark:text-purple-200">
+                  Profile Photo
+                </label>
+                <div className="flex items-center gap-3">
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden ring-2 ring-orange-500 bg-purple-950 shrink-0">
+                    <img src={editAvatar} alt="Profile" className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex-1 flex flex-col gap-1.5">
+                    <label className="cursor-pointer inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-xs font-bold text-white transition-colors">
+                      <span className="material-symbols-outlined text-[16px]">upload</span>
+                      <span>Upload Photo</span>
+                      <input type="file" accept="image/*" onChange={handlePhotoUpload} className="hidden" />
+                    </label>
+                    <span className="text-[10px] text-slate-500 dark:text-purple-300/70">Or pick below:</span>
+                  </div>
+                </div>
+                <div className="grid grid-cols-6 gap-2">
+                  {PRESET_AVATARS.map((url, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setEditAvatar(url)}
+                      className={`aspect-square rounded-xl overflow-hidden transition-all ${
+                        editAvatar === url
+                          ? 'ring-2 ring-orange-500 scale-105 shadow-md'
+                          : 'opacity-60 hover:opacity-100'
+                      }`}
+                    >
+                      <img src={url} alt={`Avatar ${idx + 1}`} className="w-full h-full object-cover" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Name */}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-purple-200">Full Name</label>
+                <input
+                  type="text"
+                  value={editName}
+                  onChange={(e) => setEditName(e.target.value)}
+                  placeholder="Your full name"
+                  className="h-11 px-3.5 rounded-xl bg-slate-50 dark:bg-purple-950/40 border border-slate-200 dark:border-purple-900/50 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+
+              {/* Email */}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-purple-200">Email Address</label>
+                <input
+                  type="email"
+                  value={editEmail}
+                  onChange={(e) => setEditEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="h-11 px-3.5 rounded-xl bg-slate-50 dark:bg-purple-950/40 border border-slate-200 dark:border-purple-900/50 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+
+              {/* Mobile */}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-bold text-slate-700 dark:text-purple-200">Mobile Number</label>
+                <input
+                  type="tel"
+                  value={editMobile}
+                  onChange={(e) => setEditMobile(e.target.value.replace(/\D/g, '').slice(0, 10))}
+                  placeholder="9876543210"
+                  maxLength={10}
+                  className="h-11 px-3.5 rounded-xl bg-slate-50 dark:bg-purple-950/40 border border-slate-200 dark:border-purple-900/50 text-sm text-slate-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-500"
+                />
+              </div>
+            </div>
+
+            {/* Footer */}
+            <div className="px-5 py-4 bg-slate-50 dark:bg-purple-950/30 border-t border-slate-200 dark:border-purple-900/40 flex gap-2">
+              <button
+                onClick={() => setShowEditProfile(false)}
+                className="flex-1 py-3 rounded-xl bg-slate-200 dark:bg-purple-950 text-slate-700 dark:text-purple-200 font-bold text-sm hover:bg-slate-300 dark:hover:bg-purple-900 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSaveProfile}
+                className="flex-1 py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm shadow-md active:scale-95 transition-all flex items-center justify-center gap-1.5"
+              >
+                <span className="material-symbols-outlined text-[18px]">save</span>
+                <span>Save Changes</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

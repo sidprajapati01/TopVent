@@ -13,7 +13,7 @@ import { WishlistView } from './views/WishlistView';
 import { AccountView } from './views/AccountView';
 
 export default function App() {
-  // Theme State: System-wide dark mode preference with localStorage persistence
+  // Theme State
   const [theme, setTheme] = useState<ThemeMode>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('topvent_theme');
@@ -23,92 +23,76 @@ export default function App() {
     return 'light';
   });
 
-  // User Authentication State (Mandatory login/signup before browsing or purchasing)
- const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
-  if (typeof window !== 'undefined') {
-    try {
-      const savedUser = localStorage.getItem('topvent_user');
-      if (savedUser) return JSON.parse(savedUser);
-    } catch {
-      // Fallback
+  // ⭐ User State — Defaults to Guest User (no login required)
+  const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const savedUser = localStorage.getItem('topvent_user');
+        if (savedUser) return JSON.parse(savedUser);
+      } catch {
+        // Fallback
+      }
     }
-  }
-  // ⭐ Default guest user — no login required
-  return {
-    id: 'guest-user',
-    fullName: 'Guest User',
-    email: 'guest@topvent.com',
-    mobile: '',
-    isEmailVerified: true,
-    isMobileVerified: true,
-    avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80',
-    clothingSize: 'L',
-    shoeSize: 'UK 9',
-    favoriteCategories: ['men', 'women'],
-    joinedDate: 'September 2026',
-    vipTier: 'Guest Member',
-  };
-});
+    // Default Guest User
+    return {
+      id: 'guest-user',
+      fullName: 'Guest User',
+      email: 'guest@topvent.com',
+      mobile: '',
+      isEmailVerified: true,
+      isMobileVerified: true,
+      avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80',
+      clothingSize: 'L',
+      shoeSize: 'UK 9',
+      favoriteCategories: ['men', 'women'],
+      joinedDate: 'September 2026',
+      vipTier: 'Guest Member',
+    };
+  });
 
   // Active Tab & Search
   const [currentTab, setCurrentTab] = useState<TabType>('home');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Wishlist State with localStorage
+  // Wishlist State
   const [wishlist, setWishlist] = useState<string[]>(() => {
     if (typeof window !== 'undefined') {
       try {
         const saved = localStorage.getItem('topvent_wishlist');
         if (saved) return JSON.parse(saved);
-      } catch {
-        // Fallback
-      }
+      } catch {}
     }
-    return ['prod-blazer-aurelius', 'prod-watch-veloce'];
+    return [];
   });
 
-  // Global Shopping Cart State
+  // Cart State
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window !== 'undefined') {
       try {
         const savedCart = localStorage.getItem('topvent_cart');
         if (savedCart) return JSON.parse(savedCart);
-      } catch {
-        // Fallback
-      }
+      } catch {}
     }
-    // Default initial sample item in cart
-    return [
-      {
-        id: 'prod-blazer-aurelius-L-Midnight Navy',
-        productId: 'prod-blazer-aurelius',
-        product: PRODUCTS_DATA[0],
-        size: 'L',
-        color: 'Midnight Navy',
-        quantity: 1,
-      },
-    ];
+    return [];
   });
 
-  // Global Order History State
+  // Orders State
   const [orders, setOrders] = useState<Order[]>(() => {
     if (typeof window !== 'undefined') {
       try {
         const savedOrders = localStorage.getItem('topvent_orders');
         if (savedOrders) return JSON.parse(savedOrders);
-      } catch {
-        // Fallback
-      }
+      } catch {}
     }
     return [];
   });
 
-   // Modals & Drawers
+  // Modals & Drawers
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeStory, setActiveStory] = useState<Story | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  // ⭐ Toast notification state
+  // Toast notification state
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
 
   const showToast = (message: string, type: 'success' | 'error' = 'success') => {
@@ -116,7 +100,7 @@ export default function App() {
     setTimeout(() => setToast(null), 3000);
   };
 
-  // Sync theme with document element
+  // Sync theme with document
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {
@@ -127,7 +111,7 @@ export default function App() {
     localStorage.setItem('topvent_theme', theme);
   }, [theme]);
 
-  // Sync user state with localStorage
+  // Sync user with localStorage
   useEffect(() => {
     if (currentUser) {
       localStorage.setItem('topvent_user', JSON.stringify(currentUser));
@@ -136,31 +120,25 @@ export default function App() {
     }
   }, [currentUser]);
 
-  // Sync wishlist with localStorage
+  // Sync wishlist
   useEffect(() => {
     try {
       localStorage.setItem('topvent_wishlist', JSON.stringify(wishlist));
-    } catch {
-      // Ignore
-    }
+    } catch {}
   }, [wishlist]);
 
-  // Sync cart with localStorage
+  // Sync cart
   useEffect(() => {
     try {
       localStorage.setItem('topvent_cart', JSON.stringify(cart));
-    } catch {
-      // Ignore
-    }
+    } catch {}
   }, [cart]);
 
-  // Sync orders with localStorage
+  // Sync orders
   useEffect(() => {
     try {
       localStorage.setItem('topvent_orders', JSON.stringify(orders));
-    } catch {
-      // Ignore
-    }
+    } catch {}
   }, [orders]);
 
   const handleToggleTheme = () => {
@@ -197,7 +175,7 @@ export default function App() {
     }
   };
 
-  // Cart Operations
+  // Add to Cart
   const handleAddToCart = (
     product: Product,
     size?: string,
@@ -228,13 +206,12 @@ export default function App() {
       ];
     });
 
-    // ⭐ Toast notification
     showToast(`✅ ${product.name.substring(0, 30)}... added to cart!`);
   };
 
-  // ⭐ BUY NOW now uses direct Amazon affiliate link — this function is a no-op
+  // BUY NOW — no-op (direct Amazon link used)
   const handleBuyNow = (_product: Product, _size?: string, _color?: string) => {
-    // No-op: Direct Amazon affiliate link is used
+    // No-op
   };
 
   const handleUpdateCartQuantity = (id: string, delta: number) => {
@@ -282,35 +259,27 @@ export default function App() {
     setCart([]);
   };
 
-  // ⭐ Check Now — opens all cart products on Amazon (last added product first)
+  // Check Now — opens all cart products on Amazon
   const handleClearCartAndCheckout = () => {
-const handleClearCartAndCheckout = () => {
-  if (cart.length === 0) return;
+    if (cart.length === 0) return;
 
-  // Open each product's Amazon page (in reverse order — last added first)
-  const reversedCart = [...cart].reverse();
+    const reversedCart = [...cart].reverse();
 
-  reversedCart.forEach((item, index) => {
+    reversedCart.forEach((item, index) => {
+      setTimeout(() => {
+        if (item.product.amazonUrl) {
+          window.open(item.product.amazonUrl, '_blank');
+        }
+      }, index * 600);
+    });
+
     setTimeout(() => {
-      if (item.product.amazonUrl) {
-        window.open(item.product.amazonUrl, '_blank');
-      }
-    }, index * 600); 
-  });
-  setTimeout(() => {
-    showToast(`🎉 Opening ${cart.length} product${cart.length > 1 ? 's' : ''} on Amazon!`);
-  }, reversedCart.length * 600);
-};
-
-    // Clear the cart after opening
-    setTimeout(() => {
-      setCart([]);
       setIsCartOpen(false);
       showToast(`🎉 Opening ${cart.length} product${cart.length > 1 ? 's' : ''} on Amazon!`);
     }, reversedCart.length * 600);
   };
 
-
+  // Update user sizes
   const handleUpdateUserSizes = (clothingSize: string, shoeSize: string) => {
     if (currentUser) {
       setCurrentUser({
@@ -321,27 +290,47 @@ const handleClearCartAndCheckout = () => {
     }
   };
 
-  const handleLogout = () => {
-    setCurrentUser(null);
+  // ⭐ NEW: Update full user profile (for Edit Profile feature)
+  const handleUpdateUserProfile = (updates: Partial<UserProfile>) => {
+    if (currentUser) {
+      setCurrentUser({
+        ...currentUser,
+        ...updates,
+      });
+      showToast('✅ Profile updated successfully!');
+    }
   };
 
-  const handleLoginSuccess = (user: UserProfile) => {
-    setCurrentUser(user);
+  const handleLogout = () => {
+    // Reset to guest user instead of null
+    setCurrentUser({
+      id: 'guest-user',
+      fullName: 'Guest User',
+      email: 'guest@topvent.com',
+      mobile: '',
+      isEmailVerified: true,
+      isMobileVerified: true,
+      avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=300&q=80',
+      clothingSize: 'L',
+      shoeSize: 'UK 9',
+      favoriteCategories: ['men', 'women'],
+      joinedDate: 'September 2026',
+      vipTier: 'Guest Member',
+    });
+    showToast('👋 Signed out successfully');
   };
 
   const wishlistedProducts = PRODUCTS_DATA.filter((p) => wishlist.includes(p.id));
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
-    return (
+  return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0d0417] text-slate-900 dark:text-slate-100 transition-colors duration-200">
 
-      {/* ⭐ Toast Notification */}
+      {/* Toast Notification */}
       {toast && (
         <div
           className={`fixed top-5 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2 animate-in slide-in-from-top-2 fade-in ${
-            toast.type === 'success'
-              ? 'bg-emerald-600 text-white'
-              : 'bg-rose-600 text-white'
+            toast.type === 'success' ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'
           }`}
         >
           <span className="material-symbols-outlined text-[20px]">
@@ -350,8 +339,7 @@ const handleClearCartAndCheckout = () => {
           <span className="text-sm font-bold">{toast.message}</span>
         </div>
       )}
-      
-      {/* Fixed Sticky Header */}
+
       <Header
         currentTab={currentTab}
         onTabChange={(tab) => {
@@ -368,7 +356,6 @@ const handleClearCartAndCheckout = () => {
         user={currentUser}
       />
 
-      {/* Main Content Area with safe spacing for sticky bottom bar */}
       <main className="max-w-2xl mx-auto pt-24 pb-32 min-h-screen">
         {currentTab === 'home' && (
           <HomeView
@@ -441,12 +428,12 @@ const handleClearCartAndCheckout = () => {
             orders={orders}
             onOpenCart={() => setIsCartOpen(true)}
             onUpdateUserSizes={handleUpdateUserSizes}
+            onUpdateUserProfile={handleUpdateUserProfile}
             onLogout={handleLogout}
           />
         )}
       </main>
 
-      {/* Floating Bottom Navigation */}
       <BottomNav
         currentTab={currentTab}
         onTabChange={(tab) => {
@@ -457,7 +444,6 @@ const handleClearCartAndCheckout = () => {
         onOpenCart={() => setIsCartOpen(true)}
       />
 
-      {/* Product Details Modal Slide-Over */}
       <ProductDetailModal
         product={selectedProduct}
         isOpen={Boolean(selectedProduct)}
@@ -478,10 +464,9 @@ const handleClearCartAndCheckout = () => {
         onClearCart={handleClearCart}
         onCheckoutComplete={handleCheckoutComplete}
         onSelectProduct={handleSelectProduct}
-        onClearCartAndCheckout={handleClearCartAndCheckout}  // ⭐ નવું
+        onClearCartAndCheckout={handleClearCartAndCheckout}
       />
 
-      {/* Story Viewer Modal */}
       <StoryModal
         story={activeStory}
         isOpen={Boolean(activeStory)}
