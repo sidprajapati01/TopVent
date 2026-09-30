@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Product } from '../types';
 import { SizeGuideModal } from './SizeGuideModal';
 
@@ -50,6 +50,12 @@ const CATEGORY_IMAGE_FALLBACKS: Record<string, string[]> = {
     'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=1000&q=85',
     'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?auto=format&fit=crop&w=1000&q=85',
   ],
+  cup: [
+    'https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=1000&q=85',
+    'https://images.unsplash.com/photo-1572119865084-43c285814d63?auto=format&fit=crop&w=1000&q=85',
+    'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85',
+    'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=85',
+  ],
 };
 
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
@@ -75,6 +81,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   const [newReviewAuthor, setNewReviewAuthor] = useState('');
   const [newReviewText, setNewReviewText] = useState('');
   const [reviewSubmitted, setReviewSubmitted] = useState(false);
+
+  // ⭐ Swipe/drag refs
+  const touchStartX = useRef<number>(0);
+  const touchEndX = useRef<number>(0);
+  const isDragging = useRef<boolean>(false);
 
   // Synchronize on product change
   useEffect(() => {
@@ -114,10 +125,55 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
       ? [validMainImage, ...product.galleryImages.filter((img) => img !== validMainImage)]
       : [validMainImage, ...categoryFallbackList];
 
-  const gallery = rawGallery.length >= 4 ? rawGallery : [...rawGallery, ...categoryFallbackList].slice(0, 4);
+  const gallery =
+    rawGallery.length >= 4
+      ? rawGallery
+      : [...rawGallery, ...categoryFallbackList].slice(0, 4);
 
   const currentDisplayImage =
     !imgLoadError && gallery[activeSlide] ? gallery[activeSlide] : categoryFallbackList[0];
+
+  // ⭐ Swipe / drag handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    isDragging.current = true;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isDragging.current) return;
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    processSwipe(touchStartX.current - touchEndX.current);
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    touchStartX.current = e.clientX;
+    isDragging.current = true;
+  };
+
+  const handleMouseUp = (e: React.MouseEvent) => {
+    if (!isDragging.current) return;
+    isDragging.current = false;
+    processSwipe(touchStartX.current - e.clientX);
+  };
+
+  const processSwipe = (distance: number) => {
+    const minSwipe = 50;
+
+    if (distance > minSwipe && activeSlide < gallery.length - 1) {
+      // swipe left → next
+      setActiveSlide(activeSlide + 1);
+      setImgLoadError(false);
+    } else if (distance < -minSwipe && activeSlide > 0) {
+      // swipe right → previous
+      setActiveSlide(activeSlide - 1);
+      setImgLoadError(false);
+    }
+  };
 
   const handleColorSelect = (colorObj: { name: string; hex: string; imageUrl?: string }) => {
     setSelectedColor(colorObj.name);
@@ -188,7 +244,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         )}
 
         {/* =================================================================== */}
-        {/* 1. PRODUCT PHOTO (TOP OF THE PAGE) */}
+        {/* 1. PRODUCT PHOTO (TOP OF THE PAGE) — SWIPEABLE */}
         {/* =================================================================== */}
         <section className="relative w-full bg-[#18072e] flex flex-col">
           <div className="absolute top-0 left-0 right-0 z-30 px-4 pt-3 pb-2 flex items-center justify-between bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none">
@@ -226,16 +282,47 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           </div>
 
-          <div className="relative w-full aspect-[4/5] max-h-[480px] flex items-center justify-center overflow-hidden bg-slate-950">
-            <img
-              src={currentDisplayImage}
-              alt={product.name}
-              onError={() => setImgLoadError(true)}
-              className={`w-full h-full object-cover transition-transform duration-500 ease-out select-none ${
-                isZoomed ? 'scale-125 cursor-zoom-out' : 'cursor-zoom-in'
-              }`}
-              onClick={() => setIsZoomed(!isZoomed)}
-            />
+          {/* ⭐ SWIPEABLE IMAGE AREA */}
+          <div
+            className="relative w-full aspect-[4/5] max-h-[480px] flex items-center justify-center overflow-hidden bg-slate-950 select-none cursor-grab active:cursor-grabbing"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseDown={handleMouseDown}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={() => { isDragging.current = false; }}
+          >
+            {/* Slides container — horizontal slide */}
+            <div
+              className="flex h-full w-full transition-transform duration-300 ease-out"
+              style={{
+                transform: `translateX(-${activeSlide * 100}%)`,
+              }}
+            >
+              {gallery.map((imgUrl, idx) => (
+                <div
+                  key={idx}
+                  className="w-full h-full shrink-0 flex items-center justify-center"
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`${product.name} - view ${idx + 1}`}
+                    draggable={false}
+                    loading={idx === 0 ? 'eager' : 'lazy'}
+                    onError={() => {
+                      if (idx === activeSlide) setImgLoadError(true);
+                    }}
+                    onClick={() => {
+                      // Only toggle zoom if not dragging
+                      if (!isDragging.current) setIsZoomed(!isZoomed);
+                    }}
+                    className={`w-full h-full object-cover transition-transform duration-500 ease-out pointer-events-none select-none ${
+                      isZoomed && idx === activeSlide ? 'scale-125 cursor-zoom-out' : 'cursor-zoom-in'
+                    }`}
+                  />
+                </div>
+              ))}
+            </div>
 
             <div className="absolute top-16 left-4 flex flex-col gap-1.5 z-10 pointer-events-none">
               <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-extrabold shadow-lg tracking-wider">
@@ -247,29 +334,34 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </span>
             </div>
 
+            {/* ⭐ Non-clickable slide indicator */}
             <div className="absolute bottom-3 inset-x-0 flex justify-center items-center gap-2 z-10 pointer-events-none">
               {gallery.map((_, index) => (
-                <button
+                <span
                   key={index}
-                  aria-label={`Slide ${index + 1}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveSlide(index);
-                    setImgLoadError(false);
-                  }}
-                  className={`pointer-events-auto transition-all rounded-full ${
+                  className={`transition-all rounded-full ${
                     activeSlide === index
                       ? 'w-6 h-1.5 bg-orange-500'
-                      : 'w-1.5 h-1.5 bg-white/60 hover:bg-white'
+                      : 'w-1.5 h-1.5 bg-white/60'
                   }`}
                 />
               ))}
             </div>
 
+            {/* ⭐ Image counter (top-right of image area) */}
+            <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-[#16062a]/80 backdrop-blur-md border border-white/15 pointer-events-none">
+              <span className="text-[10px] font-bold text-white tabular-nums">
+                {activeSlide + 1} / {gallery.length}
+              </span>
+            </div>
+
             <button
-              onClick={() => setIsZoomed(!isZoomed)}
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsZoomed(!isZoomed);
+              }}
               aria-label={isZoomed ? 'Zoom out' : 'Zoom in'}
-              className="absolute bottom-3 right-4 w-9 h-9 rounded-full bg-[#16062a]/80 backdrop-blur-md text-white flex items-center justify-center hover:bg-orange-500 transition-colors shadow-lg"
+              className="absolute bottom-3 right-4 w-9 h-9 rounded-full bg-[#16062a]/80 backdrop-blur-md text-white flex items-center justify-center hover:bg-orange-500 transition-colors shadow-lg z-10"
             >
               <span className="material-symbols-outlined text-[18px]">
                 {isZoomed ? 'zoom_out' : 'zoom_in'}
@@ -277,6 +369,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </button>
           </div>
 
+          {/* Thumbnails (still clickable) */}
           <div className="px-4 py-3 flex gap-2.5 overflow-x-auto no-scrollbar bg-[#16062a]/80 backdrop-blur-md border-b border-purple-950/50">
             {gallery.map((thumbUrl, index) => (
               <button
@@ -302,7 +395,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </section>
 
         {/* =================================================================== */}
-        {/* 2. PRODUCT DETAILS (MIDDLE OF THE PAGE) */}
+        {/* 2. PRODUCT DETAILS */}
         {/* =================================================================== */}
         <section className="px-4 pt-4 flex flex-col gap-4">
           <div className="flex flex-col gap-1">
@@ -501,9 +594,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             )}
           </div>
 
-          {/* ⭐ PRIMARY ACTION BUTTONS: "BUY NOW" & "ADD TO CART" */}
+          {/* ACTION BUTTONS */}
           <div className="flex flex-col gap-2.5 pt-1">
-            {/* BUY NOW → Direct Amazon Affiliate Link */}
             <a
               href={product.amazonUrl}
               target="_blank"
@@ -526,7 +618,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         </section>
 
         {/* =================================================================== */}
-        {/* 3. RATING & REVIEWS (BOTTOM OF THE PAGE) */}
+        {/* 3. RATINGS & REVIEWS */}
         {/* =================================================================== */}
         <section className="px-4 pt-6 flex flex-col gap-4">
           <div className="p-4 rounded-2xl bg-white dark:bg-[#1a0833] border border-slate-200/80 dark:border-purple-950/60 shadow-sm flex flex-col gap-4">

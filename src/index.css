@@ -53,3 +53,82 @@
 .animate-pulse-slow {
   animation: pulse-slow 4s ease-in-out infinite;
 }
+
+/* ═════════════════════════════════════════ */
+/* 3D Background z-index Layer Setup        */
+/* ═════════════════════════════════════════ */
+
+/* Content should always be above 3D background */
+main, 
+section,
+header,
+footer,
+nav,
+.app-content {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure scroll container has stacking context */
+#root {
+  position: relative;
+  z-index: 0;
+}
+
+/* ═════════════════════════════════════════ */
+/* Floating Fashion Icons Animations        */
+/* ═════════════════════════════════════════ */
+
+@keyframes float-0 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(15px, -25px) rotate(8deg);
+  }
+}
+
+@keyframes float-1 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-20px, -15px) rotate(-10deg);
+  }
+}
+
+@keyframes float-2 {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(10px, 20px) rotate(5deg);
+  }
+  66% {
+    transform: translate(-15px, -10px) rotate(-5deg);
+  }
+}
+
+.fashion-float {
+  will-change: transform;
+}
+
+/* ═════════════════════════════════════════ */
+/* Global z-index Layer Setup                */
+/* ═════════════════════════════════════════ */
+
+/* All content sections stay above 3D background */
+section,
+header,
+footer,
+nav,
+main,
+article {
+  position: relative;
+  z-index: 10;
+}
+
+/* Prevent 3D background from being clickable */
+.fixed.inset-0.pointer-events-none {
+  pointer-events: none !important;
+}

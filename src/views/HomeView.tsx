@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Product, Story, TabType } from '../types';
 import { ProductCard } from '../components/ProductCard';
+import { ScrollBackground3D } from '../components/ScrollBackground3D';
+import { FloatingFashionIcons } from '../components/FloatingFashionIcons';
 
 interface HomeViewProps {
   products: Product[];
@@ -40,16 +42,39 @@ export const HomeView: React.FC<HomeViewProps> = ({
     return () => clearInterval(timer);
   }, []);
 
-  // Filter products by category
-  const filteredTrending = products.filter((p) => {
-    if (trendingFilter === 'all') return true;
-    return p.category === trendingFilter;
-  });
+  // ⭐ Smart Filter: All tab shows 2 from each category | Category tab shows 2 from that category
+  const filteredTrending = (() => {
+    const LIMIT = 2;
+
+    const getTopFromCategory = (category: string, count: number) =>
+      products
+        .filter((p) => p.category === category)
+        .sort((a, b) => b.discountPercent - a.discountPercent)
+        .slice(0, count);
+
+    if (trendingFilter === 'all') {
+      return [
+        ...getTopFromCategory('men', LIMIT),
+        ...getTopFromCategory('women', LIMIT),
+        ...getTopFromCategory('cup', LIMIT),
+      ];
+    }
+
+    return getTopFromCategory(trendingFilter, LIMIT);
+  })();
 
   return (
-    <div className="w-full flex flex-col">
-      {/* Editorial Brand Hero Section with Blur Frame Slideshow */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#16062a] via-[#1a0833] to-[#270845] px-4 pt-5 pb-7 text-white shadow-xl">
+    <div className="w-full flex flex-col relative" style={{ zIndex: 10 }}>
+
+      {/* ⭐ Background layers (behind everything) */}
+      <ScrollBackground3D />
+      <FloatingFashionIcons />
+
+      {/* ⭐ Editorial Brand Hero Section with Blur Frame Slideshow */}
+      <section
+        className="relative w-full overflow-hidden bg-gradient-to-b from-[#16062a] via-[#1a0833] to-[#270845] px-4 pt-5 pb-7 text-white shadow-xl"
+        style={{ zIndex: 10 }}
+      >
         {/* Ambient atmospheric glowing shapes */}
         <div className="absolute -top-16 -right-12 w-64 h-64 rounded-full bg-orange-500/15 blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -left-16 w-56 h-56 rounded-full bg-purple-500/15 blur-3xl pointer-events-none" />
@@ -75,12 +100,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
           {/* ⭐ BLUR-BORDER FRAME + SLIDESHOW HERO CARD */}
           <div className="relative w-full mb-4">
-            {/* Glowing blurred frame border (outer glow) */}
             <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-orange-500/40 via-purple-500/40 to-orange-500/40 blur-2xl opacity-70 animate-pulse-slow pointer-events-none" />
 
-            {/* Main frame container */}
             <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 bg-black/20 backdrop-blur-md p-1.5 shadow-2xl">
-              {/* Inner photo area */}
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900">
                 {/* Slide 1 */}
                 <img
@@ -122,11 +144,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 />
 
-                {/* Subtle gradient overlays for readability */}
+                {/* Gradients */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#16062a] via-transparent to-transparent pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#16062a]/30 via-transparent to-[#16062a]/30 pointer-events-none" />
 
-                {/* Top-left: NEW SEASON badge */}
+                {/* Top-left badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15">
                   <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping" />
                   <span className="text-[10px] font-bold tracking-wider uppercase text-white">
@@ -134,14 +156,14 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </span>
                 </div>
 
-                {/* Top-right: Slide counter */}
+                {/* Top-right counter */}
                 <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15">
                   <span className="text-[10px] font-bold text-white">
                     {currentSlide + 1} / 4
                   </span>
                 </div>
 
-                {/* Bottom-left + Bottom-right: Info badges */}
+                {/* Bottom info badges */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <div className="bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
                     <span className="block text-[9px] uppercase tracking-widest text-orange-400 font-extrabold">
@@ -156,7 +178,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </div>
                 </div>
 
-                {/* Slide dots indicator (bottom center) */}
+                {/* Slide dots */}
                 <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
                   {[0, 1, 2, 3].map((idx) => (
                     <button
@@ -195,7 +217,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* Category Visual Stories Carousel */}
-      <section className="w-full py-4 px-4 bg-slate-50 dark:bg-[#120422] transition-colors">
+      <section className="w-full py-4 px-4 bg-slate-50 dark:bg-[#120422] transition-colors relative z-10">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
@@ -236,7 +258,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
       </section>
 
       {/* VIP Lightning Deals Live Pulse Banner */}
-      <section className="px-4 mb-4">
+      <section className="px-4 mb-4 relative z-10">
         <div
           onClick={() => onNavigateTab('deals')}
           className="w-full rounded-2xl bg-white dark:bg-[#1a0833] border border-slate-200/80 dark:border-purple-950/60 p-3.5 flex items-center justify-between shadow-sm cursor-pointer hover:border-orange-500/40 transition-colors"
@@ -262,30 +284,32 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
         </div>
       </section>
-        {/* Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-3 -mx-1 px-1 no-scrollbar">
-          {[
-            { key: 'all', label: 'All' },
-            { key: 'men', label: "Men's" },
-            { key: 'women', label: "Women's" },
-            { key: 'cup', label: 'Coffee Cup' },
-            { key: 'watches', label: 'Watches' },
-          ].map((tab) => (
-            <button
-              key={tab.key}
-              onClick={() => setTrendingFilter(tab.key as any)}
-              className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border ${
-                trendingFilter === tab.key
-                  ? 'bg-orange-500 text-white border-orange-500 shadow-md'
-                  : 'bg-white dark:bg-[#1a0833] text-slate-700 dark:text-purple-200 border-slate-200 dark:border-purple-950/60 hover:border-orange-500/40'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+
+      {/* Category Filter Pills */}
+      <div className="px-4 flex items-center gap-2 overflow-x-auto pb-3 no-scrollbar relative z-10">
+        {[
+          { key: 'all', label: 'All' },
+          { key: 'men', label: "Men's" },
+          { key: 'women', label: "Women's" },
+          { key: 'cup', label: 'Coffee Cup' },
+          { key: 'watches', label: 'Watches' },
+        ].map((tab) => (
+          <button
+            key={tab.key}
+            onClick={() => setTrendingFilter(tab.key as any)}
+            className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border ${
+              trendingFilter === tab.key
+                ? 'bg-orange-500 text-white border-orange-500 shadow-md'
+                : 'bg-white dark:bg-[#1a0833] text-slate-700 dark:text-purple-200 border-slate-200 dark:border-purple-950/60 hover:border-orange-500/40'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
       {/* ⭐ Curated Trending Drops: ALL Products Grid */}
-      <section className="px-4 mb-6">
+      <section className="px-4 mb-6 relative z-10">
         <div className="flex items-baseline justify-between mb-3">
           <div>
             <h2 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white">
@@ -307,7 +331,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
         </div>
 
-        {/* 2-Column Grid — ALL Products */}
+        {/* 2-Column Grid */}
         {filteredTrending.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {filteredTrending.map((product) => (

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
 import { ProductCard } from '../components/ProductCard';
+import { ScrollBackground3D } from '../components/ScrollBackground3D';
+import { FloatingFashionIcons } from '../components/FloatingFashionIcons';
 
 interface ExploreViewProps {
   products: Product[];
@@ -31,7 +33,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     { id: 'all', label: 'All', icon: 'auto_awesome' },
     { id: 'men', label: 'Men' },
     { id: 'women', label: 'Women' },
-    { id: 'cup', label: 'Coffee Cup' },       
+    { id: 'cup', label: 'Mug' },       
     //{ id: 'jewellery', label: 'Jewellery' },
     //{ id: 'watches', label: 'Watches' },
     //{ id: 'footwear', label: 'Footwear' },
@@ -90,10 +92,14 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     }
   };
 
-  return (
-    <div className="w-full flex flex-col pb-8">
+return (
+    <div className="w-full flex flex-col pb-8 relative" style={{ zIndex: 10 }}>
+      
+      {/* ⭐ Background layers */}
+      <ScrollBackground3D />
+      <FloatingFashionIcons />
       {/* Subtle Ambient Glow Banner */}
-      <div className="relative mx-4 mt-3 mb-3 rounded-2xl overflow-hidden bg-gradient-to-br from-[#16062a] via-[#22073d] to-[#16062a] p-4 text-white shadow-md border border-purple-900/40">
+      <div className="relative mx-4 mt-3 mb-3 rounded-2xl overflow-hidden ..." style={{ zIndex: 10 }}>
         <div className="absolute -right-10 -bottom-10 w-36 h-36 rounded-full bg-orange-500/20 blur-2xl pointer-events-none" />
         <div className="absolute -left-6 -top-6 w-32 h-32 rounded-full bg-purple-500/15 blur-xl pointer-events-none" />
 
@@ -118,7 +124,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
       {/* Category Scrollable Ribbon */}
-      <div className="w-full overflow-x-auto no-scrollbar py-1 px-4 flex items-center gap-1.5">
+      <div className="w-full overflow-x-auto no-scrollbar py-1 px-4 flex items-center gap-1.5 relative" style={{ zIndex: 10 }}>
         {categories.map((cat) => {
           const isActive = selectedCategory === cat.id;
           return (
@@ -141,7 +147,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
       {/* Filter & Sort Strip */}
-      <div className="w-full px-4 py-2 flex items-center justify-between gap-2">
+      <div className="w-full px-4 py-2 flex items-center justify-between gap-2 relative" style={{ zIndex: 10 }}>
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 flex-1">
           {/* Reset Filters / Active indicator */}
           {(selectedPriceTier !== 'all' || minRating > 0 || selectedCategory !== 'all') && (
@@ -261,7 +267,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
       {/* Results Count & Live Alert Bar */}
-      <div className="flex items-center justify-between px-4 py-1 text-slate-500 dark:text-purple-300/70">
+      <div className="flex items-center justify-between px-4 py-1 ... relative" style={{ zIndex: 10 }}>
         <p className="text-xs font-semibold">
           Showing {sortedProducts.length} curated drops
         </p>
@@ -275,7 +281,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
       {/* 2-Column Responsive Fashion Grid */}
-      <div className="px-4 py-2">
+      <div className="px-4 py-2 relative" style={{ zIndex: 10 }}>
         {sortedProducts.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {sortedProducts.map((product) => (
@@ -314,7 +320,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       </div>
 
        {/* WhatsApp VIP Deal Alerts Card — 2 Channels */}
-      <div className="mx-4 mt-4 rounded-2xl p-4 bg-gradient-to-br from-[#16062a] via-[#1f0933] to-[#0c1f17] text-white shadow-md relative overflow-hidden border border-purple-900/40">
+      <div className="mx-4 mt-4 rounded-2xl p-4 ... relative" style={{ zIndex: 10 }}>
         <div className="absolute right-0 top-0 w-32 h-32 bg-orange-500/10 rounded-full blur-xl pointer-events-none" />
         <div className="relative z-10 flex flex-col gap-1.5">
           <div className="flex items-center gap-1.5">

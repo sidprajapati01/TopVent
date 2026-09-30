@@ -24,7 +24,7 @@ export const STORIES_DATA: Story[] = [
   },
  {
   id: 'story-coffee-cup',
-  title: 'Coffee Cup',
+  title: 'Mug',
   category: 'cup',
   imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
   storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',

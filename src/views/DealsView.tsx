@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Product } from '../types';
+import { ScrollBackground3D } from '../components/ScrollBackground3D';
+import { FloatingFashionIcons } from '../components/FloatingFashionIcons';
 
 interface DealsViewProps {
   products: Product[];
@@ -46,8 +48,16 @@ export const DealsView: React.FC<DealsViewProps> = ({
   });
 
   return (
-    <div className="w-full flex flex-col pb-10">
-      <div className="p-4 flex flex-col gap-4">
+    <div className="w-full flex flex-col pb-10 relative" style={{ zIndex: 10 }}>
+
+      {/* ⭐ 3D Background + Floating Icons (behind everything) */}
+      <ScrollBackground3D />
+      <FloatingFashionIcons />
+
+      {/* ⭐ Content Wrapper (in front, z-10) */}
+      <div className="p-4 flex flex-col gap-4 relative" style={{ zIndex: 10 }}>
+
+        {/* Hero Banner */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#16062a] via-[#240845] to-[#16062a] p-5 shadow-xl text-white border border-purple-900/40">
           <div className="absolute -right-10 -bottom-10 w-44 h-44 rounded-full bg-orange-500/20 blur-2xl pointer-events-none" />
           <div className="absolute -left-12 -top-12 w-40 h-40 rounded-full bg-purple-500/20 blur-3xl pointer-events-none" />
@@ -93,6 +103,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
           </div>
         </div>
 
+        {/* Filter Pills */}
         <div className="flex items-center gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 py-1">
           <button
             onClick={() => setSelectedFilter('all')}
@@ -153,6 +164,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
           </button>
         </div>
 
+        {/* Deals List */}
         <div className="flex flex-col gap-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-1.5">
@@ -279,7 +291,6 @@ export const DealsView: React.FC<DealsViewProps> = ({
                     </div>
                   </div>
 
-                  {/* ⭐ BUY NOW → Direct Amazon Affiliate Link */}
                   <a
                     href={product.amazonUrl}
                     target="_blank"
@@ -296,6 +307,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
           })}
         </div>
 
+        {/* WhatsApp VIP Card */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#16062a] via-[#240845] to-[#16062a] p-5 text-white shadow-xl flex flex-col gap-3.5 border border-purple-900/40">
           <div className="absolute -top-16 -right-16 w-36 h-36 rounded-full bg-orange-500/20 blur-3xl pointer-events-none" />
 
@@ -319,22 +331,22 @@ export const DealsView: React.FC<DealsViewProps> = ({
 
           <div className="relative z-10 grid grid-cols-2 gap-2.5 pt-1">
             <a
-              href="https://whatsapp.com"
+              href="https://whatsapp.com/channel/0029Vb8pTwMHFxP6oifwK32V"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-bold text-xs shadow-md transition-transform active:scale-95 text-center"
             >
               <span className="material-symbols-outlined text-[16px] text-[#25D366]">check_circle</span>
-              <span>Join Men's Hub</span>
+              <span>Men's Hub</span>
             </a>
             <a
-              href="https://whatsapp.com"
+              href="https://whatsapp.com/channel/0029Vb9OJd63GJOxv9DntB1r"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-1.5 py-3 px-2 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-bold text-xs shadow-md transition-transform active:scale-95 text-center"
             >
               <span className="material-symbols-outlined text-[16px]">check_circle</span>
-              <span>Join Women's Hub</span>
+              <span>Women's Hub</span>
             </a>
           </div>
 
