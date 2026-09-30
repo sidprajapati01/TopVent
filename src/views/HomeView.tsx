@@ -27,7 +27,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   onBuyNow,
   onAddToCart,
 }) => {
-  const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'watches'>('all');
+  const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'watches' | 'cup'>('all');
 
   // ⭐ Hero slideshow state
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -114,7 +114,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
                 {/* Slide 4 */}
                 <img
-                  src="https://www.adobe.com/in/creativecloud/photography/discover/media_19cc052e217d2ff398525d9c279658176329dd71c.png?width=750&format=png&optimize=medium"
+                  src="https://plus.unsplash.com/premium_photo-1716196101576-db778a2e7e5f?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="TopVent Luxury Editorial 4"
                   loading="lazy"
                   className={`absolute inset-0 w-full h-full object-cover object-top transition-all duration-1000 ease-in-out ${
@@ -262,7 +262,28 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
         </div>
       </section>
-
+        {/* Category Filter Pills */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-3 -mx-1 px-1 no-scrollbar">
+          {[
+            { key: 'all', label: 'All' },
+            { key: 'men', label: "Men's" },
+            { key: 'women', label: "Women's" },
+            { key: 'cup', label: 'Coffee Cup' },
+            { key: 'watches', label: 'Watches' },
+          ].map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setTrendingFilter(tab.key as any)}
+              className={`shrink-0 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all border ${
+                trendingFilter === tab.key
+                  ? 'bg-orange-500 text-white border-orange-500 shadow-md'
+                  : 'bg-white dark:bg-[#1a0833] text-slate-700 dark:text-purple-200 border-slate-200 dark:border-purple-950/60 hover:border-orange-500/40'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
       {/* ⭐ Curated Trending Drops: ALL Products Grid */}
       <section className="px-4 mb-6">
         <div className="flex items-baseline justify-between mb-3">

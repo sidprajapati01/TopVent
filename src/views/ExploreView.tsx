@@ -31,6 +31,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     { id: 'all', label: 'All', icon: 'auto_awesome' },
     { id: 'men', label: 'Men' },
     { id: 'women', label: 'Women' },
+    { id: 'cup', label: 'Coffee Cup' },       
     //{ id: 'jewellery', label: 'Jewellery' },
     //{ id: 'watches', label: 'Watches' },
     //{ id: 'footwear', label: 'Footwear' },
@@ -312,7 +313,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         )}
       </div>
 
-      {/* WhatsApp VIP Deal Alerts Card */}
+       {/* WhatsApp VIP Deal Alerts Card — 2 Channels */}
       <div className="mx-4 mt-4 rounded-2xl p-4 bg-gradient-to-br from-[#16062a] via-[#1f0933] to-[#0c1f17] text-white shadow-md relative overflow-hidden border border-purple-900/40">
         <div className="absolute right-0 top-0 w-32 h-32 bg-orange-500/10 rounded-full blur-xl pointer-events-none" />
         <div className="relative z-10 flex flex-col gap-1.5">
@@ -325,23 +326,49 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
             </span>
           </div>
 
-          <h4 className="font-bold text-sm sm:text-base text-white">Never miss lightning price errors</h4>
+          <h4 className="font-bold text-sm sm:text-base text-white">
+            Never miss lightning price errors
+          </h4>
           <p className="text-xs text-purple-200/80 leading-relaxed">
             Join 50,000+ fashion insiders who receive real-time drops 15 minutes before public flash sales.
           </p>
 
-          <div className="mt-2 flex items-center gap-3">
+          {/* 2 Channel Buttons */}
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
+
+            {/* Channel 1: VIP Deals */}
             <a
-              href="https://whatsapp.com"
+              href="https://whatsapp.com/channel/0029Vb8pTwMHFxP6oifwK32V"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#25D366] hover:brightness-105 text-white font-bold text-xs shadow-md active:scale-95 transition-transform"
+              className="inline-flex items-center justify-between gap-1.5 px-4 py-2.5 rounded-xl bg-[#25D366] hover:brightness-110 text-white font-bold text-xs shadow-md active:scale-95 transition-transform"
             >
-              <span>Join WhatsApp Channel</span>
+              <span className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-[16px]">campaign</span>
+                <span>Men's Fashion</span>
+              </span>
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
-            <span className="text-[11px] text-purple-300/60 font-medium">Instant Free Join</span>
+
+            {/* Channel 2: Fashion Drops */}
+            <a
+              href="https://whatsapp.com/channel/0029Vb9OJd63GJOxv9DntB1r"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-between gap-1.5 px-4 py-2.5 rounded-xl bg-[#128C7E] hover:brightness-110 text-white font-bold text-xs shadow-md active:scale-95 transition-transform"
+            >
+              <span className="flex items-center gap-1.5">
+                <span className="material-symbols-outlined text-[16px]">local_fire_department</span>
+                <span>Women's Fashion</span>
+              </span>
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </a>
+
           </div>
+
+          <span className="text-[11px] text-purple-300/60 font-medium mt-1">
+            Instant Free Join • 2 Channels
+          </span>
         </div>
       </div>
     </div>

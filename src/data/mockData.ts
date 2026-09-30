@@ -8,8 +8,8 @@ export const STORIES_DATA: Story[] = [
     id: 'story-men',
     title: "Men's",
     category: 'men',
-    imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80',
-    storyImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=85',
+    imageUrl: 'https://images.unsplash.com/photo-1618001789159-ffffe6f96ef2?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    storyImage: 'https://plus.unsplash.com/premium_photo-1672239496412-ab605befa53f?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     subtitle: 'Tailored Italian Silhouettes & Structured Linens',
     featuredProductCount: 24,
   },
@@ -17,11 +17,20 @@ export const STORIES_DATA: Story[] = [
     id: 'story-women',
     title: "Women's",
     category: 'women',
-    imageUrl: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=400&q=80',
-    storyImage: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1200&q=85',
+    imageUrl: 'https://images.unsplash.com/photo-1632149877166-f75d49000351?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    storyImage: 'https://images.unsplash.com/photo-1513094735237-8f2714d57c13?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     subtitle: 'Fluid Mulberry Silks & Plissé Evening Cocktail Gowns',
     featuredProductCount: 38,
   },
+ {
+  id: 'story-coffee-cup',
+  title: 'Coffee Cup',
+  category: 'cup',
+  imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
+  storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
+  subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
+  featuredProductCount: 12,
+  }
 ];
 
 // ============================================
@@ -1040,7 +1049,327 @@ export const PRODUCTS_DATA: Product[] = [
     amazonUrl: 'https://www.amazon.in/dp/B0FHBKXSPG?tag=topvent-21',
   },
 
+  // ═════════════════════════════════════════
+  // COFFEE CUP COLLECTION
+  // ═════════════════════════════════════════
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 1: TEE MAFIA GROOT MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-tee-mafia-groot-mug',
+    brand: 'TEE MAFIA',
+    name: "Tee Mafia I Am Groot Black Mug with Print | 330ml Ceramic Coffee Mug",
+    price: 290,
+    originalPrice: 599,
+    discountPercent: 52,
+    rating: 3.4,
+    reviewCount: 14,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/51HXXr3c5aS._SL1348_.jpg',
+    altText: 'Tee Mafia black ceramic coffee mug with I Am Groot print 330ml',
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "Tee Mafia I Am Groot Black Mug with Print | Cartoon Coffee Mug for Your Friends | Gaming | 330 ml, Microwave & Dishwasher Safe | Computer Gaming Coffee Mug.",
+    fabricBlend: 'Premium Ceramic',
+    silhouettes: '330ml Standard',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/51HXXr3c5aS._SL1348_.jpg' },
+    ],
+    sizes: ['330ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51HXXr3c5aS._SL1348_.jpg',
+      'https://m.media-amazon.com/images/I/51uZEx6lnLS._SL1348_.jpg',
+      'https://m.media-amazon.com/images/I/6117Wrq-JkS._SL1348_.jpg',
+      'https://m.media-amazon.com/images/I/51bACJpUeDS._SL1348_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B096Y2JQ5J?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 2: CLAY CRAFT SPIDERMAN MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-claycraft-spiderman-mug',
+    brand: 'CLAY CRAFT',
+    name: "Clay Craft Marvel Spiderman Face Print Mug 400ml | Premium Ceramic Superhero Mug",
+    price: 389,
+    originalPrice: 399,
+    discountPercent: 3,
+    rating: 4.2,
+    reviewCount: 353,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/61ZtqUelIuL._SL1080_.jpg',
+    altText: 'Clay Craft red Spiderman face print ceramic coffee mug 400ml',
+    tag: '#1 BEST SELLER',
+    isPrime: true,
+    description: "Clay Craft Official Compatible with Marvel Spiderman Face Print Mug | Premium Ceramic Coffee/Milk Mug, 400 ml | Superhero Gift for Kids & Adults | Microwave & Dishwasher Safe. 500+ bought in past month.",
+    fabricBlend: 'Premium Ceramic',
+    silhouettes: '400ml Large',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'Spiderman Red', hex: '#c0392b', imageUrl: 'https://m.media-amazon.com/images/I/61ZtqUelIuL._SL1080_.jpg' },
+    ],
+    sizes: ['400ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81OyObcCYaL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71BWGc8RG7L._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71vNmS-kjtL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71QVrydIIAL._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CPZBPDGZ?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 3: 7DOTS DEADPOOL 3D SCULPTED MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-7dots-deadpool-mug',
+    brand: '7DOTS',
+    name: "7dots Deadpool 3D Sculpted Ceramic Coffee Mug | Deadpool Theme Sculpted Design",
+    price: 899,
+    originalPrice: 899,
+    discountPercent: 0,
+    rating: 4.4,
+    reviewCount: 120,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/51mAipILgBL._SL1080_.jpg',
+    altText: '7dots Deadpool 3D sculpted red ceramic coffee mug',
+    tag: 'LUXURY PICK',
+    isPrime: true,
+    description: "7dots Deadpool 3D Sculpted Ceramic Coffee Mug | 3D Sculpted Design, Ceramic Material, Coffee Mug, Deadpool Theme. Unique collectible mug for Marvel fans.",
+    fabricBlend: 'Sculpted Ceramic',
+    silhouettes: '3D Sculpted',
+    garmentCare: 'Hand Wash Recommended',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'Deadpool Red', hex: '#c0392b', imageUrl: 'https://m.media-amazon.com/images/I/51mAipILgBL._SL1080_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51mAipILgBL._SL1080_.jpg',
+      'https://m.media-amazon.com/images/I/51Qjl5rs78L.jpg',
+      'https://m.media-amazon.com/images/I/418hL-FQ6bL.jpg',
+      'https://m.media-amazon.com/images/I/81KxjoSY67L._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GTW132P7?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 4: EPIC STUFF BATMAN MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-epicstuff-batman-mug',
+    brand: 'EPIC STUFF',
+    name: "Epic Stuff The Batman Red Hero Design Premium Black Patch Coffee Mug 350ml",
+    price: 599,
+    originalPrice: 599,
+    discountPercent: 0,
+    rating: 4.5,
+    reviewCount: 210,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/71cFWT2nZ5L._SL1500_.jpg',
+    altText: 'Epic Stuff black Batman Red Hero design premium patch ceramic coffee mug 350ml',
+    tag: 'OFFICIAL MERCH',
+    isPrime: true,
+    description: "Epic Stuff - The Batman - Red Hero Design Premium Black Patch Coffee Mug 350ml - Officially Licensed by Warner Bros, USA (Ceramic). Collector's edition mug.",
+    fabricBlend: 'Premium Ceramic',
+    silhouettes: '350ml Standard',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'Batman Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/71cFWT2nZ5L._SL1500_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71cFWT2nZ5L._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/616B2NWcWmL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/81lo5OZDVSL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71cFWT2nZ5L._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H33K1RDP?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 5: KABNIK 3D CUTE UNICORN MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-kabnik-unicorn-3d-mug',
+    brand: 'KABNIK GLOBAL',
+    name: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon | White 3D Cute Unicorn",
+    price: 529,
+    originalPrice: 1499,
+    discountPercent: 65,
+    rating: 5.0,
+    reviewCount: 2,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/61nwKAi+Y7L._SL1448_.jpg',
+    altText: 'KABNIK 3D cute unicorn ceramic coffee mug with lid and spoon',
+    tag: 'GIFTING PICK',
+    isPrime: true,
+    description: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon, Gift for Brother, Sister, Birthday, Rakhi, Kids Mug, Cute Mugs, Coffee Cup, Tea Mug, Return Gift, Premium Cup. White - 3D Cute Unicorn.",
+    fabricBlend: '3D Ceramic',
+    silhouettes: '350ml with Lid & Spoon',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'White Unicorn', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/61nwKAi+Y7L._SL1448_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61pLiiGekvL._SL1412_.jpg',
+      'https://m.media-amazon.com/images/I/61+6WVZnurL._SL1448_.jpg',
+      'https://m.media-amazon.com/images/I/61s+xlrFs-L._SL1254_.jpg',
+      'https://m.media-amazon.com/images/I/61Z6mZuB7ZL._SL1254_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0BXT7Z66X?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 6: KABNIK 3D CUTE FROG MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-kabnik-frog-3d-mug',
+    brand: 'KABNIK GLOBAL',
+    name: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon | White 3D Cute Frog",
+    price: 529,
+    originalPrice: 1499,
+    discountPercent: 65,
+    rating: 5.0,
+    reviewCount: 2,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/61ZYTL3ydYL._SL1434_.jpg',
+    altText: 'KABNIK 3D cute frog ceramic coffee mug with lid and spoon',
+    tag: 'GIFTING PICK',
+    isPrime: true,
+    description: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon, Gift for Brother, Sister, Birthday, Rakhi, Kids Mug, Cute Mugs, Coffee Cup, Tea Mug, Return Gift, Premium Cup. White - 3D Cute Frog.",
+    fabricBlend: '3D Ceramic',
+    silhouettes: '350ml with Lid & Spoon',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'White Frog', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/61ZYTL3ydYL._SL1434_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71NvwG58zrL._SL1254_.jpg',
+      'https://m.media-amazon.com/images/I/71oIoJCIfrL._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/61tCwhG-HJL._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/61W7fRMV+hL._SL1254_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H957R665?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 7: 7ELEVEN PUNISHER BLACK MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-7eleven-punisher-mug',
+    brand: '7ELEVEN GIFTS',
+    name: "7Eleven Gifts Ceramic Coffee Mug Marvel The Punisher Designer Printed Black 350ML",
+    price: 259,
+    originalPrice: 699,
+    discountPercent: 63,
+    rating: 4.3,
+    reviewCount: 180,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/61JizYQduVL._SL1500_.jpg',
+    altText: '7Eleven Gifts Marvel The Punisher designer printed black ceramic coffee mug 350ml',
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "7Eleven Gifts Ceramic Coffee Mug Marvel The Punisher Designer Printed 1 Coffee Mug Black 350ML. Premium Marvel merch for fans.",
+    fabricBlend: 'Premium Ceramic',
+    silhouettes: '350ml Standard',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'Punisher Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/61JizYQduVL._SL1500_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61JizYQduVL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/61KwHi+OjnL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/61FhprnbKyL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/610WN2iy-kL._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H954CMFL?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 8: KABNIK 3D CUTE KOALA MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-kabnik-koala-3d-mug',
+    brand: 'KABNIK GLOBAL',
+    name: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon | White 3D Cute Koala",
+    price: 529,
+    originalPrice: 1499,
+    discountPercent: 65,
+    rating: 5.0,
+    reviewCount: 2,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/612DSkXql-L._SL1402_.jpg',
+    altText: 'KABNIK 3D cute koala ceramic coffee mug with lid and spoon',
+    tag: 'GIFTING PICK',
+    isPrime: true,
+    description: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon, Gift for Brother, Sister, Birthday, Rakhi, Kids Mug, Cute Mugs, Coffee Cup, Tea Mug, Return Gift, Premium Cup. White - 3D Cute Koala.",
+    fabricBlend: '3D Ceramic',
+    silhouettes: '350ml with Lid & Spoon',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'White Koala', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/612DSkXql-L._SL1402_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61XlwzfqChL._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/71lwl74NxbL._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/718Rbfjpo5L._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/61pKoRkoCHL._SL1254_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H94T64JY?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // COFFEE CUP 9: KABNIK 3D ROYAL ELEPHANT MUG
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-kabnik-elephant-3d-mug',
+    brand: 'KABNIK GLOBAL',
+    name: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon | Teal Flora 3D Royal Elephant",
+    price: 499,
+    originalPrice: 1499,
+    discountPercent: 67,
+    rating: 5.0,
+    reviewCount: 2,
+    category: 'cup',
+    imageUrl: 'https://m.media-amazon.com/images/I/61SLJvofQML._SL1402_.jpg',
+    altText: 'KABNIK 3D teal royal elephant ceramic coffee mug with lid and spoon',
+    tag: 'GIFTING PICK',
+    isPrime: true,
+    description: "KABNIK 3D Ceramic Coffee Mug with Lid & Spoon, Gift for Brother, Sister, Birthday, Rakhi, Kids Mug, Cute Mugs, Coffee Cup, Tea Mug, Return Gift, Premium Cup. Teal Flora - 3D Royal Elephant.",
+    fabricBlend: '3D Ceramic',
+    silhouettes: '350ml with Lid & Spoon',
+    garmentCare: 'Microwave & Dishwasher Safe',
+    innerLining: 'Food-Grade Glaze',
+    colors: [
+      { name: 'Teal Flora', hex: '#008080', imageUrl: 'https://m.media-amazon.com/images/I/61SLJvofQML._SL1402_.jpg' },
+    ],
+    sizes: ['350ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71yuZ2vkP8L._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/61+RQD90U8L._SL1254_.jpg',
+      'https://m.media-amazon.com/images/I/71OHWYUsHDL._SL1402_.jpg',
+      'https://m.media-amazon.com/images/I/61MsKiGbcVL._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H955J7BY?tag=topvent-21',
+  },
+
 ];
+
 
 export const INITIAL_USER_PROFILE: UserProfile = {
   id: 'usr-vip-founder',
