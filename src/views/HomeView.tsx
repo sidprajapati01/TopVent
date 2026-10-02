@@ -15,6 +15,7 @@ interface HomeViewProps {
   isDark: boolean;
   onBuyNow?: (product: Product) => void;
   onAddToCart?: (product: Product) => void;
+  onNavigateToCategory?: (category: string) => void;   // ⭐ NEW
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({
@@ -28,6 +29,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   isDark,
   onBuyNow,
   onAddToCart,
+  onNavigateToCategory,   // ⭐ NEW
 }) => {
   const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex'>('all');
 
@@ -64,6 +66,17 @@ export const HomeView: React.FC<HomeViewProps> = ({
     return getTopFromCategory(trendingFilter, LIMIT);
   })();
 
+  // ⭐ Story click handler — direct to explore with category
+  const handleStoryClick = (story: Story) => {
+    if (onNavigateToCategory) {
+      // Direct navigation with category filter
+      onNavigateToCategory(story.category);
+    } else {
+      // Fallback: open story modal (old behavior)
+      onOpenStory(story);
+    }
+  };
+
   return (
     <div className="w-full flex flex-col relative" style={{ zIndex: 10 }}>
 
@@ -99,13 +112,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
             Discover timeless style, trending fashion, and premium finds — all in one place.
           </p>
 
-          {/* ⭐ BLUR-BORDER FRAME + SLIDESHOW HERO CARD */}
+          {/* BLUR-BORDER FRAME + SLIDESHOW HERO CARD */}
           <div className="relative w-full mb-4">
             <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-orange-500/40 via-purple-500/40 to-orange-500/40 blur-2xl opacity-70 animate-pulse-slow pointer-events-none" />
 
             <div className="relative rounded-3xl overflow-hidden border-2 border-white/20 bg-black/20 backdrop-blur-md p-1.5 shadow-2xl">
               <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-2xl overflow-hidden bg-slate-900">
-                {/* Slide 1 */}
                 <img
                   src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3QUYeGS0rBwkIGib-mi82zG7gL4CFInlZGu-m417cRw&s=10"
                   alt="TopVent Luxury Editorial 1"
@@ -115,7 +127,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 />
 
-                {/* Slide 2 */}
                 <img
                   src="https://img.magnific.com/free-photo/cheerful-model-sitting-floor-wearing-modern-oversize-black-jacket-creamy-long-dress-high-heel-shoes-her-feet-curly-hairstyle-makeup_343629-61.jpg?semt=ais_hybrid&w=740&q=80"
                   alt="TopVent Luxury Editorial 2"
@@ -125,7 +136,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 />
 
-                {/* Slide 3 */}
                 <img
                   src="https://img.magnific.com/premium-photo/young-man-relaxed-pose-casual-style-natural-light-fashion-photography-modern-aesthetics-brown_1288522-2032.jpg"
                   alt="TopVent Luxury Editorial 3"
@@ -135,7 +145,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 />
 
-                {/* Slide 4 */}
                 <img
                   src="https://plus.unsplash.com/premium_photo-1716196101576-db778a2e7e5f?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="TopVent Luxury Editorial 4"
@@ -145,11 +154,9 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   }`}
                 />
 
-                {/* Gradients */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#16062a] via-transparent to-transparent pointer-events-none" />
                 <div className="absolute inset-0 bg-gradient-to-r from-[#16062a]/30 via-transparent to-[#16062a]/30 pointer-events-none" />
 
-                {/* Top-left badge */}
                 <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15">
                   <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping" />
                   <span className="text-[10px] font-bold tracking-wider uppercase text-white">
@@ -157,14 +164,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </span>
                 </div>
 
-                {/* Top-right counter */}
                 <div className="absolute top-3 right-3 flex items-center gap-1 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15">
                   <span className="text-[10px] font-bold text-white">
                     {currentSlide + 1} / 4
                   </span>
                 </div>
 
-                {/* Bottom info badges */}
                 <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between pointer-events-none">
                   <div className="bg-black/55 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/10">
                     <span className="block text-[9px] uppercase tracking-widest text-orange-400 font-extrabold">
@@ -179,7 +184,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                   </div>
                 </div>
 
-                {/* Slide dots */}
                 <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-1.5">
                   {[0, 1, 2, 3].map((idx) => (
                     <button
@@ -231,12 +235,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </span>
         </div>
 
-        {/* Stories Horizontal Ribbon */}
+        {/* Stories Horizontal Ribbon — Story click navigates to Explore with category */}
         <div className="flex items-center gap-3.5 overflow-x-auto pb-2 pt-1 no-scrollbar -mx-4 px-4">
           {stories.map((story) => (
             <div
               key={story.id}
-              onClick={() => onOpenStory(story)}
+              onClick={() => handleStoryClick(story)}   // ⭐ Updated
               className="flex flex-col items-center shrink-0 w-16 cursor-pointer group active:scale-95 transition-transform"
             >
               <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-orange-500 via-purple-600 to-amber-400 shadow-sm group-hover:shadow-md">
@@ -293,7 +297,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           { key: 'men', label: "Men's" },
           { key: 'women', label: "Women's" },
           { key: 'cup', label: 'Mugs' },
-          { key: 'watches', label: 'Watches' },
+          { key: 'unisex', label: 'Unisex' },
         ].map((tab) => (
           <button
             key={tab.key}
@@ -309,7 +313,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         ))}
       </div>
 
-      {/* ⭐ Curated Trending Drops: ALL Products Grid */}
+      {/* Curated Trending Drops: ALL Products Grid */}
       <section className="px-4 mb-6 relative z-10">
         <div className="flex items-baseline justify-between mb-3">
           <div>
@@ -332,7 +336,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
         </div>
 
-        {/* 2-Column Grid */}
         {filteredTrending.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {filteredTrending.map((product) => (

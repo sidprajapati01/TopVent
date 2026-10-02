@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect  } from 'react';
 import { Product } from '../types';
 import { ProductCard } from '../components/ProductCard';
 import { ScrollBackground3D } from '../components/ScrollBackground3D';
@@ -12,8 +12,8 @@ interface ExploreViewProps {
   searchQuery: string;
   onBuyNow?: (product: Product) => void;
   onAddToCart?: (product: Product) => void;
+  initialCategory?: string; 
 }
-
 export const ExploreView: React.FC<ExploreViewProps> = ({
   products,
   onSelectProduct,
@@ -22,12 +22,18 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
   searchQuery,
   onBuyNow,
   onAddToCart,
+  initialCategory = 'all',   // ⭐ NEW
 }) => {
-  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+    const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedPriceTier, setSelectedPriceTier] = useState<string>('all');
   const [minRating, setMinRating] = useState<number>(0);
   const [sortOption, setSortOption] = useState<'popular' | 'price-low' | 'price-high' | 'rating' | 'discount'>('popular');
   const [showSortDropdown, setShowSortDropdown] = useState(false);
+
+  // ⭐ Auto-update when initialCategory changes (story click → category filter)
+  useEffect(() => {
+    setSelectedCategory(initialCategory);
+  }, [initialCategory]);
 
   const categories = [
     { id: 'all', label: 'All', icon: 'auto_awesome' },

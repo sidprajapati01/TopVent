@@ -17,7 +17,7 @@ const Background3D = lazy(() => import('./components/Background3D'));
 
 export default function App() {
   // ═════════════════════════════════════════
-  // 1. બધા STATE પહેલા
+  // 1. STATE
   // ═════════════════════════════════════════
 
   const [theme, setTheme] = useState<ThemeMode>(() => {
@@ -54,6 +54,9 @@ export default function App() {
 
   const [currentTab, setCurrentTab] = useState<TabType>('home');
   const [searchQuery, setSearchQuery] = useState('');
+
+  // ⭐ NEW: Explore category state (story click → filter)
+  const [exploreCategory, setExploreCategory] = useState<string>('all');
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
     if (typeof window !== 'undefined') {
@@ -138,8 +141,12 @@ export default function App() {
     setActiveStory(story);
   };
 
-  const handleShopCategoryFromStory = (_category: string) => {
-    setCurrentTab('explore');
+  // ⭐ UPDATED: Story → Explore with category
+  const handleShopCategoryFromStory = (category: string) => {
+    setExploreCategory(category);      // Save category
+    setCurrentTab('explore');           // Navigate
+    setActiveStory(null);               // Close modal
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleAddToCart = (
@@ -357,6 +364,7 @@ export default function App() {
       <Header
         currentTab={currentTab}
         onTabChange={(tab) => {
+          if (tab === 'explore') setExploreCategory('all');   // ⭐ Reset on manual click
           setCurrentTab(tab);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
@@ -379,6 +387,7 @@ export default function App() {
             wishlist={wishlist}
             onToggleWishlist={handleToggleWishlist}
             onNavigateTab={(tab) => {
+              if (tab === 'explore') setExploreCategory('all');
               setCurrentTab(tab);
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
@@ -386,6 +395,7 @@ export default function App() {
             isDark={theme === 'dark'}
             onBuyNow={handleBuyNow}
             onAddToCart={handleAddToCart}
+            onNavigateToCategory={handleShopCategoryFromStory}   // ⭐ NEW
           />
         )}
 
@@ -398,6 +408,7 @@ export default function App() {
             searchQuery={searchQuery}
             onBuyNow={handleBuyNow}
             onAddToCart={handleAddToCart}
+            initialCategory={exploreCategory}   // ⭐ NEW
           />
         )}
 
@@ -451,6 +462,7 @@ export default function App() {
       <BottomNav
         currentTab={currentTab}
         onTabChange={(tab) => {
+          if (tab === 'explore') setExploreCategory('all');   // ⭐ Reset on manual click
           setCurrentTab(tab);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
@@ -458,7 +470,6 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
       />
 
-      {/* ⭐ Modals — બધાની ઉપર */}
       <ProductDetailModal
         product={selectedProduct}
         isOpen={Boolean(selectedProduct)}
