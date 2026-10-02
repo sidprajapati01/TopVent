@@ -94,7 +94,7 @@
 /* ═════════════════════════════════════════ */
 
 /* 1. 3D Background — સૌથી નીચે */
-.3d-background {
+.bg-3d {
   position: fixed !important;
   inset: 0 !important;
   z-index: 0 !important;
