@@ -1,4 +1,4 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Product } from '../types';
 import { ProductCard } from '../components/ProductCard';
 import { ScrollBackground3D } from '../components/ScrollBackground3D';
@@ -12,8 +12,9 @@ interface ExploreViewProps {
   searchQuery: string;
   onBuyNow?: (product: Product) => void;
   onAddToCart?: (product: Product) => void;
-  initialCategory?: string; 
+  initialCategory?: string;
 }
+
 export const ExploreView: React.FC<ExploreViewProps> = ({
   products,
   onSelectProduct,
@@ -22,9 +23,9 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
   searchQuery,
   onBuyNow,
   onAddToCart,
-  initialCategory = 'all',   // ⭐ NEW
+  initialCategory = 'all',
 }) => {
-    const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
+  const [selectedCategory, setSelectedCategory] = useState<string>(initialCategory);
   const [selectedPriceTier, setSelectedPriceTier] = useState<string>('all');
   const [minRating, setMinRating] = useState<number>(0);
   const [sortOption, setSortOption] = useState<'popular' | 'price-low' | 'price-high' | 'rating' | 'discount'>('popular');
@@ -35,48 +36,80 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     setSelectedCategory(initialCategory);
   }, [initialCategory]);
 
+  // ⭐ Categories
   const categories = [
     { id: 'all', label: 'All', icon: 'auto_awesome' },
     { id: 'men', label: 'Men' },
     { id: 'women', label: 'Women' },
     { id: 'cup', label: 'Mug' },
     { id: 'unisex', label: 'Unisex' },
-    //{ id: 'jewellery', label: 'Jewellery' },
-    //{ id: 'watches', label: 'Watches' },
-    //{ id: 'footwear', label: 'Footwear' },
-    //{ id: 'accessories', label: 'Accessories' },
   ];
 
-  // Filtering Logic
+  // ⭐ STEP 1: Filtering Logic (must be BEFORE sorting)
   const filteredProducts = products.filter((p) => {
-    // Search query
+    // 1. Search Query — Multi-word + Multi-field
     if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase();
-      const matchName = p.name.toLowerCase().includes(q);
-      const matchBrand = p.brand.toLowerCase().includes(q);
-      const matchCategory = p.category.toLowerCase().includes(q);
-      if (!matchName && !matchBrand && !matchCategory) return false;
+      const query = searchQuery.toLowerCase().trim();
+      const queryWords = query.split(/\s+/).filter(Boolean);
+
+      const searchableText = [
+        p.name,
+        p.brand,
+        p.category,
+        p.tag || '',
+        p.description || '',
+        p.fabricBlend || '',
+        p.colors?.map((c) => c.name).join(' ') || '',
+      ]
+        .join(' ')
+        .toLowerCase();
+
+      const allWordsMatch = queryWords.every((word) => searchableText.includes(word));
+      if (!allWordsMatch) return false;
     }
 
-    // Category
+    // 2. Category Filter
     if (selectedCategory !== 'all' && p.category !== selectedCategory) {
       return false;
     }
 
-    // Price Tier
+    // 3. Price Tier
     if (selectedPriceTier === 'under-500' && p.price >= 500) return false;
     if (selectedPriceTier === '500-1000' && (p.price < 500 || p.price > 1000)) return false;
     if (selectedPriceTier === '1000-2500' && (p.price < 1000 || p.price > 2500)) return false;
     if (selectedPriceTier === '2500-plus' && p.price <= 2500) return false;
 
-    // Rating
+    // 4. Rating Filter
     if (minRating > 0 && p.rating < minRating) return false;
 
     return true;
   });
 
-  // Sorting Logic
+  // ⭐ STEP 2: Sorting Logic — Search relevance prioritized
   const sortedProducts = [...filteredProducts].sort((a, b) => {
+    // When searching, sort by relevance first
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase().trim();
+
+      const getRelevanceScore = (p: typeof a) => {
+        let score = 0;
+        const name = p.name.toLowerCase();
+        const brand = p.brand.toLowerCase();
+
+        if (name === query) score += 100;
+        if (name.startsWith(query)) score += 50;
+        if (name.includes(query)) score += 30;
+        if (brand.includes(query)) score += 20;
+        score += Math.min(p.reviewCount / 100, 10);
+        score += p.rating * 2;
+
+        return score;
+      };
+
+      return getRelevanceScore(b) - getRelevanceScore(a);
+    }
+
+    // Normal sorting (no search)
     if (sortOption === 'price-low') return a.price - b.price;
     if (sortOption === 'price-high') return b.price - a.price;
     if (sortOption === 'rating') return b.rating - a.rating;
@@ -84,6 +117,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     return b.reviewCount - a.reviewCount; // 'popular'
   });
 
+  // ⭐ STEP 3: Sort label helper
   const getSortLabel = () => {
     switch (sortOption) {
       case 'price-low':
@@ -99,14 +133,15 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     }
   };
 
-return (
+  // ⭐ STEP 4: Return JSX
+  return (
     <div className="w-full flex flex-col pb-8 relative" style={{ zIndex: 10 }}>
-      
-      {/* ⭐ Background layers */}
+      {/* Background layers */}
       <ScrollBackground3D />
       <FloatingFashionIcons />
+
       {/* Subtle Ambient Glow Banner */}
-      <div className="relative mx-4 mt-3 mb-3 rounded-2xl overflow-hidden ..." style={{ zIndex: 10 }}>
+      <div className="relative mx-4 mt-3 mb-3 rounded-2xl overflow-hidden bg-gradient-to-br from-[#16062a] via-[#22073d] to-[#16062a] p-4 text-white shadow-md border border-purple-900/40" style={{ zIndex: 10 }}>
         <div className="absolute -right-10 -bottom-10 w-36 h-36 rounded-full bg-orange-500/20 blur-2xl pointer-events-none" />
         <div className="absolute -left-6 -top-6 w-32 h-32 rounded-full bg-purple-500/15 blur-xl pointer-events-none" />
 
@@ -156,7 +191,7 @@ return (
       {/* Filter & Sort Strip */}
       <div className="w-full px-4 py-2 flex items-center justify-between gap-2 relative" style={{ zIndex: 10 }}>
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 flex-1">
-          {/* Reset Filters / Active indicator */}
+          {/* Reset */}
           {(selectedPriceTier !== 'all' || minRating > 0 || selectedCategory !== 'all') && (
             <button
               onClick={() => {
@@ -274,7 +309,7 @@ return (
       </div>
 
       {/* Results Count & Live Alert Bar */}
-      <div className="flex items-center justify-between px-4 py-1 ... relative" style={{ zIndex: 10 }}>
+      <div className="flex items-center justify-between px-4 py-1 text-slate-500 dark:text-purple-300/70 relative" style={{ zIndex: 10 }}>
         <p className="text-xs font-semibold">
           Showing {sortedProducts.length} curated drops
         </p>
@@ -326,8 +361,8 @@ return (
         )}
       </div>
 
-       {/* WhatsApp VIP Deal Alerts Card — 2 Channels */}
-      <div className="mx-4 mt-4 rounded-2xl p-4 ... relative" style={{ zIndex: 10 }}>
+      {/* WhatsApp VIP Deal Alerts Card */}
+      <div className="mx-4 mt-4 rounded-2xl p-4 bg-gradient-to-br from-[#16062a] via-[#1f0933] to-[#0c1f17] text-white shadow-md relative overflow-hidden border border-purple-900/40" style={{ zIndex: 10 }}>
         <div className="absolute right-0 top-0 w-32 h-32 bg-orange-500/10 rounded-full blur-xl pointer-events-none" />
         <div className="relative z-10 flex flex-col gap-1.5">
           <div className="flex items-center gap-1.5">
@@ -346,10 +381,7 @@ return (
             Join 50,000+ fashion insiders who receive real-time drops 15 minutes before public flash sales.
           </p>
 
-          {/* 2 Channel Buttons */}
           <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
-
-            {/* Channel 1: VIP Deals */}
             <a
               href="https://whatsapp.com/channel/0029Vb8pTwMHFxP6oifwK32V"
               target="_blank"
@@ -363,7 +395,6 @@ return (
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
 
-            {/* Channel 2: Fashion Drops */}
             <a
               href="https://whatsapp.com/channel/0029Vb9OJd63GJOxv9DntB1r"
               target="_blank"
@@ -376,7 +407,6 @@ return (
               </span>
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </a>
-
           </div>
 
           <span className="text-[11px] text-purple-300/60 font-medium mt-1">

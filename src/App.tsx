@@ -105,13 +105,17 @@ export default function App() {
 
   const handleSearchChange = useCallback((query: string) => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
+    
+    // ⭐ Immediate local state update for smooth typing
+    setSearchQuery(query);
+    
+    // ⭐ Debounced tab switch only (not query update)
     debounceRef.current = setTimeout(() => {
-      setSearchQuery(query);
-      if (query && currentTab !== 'explore') {
+      if (query.trim().length >= 2 && currentTab !== 'explore') {
         setCurrentTab('explore');
       }
-    }, 300);
-  }, [currentTab]);
+    }, 500);   // Only for tab switch
+}, [currentTab]);
 
   const showToast = (message: string, type: 'success' | 'error' = 'success') => {
     setToast({ message, type });
