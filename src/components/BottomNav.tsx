@@ -14,21 +14,12 @@ const BottomNavComponent: React.FC<BottomNavProps> = ({
   cartCount,
   onOpenCart,
 }) => {
-  const tabs = [
-    { id: 'home' as TabType, label: 'Home', icon: 'auto_awesome' },
-    { id: 'explore' as TabType, label: 'Explore', icon: 'grid_view' },
-    {
-      id: 'deals' as TabType,
-      label: 'Deals',
-      icon: 'local_fire_department',
-      badge: 'SALE',
-    },
-    {
-      id: 'cart' as TabType,
-      label: 'Cart',
-      icon: 'shopping_cart',
-      count: cartCount,
-    },
+    const tabs = [
+    { id: 'home' as TabType, label: 'Home', icon: 'home' },
+    { id: 'explore' as TabType, label: 'Explore', icon: 'explore' },
+    { id: 'blog' as TabType, label: 'Blog', icon: 'article' },
+    { id: 'deals' as TabType, label: 'Deals', icon: 'local_fire_department', badge: 'SALE' },
+    { id: 'cart' as TabType, label: 'Cart', icon: 'shopping_cart', count: cartCount },
     { id: 'account' as TabType, label: 'Account', icon: 'person' },
   ];
 

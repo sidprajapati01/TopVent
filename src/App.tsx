@@ -11,6 +11,9 @@ import { ExploreView } from './views/ExploreView';
 import { DealsView } from './views/DealsView';
 import { WishlistView } from './views/WishlistView';
 import { AccountView } from './views/AccountView';
+import { BlogView } from './views/BlogView';
+import { ArticleView } from './views/ArticleView';
+import { BlogPost } from './types';
 
 // ⭐ 3D Background — Lazy Load
 const Background3D = lazy(() => import('./components/Background3D'));
@@ -54,9 +57,10 @@ export default function App() {
 
   const [currentTab, setCurrentTab] = useState<TabType>('home');
   const [searchQuery, setSearchQuery] = useState('');
-
-  // ⭐ NEW: Explore category state (story click → filter)
   const [exploreCategory, setExploreCategory] = useState<string>('all');
+
+  // ⭐ Blog state
+  const [activePost, setActivePost] = useState<BlogPost | null>(null);
 
   const [wishlist, setWishlist] = useState<string[]>(() => {
     if (typeof window !== 'undefined') {
@@ -105,17 +109,13 @@ export default function App() {
 
   const handleSearchChange = useCallback((query: string) => {
     if (debounceRef.current) clearTimeout(debounceRef.current);
-    
-    // ⭐ Immediate local state update for smooth typing
     setSearchQuery(query);
-    
-    // ⭐ Debounced tab switch only (not query update)
     debounceRef.current = setTimeout(() => {
       if (query.trim().length >= 2 && currentTab !== 'explore') {
         setCurrentTab('explore');
       }
-    }, 500);   // Only for tab switch
-}, [currentTab]);
+    }, 500);
+  }, [currentTab]);
 
   const showToast = (message: string, type: 'success' | 'error' = 'success') => {
     setToast({ message, type });
@@ -145,11 +145,10 @@ export default function App() {
     setActiveStory(story);
   };
 
-  // ⭐ UPDATED: Story → Explore with category
   const handleShopCategoryFromStory = (category: string) => {
-    setExploreCategory(category);      // Save category
-    setCurrentTab('explore');           // Navigate
-    setActiveStory(null);               // Close modal
+    setExploreCategory(category);
+    setCurrentTab('explore');
+    setActiveStory(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -368,7 +367,7 @@ export default function App() {
       <Header
         currentTab={currentTab}
         onTabChange={(tab) => {
-          if (tab === 'explore') setExploreCategory('all');   // ⭐ Reset on manual click
+          if (tab === 'explore') setExploreCategory('all');
           setCurrentTab(tab);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
@@ -399,7 +398,7 @@ export default function App() {
             isDark={theme === 'dark'}
             onBuyNow={handleBuyNow}
             onAddToCart={handleAddToCart}
-            onNavigateToCategory={handleShopCategoryFromStory}   // ⭐ NEW
+            onNavigateToCategory={handleShopCategoryFromStory}
           />
         )}
 
@@ -410,9 +409,10 @@ export default function App() {
             wishlist={wishlist}
             onToggleWishlist={handleToggleWishlist}
             searchQuery={searchQuery}
+            onSearchChange={handleSearchChange}
             onBuyNow={handleBuyNow}
             onAddToCart={handleAddToCart}
-            initialCategory={exploreCategory}   // ⭐ NEW
+            initialCategory={exploreCategory}
           />
         )}
 
@@ -461,12 +461,30 @@ export default function App() {
             onLogout={handleLogout}
           />
         )}
+
+        {/* ⭐ Blog Views */}
+        {currentTab === 'blog' && !activePost && (
+          <BlogView onSelectPost={setActivePost} />
+        )}
+
+        {currentTab === 'blog' && activePost && (
+          <ArticleView
+            post={activePost}
+            products={PRODUCTS_DATA}
+            onBack={() => setActivePost(null)}
+            onSelectProduct={handleSelectProduct}
+            wishlist={wishlist}
+            onToggleWishlist={handleToggleWishlist}
+            onBuyNow={handleBuyNow}
+            onAddToCart={handleAddToCart}
+          />
+        )}
       </main>
 
       <BottomNav
         currentTab={currentTab}
         onTabChange={(tab) => {
-          if (tab === 'explore') setExploreCategory('all');   // ⭐ Reset on manual click
+          if (tab === 'explore') setExploreCategory('all');
           setCurrentTab(tab);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}

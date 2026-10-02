@@ -46,7 +46,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
 
   // ⭐ Smart Filter: All tab shows 2 from each category | Category tab shows 2 from that category
   const filteredTrending = (() => {
-    const LIMIT = 2;
+    const LIMIT = 4;
 
     const getTopFromCategory = (category: string, count: number) =>
       products

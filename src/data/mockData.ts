@@ -24,7 +24,7 @@ export const STORIES_DATA: Story[] = [
   },
   {
     id: 'story-coffee-cup',
-    title: 'Mug',
+    title: 'Mugs',
     category: 'cup',
     imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
     storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
@@ -74,9 +74,9 @@ export const PRODUCTS_DATA: Product[] = [
     garmentCare: 'Follow the care instructions on product label',
     innerLining: 'Not specified',
     colors: [
-      { name: 'Brown', hex: '#7a4b2a', imageUrl: 'https://m.media-amazon.com/images/I/71example-brown.jpg' },
-      { name: 'Mustard Yellow', hex: '#d4af37', imageUrl: 'https://m.media-amazon.com/images/I/71example-mustard.jpg' },
-      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/71example-black.jpg' },
+  { name: 'Brown', hex: '#7a4b2a', imageUrl: 'https://m.media-amazon.com/images/I/91CXtpIx2WL._SX679_.jpg' },
+  { name: 'Mustard Yellow', hex: '#d4af37', imageUrl: 'https://m.media-amazon.com/images/I/91CXtpIx2WL._SX679_.jpg' },
+  { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/91CXtpIx2WL._SX679_.jpg' },
     ],
     sizes: ['S', 'M', 'L', 'XL', 'XXL'],
     galleryImages: [
@@ -196,7 +196,7 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/51GyvnVdlvL._SX425_.jpg',
       'https://m.media-amazon.com/images/I/6160BtO24AL._SX425_.jpg',
     ],
-    amazonUrl: 'https://link.amazon/B02M4UEcM',
+    amazonUrl: 'https://www.amazon.in/dp/B0BXLMFN4R?tag=topvent-21',
   },
 
   // ─────────────────────────────────────────

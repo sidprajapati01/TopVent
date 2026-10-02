@@ -39,7 +39,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
   };
 
   const dealsList = products.filter((p) => {
-    if (selectedFilter === 'all') return p.discountPercent >= 50;
+    if (selectedFilter === 'all') return p.discountPercent >= 30;
     if (selectedFilter === 'men') return p.category === 'men' || p.category === 'footwear';
     if (selectedFilter === 'women') return p.category === 'women' || p.category === 'jewellery';
     if (selectedFilter === 'cup') return p.category === 'cup';
@@ -117,7 +117,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
             <span className="material-symbols-outlined text-[15px]" style={{ fontVariationSettings: "'FILL' 1" }}>
               local_fire_department
             </span>
-            <span>All Deals (50%+ Off)</span>
+            <span>All Deals (30%+ Off)</span>
           </button>
 
           <button

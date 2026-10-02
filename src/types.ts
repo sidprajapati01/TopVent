@@ -73,6 +73,20 @@ export interface Order {
   trackingNumber: string;
 }
 
-export type TabType = 'home' | 'explore' | 'deals' | 'wishlist' | 'cart' | 'account';
+export type TabType = 'home' | 'explore' | 'deals' | 'blog' | 'wishlist' | 'cart' | 'account';
 
 export type ThemeMode = 'dark' | 'light';
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  category: string;
+  coverImage: string;
+  publishedAt: string;
+  readTime: string;
+  author: string;
+  content: string;   // HTML string
+  relatedProducts?: string[];
+}

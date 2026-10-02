@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Float, MeshDistortMaterial, Sphere, Torus, Icosahedron } from '@react-three/drei';
 import * as THREE from 'three';
@@ -15,7 +15,6 @@ const AnimatedObject = ({ scrollY }: { scrollY: React.MutableRefObject<number> }
     const t = state.clock.getElapsedTime();
     const scrollFactor = scrollY.current * 0.001;
 
-    // Main sphere — rotate + move
     if (meshRef.current) {
       meshRef.current.rotation.x = t * 0.3 + scrollFactor * 2;
       meshRef.current.rotation.y = t * 0.4 + scrollFactor * 3;
@@ -23,14 +22,12 @@ const AnimatedObject = ({ scrollY }: { scrollY: React.MutableRefObject<number> }
       meshRef.current.position.x = Math.cos(scrollFactor * 2) * 0.5;
     }
 
-    // Torus ring — different rotation
     if (torusRef.current) {
       torusRef.current.rotation.x = t * 0.5;
       torusRef.current.rotation.z = t * 0.3 - scrollFactor * 2;
       torusRef.current.position.y = -scrollFactor * 3;
     }
 
-    // Icosahedron — smaller, moving opposite
     if (icoRef.current) {
       icoRef.current.rotation.y = -t * 0.6 + scrollFactor * 4;
       icoRef.current.position.x = Math.sin(t) * 1.5;
@@ -40,7 +37,6 @@ const AnimatedObject = ({ scrollY }: { scrollY: React.MutableRefObject<number> }
 
   return (
     <>
-      {/* Main glowing sphere */}
       <Float speed={1.5} rotationIntensity={0.5} floatIntensity={0.5}>
         <Sphere ref={meshRef} args={[1, 64, 64]} position={[0, 0, 0]}>
           <MeshDistortMaterial
@@ -55,7 +51,6 @@ const AnimatedObject = ({ scrollY }: { scrollY: React.MutableRefObject<number> }
         </Sphere>
       </Float>
 
-      {/* Orbiting torus ring */}
       <Torus
         ref={torusRef}
         args={[2, 0.05, 16, 100]}
@@ -71,7 +66,6 @@ const AnimatedObject = ({ scrollY }: { scrollY: React.MutableRefObject<number> }
         />
       </Torus>
 
-      {/* Floating icosahedron */}
       <Icosahedron ref={icoRef} args={[0.4, 0]} position={[2, 1, -3]}>
         <meshStandardMaterial
           color="#fbbf24"
@@ -98,11 +92,21 @@ const SceneSetup = () => (
 );
 
 // ═════════════════════════════════════════
-// MAIN COMPONENT
+// MAIN COMPONENT — SINGLE EXPORT (FIXED)
 // ═════════════════════════════════════════
 export const ScrollBackground3D: React.FC = () => {
   const scrollYRef = useRef(0);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Scroll tracker
   useEffect(() => {
     const handleScroll = () => {
       scrollYRef.current = window.scrollY;
@@ -111,15 +115,15 @@ export const ScrollBackground3D: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // ⭐ Mobile પર disable
+  if (isMobile) return null;
+
   return (
-<div
-  className="fixed inset-0 pointer-events-none"
-  style={{
-    zIndex: 0,        // ← 1 થી 0 (સૌથી નીચે)
-    opacity: 0.55,
-  }}
-  aria-hidden="true"
->
+    <div
+      className="fixed inset-0 pointer-events-none"
+      style={{ zIndex: 0, opacity: 0.55 }}
+      aria-hidden="true"
+    >
       <Canvas
         camera={{ position: [0, 0, 6], fov: 50 }}
         gl={{ antialias: true, alpha: true }}

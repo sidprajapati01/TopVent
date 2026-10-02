@@ -10,6 +10,7 @@ interface ExploreViewProps {
   wishlist: string[];
   onToggleWishlist: (productId: string, e: React.MouseEvent) => void;
   searchQuery: string;
+  onSearchChange?: (query: string) => void;
   onBuyNow?: (product: Product) => void;
   onAddToCart?: (product: Product) => void;
   initialCategory?: string;
@@ -21,6 +22,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
   wishlist,
   onToggleWishlist,
   searchQuery,
+  onSearchChange,
   onBuyNow,
   onAddToCart,
   initialCategory = 'all',
@@ -41,13 +43,12 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     { id: 'all', label: 'All', icon: 'auto_awesome' },
     { id: 'men', label: 'Men' },
     { id: 'women', label: 'Women' },
-    { id: 'cup', label: 'Mug' },
+    { id: 'cup', label: 'Mugs' },
     { id: 'unisex', label: 'Unisex' },
   ];
 
-  // ⭐ STEP 1: Filtering Logic (must be BEFORE sorting)
+  // ⭐ STEP 1: Filtering Logic
   const filteredProducts = products.filter((p) => {
-    // 1. Search Query — Multi-word + Multi-field
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
       const queryWords = query.split(/\s+/).filter(Boolean);
@@ -68,26 +69,22 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       if (!allWordsMatch) return false;
     }
 
-    // 2. Category Filter
     if (selectedCategory !== 'all' && p.category !== selectedCategory) {
       return false;
     }
 
-    // 3. Price Tier
     if (selectedPriceTier === 'under-500' && p.price >= 500) return false;
     if (selectedPriceTier === '500-1000' && (p.price < 500 || p.price > 1000)) return false;
     if (selectedPriceTier === '1000-2500' && (p.price < 1000 || p.price > 2500)) return false;
     if (selectedPriceTier === '2500-plus' && p.price <= 2500) return false;
 
-    // 4. Rating Filter
     if (minRating > 0 && p.rating < minRating) return false;
 
     return true;
   });
 
-  // ⭐ STEP 2: Sorting Logic — Search relevance prioritized
+  // ⭐ STEP 2: Sorting Logic
   const sortedProducts = [...filteredProducts].sort((a, b) => {
-    // When searching, sort by relevance first
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase().trim();
 
@@ -109,12 +106,11 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       return getRelevanceScore(b) - getRelevanceScore(a);
     }
 
-    // Normal sorting (no search)
     if (sortOption === 'price-low') return a.price - b.price;
     if (sortOption === 'price-high') return b.price - a.price;
     if (sortOption === 'rating') return b.rating - a.rating;
     if (sortOption === 'discount') return b.discountPercent - a.discountPercent;
-    return b.reviewCount - a.reviewCount; // 'popular'
+    return b.reviewCount - a.reviewCount;
   });
 
   // ⭐ STEP 3: Sort label helper
@@ -133,14 +129,12 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     }
   };
 
-  // ⭐ STEP 4: Return JSX
   return (
     <div className="w-full flex flex-col pb-8 relative" style={{ zIndex: 10 }}>
-      {/* Background layers */}
       <ScrollBackground3D />
       <FloatingFashionIcons />
 
-      {/* Subtle Ambient Glow Banner */}
+      {/* Banner */}
       <div className="relative mx-4 mt-3 mb-3 rounded-2xl overflow-hidden bg-gradient-to-br from-[#16062a] via-[#22073d] to-[#16062a] p-4 text-white shadow-md border border-purple-900/40" style={{ zIndex: 10 }}>
         <div className="absolute -right-10 -bottom-10 w-36 h-36 rounded-full bg-orange-500/20 blur-2xl pointer-events-none" />
         <div className="absolute -left-6 -top-6 w-32 h-32 rounded-full bg-purple-500/15 blur-xl pointer-events-none" />
@@ -165,7 +159,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         </div>
       </div>
 
-      {/* Category Scrollable Ribbon */}
+      {/* Category Ribbon */}
       <div className="w-full overflow-x-auto no-scrollbar py-1 px-4 flex items-center gap-1.5 relative" style={{ zIndex: 10 }}>
         {categories.map((cat) => {
           const isActive = selectedCategory === cat.id;
@@ -191,7 +185,6 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       {/* Filter & Sort Strip */}
       <div className="w-full px-4 py-2 flex items-center justify-between gap-2 relative" style={{ zIndex: 10 }}>
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 flex-1">
-          {/* Reset */}
           {(selectedPriceTier !== 'all' || minRating > 0 || selectedCategory !== 'all') && (
             <button
               onClick={() => {
@@ -206,7 +199,6 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
             </button>
           )}
 
-          {/* Price Chips */}
           <button
             onClick={() => setSelectedPriceTier(selectedPriceTier === 'under-500' ? 'all' : 'under-500')}
             className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-medium transition-all ${
@@ -266,7 +258,6 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
           </button>
         </div>
 
-        {/* Quick Sort Dropdown Trigger */}
         <div className="shrink-0 relative">
           <button
             onClick={() => setShowSortDropdown(!showSortDropdown)}
@@ -308,7 +299,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         </div>
       </div>
 
-      {/* Results Count & Live Alert Bar */}
+      {/* Results Count */}
       <div className="flex items-center justify-between px-4 py-1 text-slate-500 dark:text-purple-300/70 relative" style={{ zIndex: 10 }}>
         <p className="text-xs font-semibold">
           Showing {sortedProducts.length} curated drops
@@ -322,7 +313,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         </div>
       </div>
 
-      {/* 2-Column Responsive Fashion Grid */}
+      {/* Product Grid */}
       <div className="px-4 py-2 relative" style={{ zIndex: 10 }}>
         {sortedProducts.length > 0 ? (
           <div className="grid grid-cols-2 gap-3 sm:gap-4">
@@ -347,6 +338,28 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
             <p className="text-xs text-slate-500 dark:text-purple-300/70 mt-1 max-w-xs">
               Try adjusting your price range, category, or search term to discover more hand-picked deals.
             </p>
+
+            {/* ⭐ Popular searches — FIXED */}
+            <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 max-w-xs">
+              <span className="text-[10px] font-bold text-slate-400 dark:text-purple-300/50 uppercase w-full text-center mb-1">
+                Try searching
+              </span>
+              {['Shirt', 'Kurta', 'Polo', 'Mug', 'Unisex', 'Black'].map((kw) => (
+                <button
+                  key={kw}
+                  onClick={() => {
+                    setSelectedCategory('all');
+                    setSelectedPriceTier('all');
+                    setMinRating(0);
+                    onSearchChange?.(kw);
+                  }}
+                  className="px-2.5 py-1 rounded-full bg-orange-500/10 text-orange-600 dark:text-orange-400 text-[10px] font-bold hover:bg-orange-500 hover:text-white transition-colors"
+                >
+                  {kw}
+                </button>
+              ))}
+            </div>
+
             <button
               onClick={() => {
                 setSelectedCategory('all');
@@ -361,7 +374,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
         )}
       </div>
 
-      {/* WhatsApp VIP Deal Alerts Card */}
+      {/* WhatsApp VIP Card */}
       <div className="mx-4 mt-4 rounded-2xl p-4 bg-gradient-to-br from-[#16062a] via-[#1f0933] to-[#0c1f17] text-white shadow-md relative overflow-hidden border border-purple-900/40" style={{ zIndex: 10 }}>
         <div className="absolute right-0 top-0 w-32 h-32 bg-orange-500/10 rounded-full blur-xl pointer-events-none" />
         <div className="relative z-10 flex flex-col gap-1.5">
