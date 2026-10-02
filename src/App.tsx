@@ -365,21 +365,26 @@ export default function App() {
       )}
 
       <Header
-        currentTab={currentTab}
-        onTabChange={(tab) => {
-          if (tab === 'explore') setExploreCategory('all');
-          setCurrentTab(tab);
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        }}
-        searchQuery={searchQuery}
-        onSearchChange={handleSearchChange}
-        theme={theme}
-        onToggleTheme={handleToggleTheme}
-        wishlistCount={wishlist.length}
-        cartCount={totalCartCount}
-        onOpenCart={() => setIsCartOpen(true)}
-        user={currentUser}
-      />
+  currentTab={currentTab}
+  onTabChange={(tab) => {
+    if (tab === 'explore') setExploreCategory('all');
+    setCurrentTab(tab);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }}
+  searchQuery={searchQuery}
+  onSearchChange={handleSearchChange}
+  theme={theme}
+  onToggleTheme={handleToggleTheme}
+  wishlistCount={wishlist.length}
+  cartCount={totalCartCount}
+  onOpenCart={() => setIsCartOpen(true)}
+  user={currentUser}
+  onOpenBlog={() => {
+    setActivePost(null);
+    setCurrentTab('blog');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }}
+/>
 
       <main className="max-w-2xl mx-auto pt-24 pb-32 min-h-screen">
         {currentTab === 'home' && (

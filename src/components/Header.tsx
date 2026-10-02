@@ -9,10 +9,11 @@ interface HeaderProps {
   onSearchChange: (query: string) => void;
   theme: ThemeMode;
   onToggleTheme: () => void;
-  wishlistCount?: number;
+  wishlistCount: number;
   cartCount: number;
-  onOpenCart: () => void;
+  onOpenCart?: () => void;
   user: UserProfile | null;
+  onOpenBlog: () => void;
 }
 
 const HeaderComponent: React.FC<HeaderProps> = ({
@@ -25,6 +26,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
   cartCount,
   onOpenCart,
   user,
+  onOpenBlog,
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
 
@@ -33,6 +35,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
       case 'home': return 'Home Storefront';
       case 'explore': return 'Explore Catalog';
       case 'deals': return 'Exclusive Deals';
+      case 'blog': return 'Fashion Guides';
       case 'cart': return 'Shopping Cart';
       case 'wishlist': return 'Curated Wardrobe';
       case 'account': return 'VIP Account';
@@ -66,6 +69,21 @@ const HeaderComponent: React.FC<HeaderProps> = ({
           </button>
 
           <div className="flex items-center gap-1.5 shrink-0 relative z-50 pointer-events-auto">
+
+            {/* ⭐ BLOG ICON — NEW */}
+            <button
+              onClick={onOpenBlog}
+              aria-label="Blog"
+              className={`relative w-9 h-9 flex items-center justify-center rounded-full active:scale-95 transition-all pointer-events-auto ${
+                currentTab === 'blog'
+                  ? 'text-orange-400 bg-white/10'
+                  : 'text-purple-200/80 hover:text-orange-400 hover:bg-white/10'
+              }`}
+            >
+              <span className="material-symbols-outlined text-[20px]">article</span>
+            </button>
+
+            {/* Theme toggle */}
             <button
               onClick={onToggleTheme}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
@@ -76,6 +94,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
               </span>
             </button>
 
+            {/* Cart */}
             <button
               onClick={onOpenCart}
               aria-label="Shopping Cart"
@@ -89,6 +108,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
               )}
             </button>
 
+            {/* Avatar */}
             <button
               onClick={() => onTabChange('account')}
               aria-label="User Account"
