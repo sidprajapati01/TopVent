@@ -22,14 +22,14 @@ export const STORIES_DATA: Story[] = [
     subtitle: 'Fluid Mulberry Silks & Plissé Evening Cocktail Gowns',
     featuredProductCount: 38,
   },
- {
-  id: 'story-coffee-cup',
-  title: 'Mug',
-  category: 'cup',
-  imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
-  storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
-  subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
-  featuredProductCount: 12,
+  {
+    id: 'story-coffee-cup',
+    title: 'Mug',
+    category: 'cup',
+    imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
+    storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
+    subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
+    featuredProductCount: 12,
   }
 ];
 
@@ -192,7 +192,6 @@ export const PRODUCTS_DATA: Product[] = [
 
   // ─────────────────────────────────────────
   // MEN'S PRODUCT 5: MASACIO KURTA
-  // ⚠️ NOTE: This link is from Ekyaa brand (not Masacio)
   // ─────────────────────────────────────────
   {
     id: 'prod-masacio-mandarin-kurta',
@@ -269,7 +268,6 @@ export const PRODUCTS_DATA: Product[] = [
 
   // ─────────────────────────────────────────
   // MEN'S PRODUCT 7: FAHME PREMIUM KURTA
-  // ⚠️ NOTE: This link is from MACSIVO brand (not FAHME)
   // ─────────────────────────────────────────
   {
     id: 'prod-fahme-premium-kurta',
@@ -419,7 +417,6 @@ export const PRODUCTS_DATA: Product[] = [
 
   // ─────────────────────────────────────────
   // MEN'S PRODUCT 11: SMOWKLY SHIRT JACKET
-  // ⚠️ NOTE: This link is from IMPERIAL CHOICE brand (not SMOWKLY)
   // ─────────────────────────────────────────
   {
     id: 'prod-smowkly-shirt-jacket',
@@ -565,6 +562,496 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/71zj6TuF09L._SY550_.jpg',
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0FT14GYML?tag=topvent-21',
+  },
+  
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 15: NITE FLITE EBONY NIGHTWEAR
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-nite-flite-ebony',
+    brand: 'NITE FLITE',
+    name: "Ebony Men's 100% Cotton Nightwear",
+    price: 1503,
+    originalPrice: 1599,
+    discountPercent: 6,
+    rating: 3.5,
+    reviewCount: 44,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81hsWYRUKUL._SX679_.jpg',
+    altText: "NITE FLITE Ebony Men's 100% Cotton Nightwear",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "NITE FLITE Ebony Men's 100% Cotton Nightwear. Comfortable and breathable cotton fabric, perfect for a good night's sleep.",
+    fabricBlend: '100% Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/81hsWYRUKUL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51UE5COA1fL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/51CWTi5yE0L._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61USAMXklHL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61g-3I0GelL._SX522_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B09JZMGPZ1?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 16: NITE FLITE PICASSO NIGHTWEAR
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-nite-flite-picasso',
+    brand: 'NITE FLITE',
+    name: "Picasso Blue Men's Cotton Nightwear",
+    price: 1503,
+    originalPrice: 1599,
+    discountPercent: 6,
+    rating: 3.7,
+    reviewCount: 23,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/717y21jZaYL._SX679_.jpg',
+    altText: "NITE FLITE Picasso Blue Men's Cotton Nightwear",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "NITE FLITE Picasso Blue Men's Cotton Nightwear. Soft and comfortable cotton material for relaxed nights.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Dark Blue', hex: '#000080', imageUrl: 'https://m.media-amazon.com/images/I/717y21jZaYL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51rVzKKKpCL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/51wOr9rqSdL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/51tbhpOfCaL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/817fAFE+yiL._SX522_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CBK1BG6D?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 17: NITE FLITE SANGRIA NIGHTWEAR
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-nite-flite-sangria',
+    brand: 'NITE FLITE',
+    name: "Sangria Men's 100% Cotton Nightwear",
+    price: 1430,
+    originalPrice: 1599,
+    discountPercent: 11,
+    rating: 3.4,
+    reviewCount: 58,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81gubm9y+AL._SX679_.jpg',
+    altText: "NITE FLITE Sangria Men's 100% Cotton Nightwear",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "NITE FLITE Sangria Men's 100% Cotton Nightwear. Premium quality nightwear for ultimate comfort.",
+    fabricBlend: '100% Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Wine', hex: '#722F37', imageUrl: 'https://m.media-amazon.com/images/I/81gubm9y+AL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51OrA0zH+bL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71kMxX0+lmL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/51Pm-1rLtBL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61NcFb0F7sL._SX522_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B09JZN4RC4?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 18: DIJUCA MED SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-dijuca-med-shirt',
+    brand: 'Dijuca Med',
+    name: "Men's Cotton Blend Slim Fit Shirt",
+    price: 279,
+    originalPrice: 1649,
+    discountPercent: 83,
+    rating: 3.6,
+    reviewCount: 53,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/91TSh5+PEiL._SX679_.jpg',
+    altText: "Men's Cotton Blend Slim Fit Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Men's Cotton Blend Slim Fit Shirt | Full Sleeve Casual wear for Men | Comfortable Office Wear Shirt for All Seasons.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Slim Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Dark Brown', hex: '#654321', imageUrl: 'https://m.media-amazon.com/images/I/91TSh5+PEiL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71Wtv+VbDaL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71XGZVj3CaL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71d4YszJraL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71nGMJZAjSL._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H7WST3RK?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 19: VAYU MEN SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-vayu-men-shirt',
+    brand: 'Vayu',
+    name: "Men's Stylish Cotton Blend Casual Shirt",
+    price: 349,
+    originalPrice: 1099,
+    discountPercent: 68,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/7180HqtN-ML._SX679_.jpg',
+    altText: "Vayu Men's Stylish Cotton Blend Casual Shirt",
+    tag: 'bazaar Crazy Prices',
+    isPrime: true,
+    description: "Vayu Men's Stylish Cotton Blend Casual Shirt || Full Sleeve Button-Down with Pockets || Comfortable Breathable Fabric.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Navy Blue', hex: '#000080', imageUrl: 'https://m.media-amazon.com/images/I/7180HqtN-ML._SX679_.jpg' }
+    ],
+    sizes: ['M', 'L', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51Rq5J-LyDL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61rInjkKmQL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61clu5RkHcL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61tp1-WWfCL._SX425_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GWNBXC5D?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 20: SHOWOFFFF SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-showoffff-shirt',
+    brand: 'SHOWOFFFF',
+    name: "Men Solid Casual Shirt",
+    price: 855,
+    originalPrice: 2440,
+    discountPercent: 65,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81l-mwfN2BL._SX679_.jpg',
+    altText: "SHOWOFFFF Men Solid Casual Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "SHOWOFFFF Men Solid Casual Shirt | Spread Collar Full Sleeves Cotton Shirt for Mens | Slim Fit Regular Length Shirt for Men's.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Slim Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Blue', hex: '#0000FF', imageUrl: 'https://m.media-amazon.com/images/I/81l-mwfN2BL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61O0liJYagL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51-U6IjNlbL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71JNfmqP+LL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51T-RruikUL._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CM3247CK?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 21: NOBERO SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-nobero-shirt',
+    brand: 'NOBERO',
+    name: "Everyday Comfort Shirt for Men",
+    price: 1399,
+    originalPrice: 3799,
+    discountPercent: 63,
+    rating: 4.0,
+    reviewCount: 14,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/712F4W+Or9L._SX679_.jpg',
+    altText: "Nobero Everyday Comfort Shirt for Men",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Nobero Everyday Comfort Shirt for Men | Cotton Shirts for Men in 205 GSM Plated Interlock | Stand Collar | Regular Fit | Full Sleeve.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Corydalis Blue', hex: '#87CEEB', imageUrl: 'https://m.media-amazon.com/images/I/712F4W+Or9L._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71O1IBddrEL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71SY772JhsL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/61z9f80truL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71n0RzVzISL._SX425_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GZP229NC?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 22: GRECIILOOKS SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-greciilooks-shirt',
+    brand: 'GRECIILOOKS',
+    name: "Men's Shirt Formal Button Down",
+    price: 499,
+    originalPrice: 1999,
+    discountPercent: 75,
+    rating: 3.8,
+    reviewCount: 3532,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81Hu7nrcanL._SX679_.jpg',
+    altText: "GRECIILOOKS Men's Shirt Formal Button Down",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "GRECIILOOKS Men's Shirt | Formal Button Down – Slim Fit Office Shirt's for Men | Premium Textured Long Sleeve Cotton Blend.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Slim Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Maroon', hex: '#800000', imageUrl: 'https://m.media-amazon.com/images/I/81Hu7nrcanL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51cBa9qM1qL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51E5VJ-Q5sL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51J5HoBkytL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/81Hu7nrcanL._SX679_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CP2J3DWX?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 23: LERIYA MEN FORMAL SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-leriya-men-formal-shirt',
+    brand: 'Leriya Fashion',
+    name: "Men's Formal Button Down Shirt",
+    price: 499,
+    originalPrice: 1999,
+    discountPercent: 75,
+    rating: 3.8,
+    reviewCount: 3005,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/61qkmzkjztL._SY550_.jpg',
+    altText: "Leriya Fashion Men's Formal Button Down Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Leriya Fashion Men's Formal Button Down Shirt – Slim Fit Shirt's for Men | Textured Long Sleeve Polycotton| Business & Meeting Ready.",
+    fabricBlend: 'Polycotton',
+    silhouettes: 'Slim Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Maroon', hex: '#800000', imageUrl: 'https://m.media-amazon.com/images/I/61qkmzkjztL._SY550_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/614X6T9bXgL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61NbOB09OML._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61LayfPsf5L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/617tuTFgbeL._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/Leriya-Fashion-Textured-Shirts-Stylish/dp/B0CM1187BL?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 24: DEELMO LINEN SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-deelmo-linen-shirt',
+    brand: 'DEELMO',
+    name: "Men's Casual Button Down Shirts Long Sleeve Linen Shirt",
+    price: 330,
+    originalPrice: 1999,
+    discountPercent: 83,
+    rating: 3.8,
+    reviewCount: 1506,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/919Ro6MPQsL._SX679_.jpg',
+    altText: "DEELMO Men's Casual Button Down Shirts Long Sleeve Linen Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "DEELMO Men's Casual Button Down Shirts Long Sleeve Linen Shirt Fashion Textured Beach Summer Shirt.",
+    fabricBlend: 'Linen',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Light F Blue', hex: '#ADD8E6', imageUrl: 'https://m.media-amazon.com/images/I/919Ro6MPQsL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71H0o55CIQL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61gpGeCfMIL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71rwzlb-MWL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71pdQGiOJeL._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/DEELMO-Casual-Button-Fashion-Textured/dp/B0D4M86S5Z?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 25: INDOPRIMO SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-indoprimo-shirt',
+    brand: 'IndoPrimo',
+    name: "Men's Regular Fit Fancy Double Flap Pocket Casual Shirt",
+    price: 499,
+    originalPrice: 999,
+    discountPercent: 50,
+    rating: 3.6,
+    reviewCount: 1042,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/91eHOEhvCGL._SX679_.jpg',
+    altText: "IndoPrimo Men's Regular Fit Fancy Double Flap Pocket Casual Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "IndoPrimo Men's Regular Fit Fancy Double Flap Pocket Casual Shirt for Men Full Sleeves.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Grey', hex: '#808080', imageUrl: 'https://m.media-amazon.com/images/I/91eHOEhvCGL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/719npadSZtL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51GpOJHB9+L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71EPTUyhfTL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51VXdYGJ+5L._SX425_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/IndoPrimo-Regular-Double-Pocket-Sleeves/dp/B0DCZBY1S3?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // MEN'S PRODUCT 26: BOLDSHARK QUARTER-ZIP SWEATSHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-boldshark-quarter-zip-sweatshirt',
+    brand: 'BOLDSHARK',
+    name: "Men's Quarter-Zip Pullover Sweatshirt, Classic Mock Neck, Long Sleeve, Casual Athletic Wear",
+    price: 699,
+    originalPrice: 2599,
+    discountPercent: 73,
+    rating: 5.0,
+    reviewCount: 2,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/61u0I+2Yn-L._SX569_.jpg',
+    altText: "BOLDSHARK Men's Quarter-Zip Pullover Sweatshirt in Brown",
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "BOLDSHARK Men's Quarter-Zip Pullover Sweatshirt, Classic Mock Neck, Long Sleeve, Casual Athletic Wear. Comfortable and stylish for everyday wear.",
+    fabricBlend: 'Cotton Blend Fleece',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Brown', hex: '#654321', imageUrl: 'https://m.media-amazon.com/images/I/61u0I+2Yn-L._SX569_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51XK5UJgd9L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61ClCahXr4L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/51tsDCzQlFL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/519RtrmANuL._SY500_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FWRBSQ5J?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // MEN'S PRODUCT 27: AUSK HALF ZIP SWEATSHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-ausk-half-zip-sweatshirt',
+    brand: 'AUSK',
+    name: "Men's Half Zip Sweatshirt || Full Sleeve Fleece Stylish Pullover T-Shirt || Zip Collar Regular Fit Casual Winterwear",
+    price: 649,
+    originalPrice: 2499,
+    discountPercent: 74,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81MsG5lyCML._SX679_.jpg',
+    altText: "AUSK Men's Half Zip Sweatshirt in White",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "AUSK Men's Half Zip Sweatshirt || Full Sleeve Fleece Stylish Pullover T-Shirt || Zip Collar Regular Fit Casual Winterwear Sweatshirt's for Men.",
+    fabricBlend: 'Fleece',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'White', hex: '#FFFFFF', imageUrl: 'https://m.media-amazon.com/images/I/81MsG5lyCML._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61fU5yx+MWL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71sjcVxckEL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/61CoUeO+CVL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71Ui0kYtrCL._SX425_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HH8XX54S?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // MEN'S PRODUCT 28: IMSA MODA POLYCOTTON FLEECE SWEATSHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-imsa-moda-fleece-sweatshirt',
+    brand: 'Imsa Moda',
+    name: "Stylish Polycotton Fleece Sweatshirt for Men | Warm Gym, Travel & Casual Hoodie | Comfortable Winter Wear",
+    price: 499,
+    originalPrice: 999,
+    discountPercent: 50,
+    rating: 3.4,
+    reviewCount: 37,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/41a6JVtTumL._SY500_.jpg',
+    altText: "Imsa Moda Stylish Polycotton Fleece Sweatshirt in Black",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Stylish Polycotton Fleece Sweatshirt for Men | Warm Gym, Travel & Casual Hoodie | Comfortable Winter Wear.",
+    fabricBlend: 'Polycotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/41a6JVtTumL._SY500_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/41a6JVtTumL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/31hOqxZg1RL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/415k+IuRt7L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/31it9Bz0bRL._SY500_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FQL1PJX2?tag=topvent-21'
   },
 
   // ═════════════════════════════════════════
@@ -757,7 +1244,6 @@ export const PRODUCTS_DATA: Product[] = [
 
   // ─────────────────────────────────────────
   // WOMEN'S PRODUCT 6: ANNI DESIGNER BLUE KURTA SET
-  // ⚠️ NOTE: This link is an estimate — please verify
   // ─────────────────────────────────────────
   {
     id: 'prod-anni-designer-blue-kurta-set',
@@ -831,7 +1317,6 @@ export const PRODUCTS_DATA: Product[] = [
 
   // ─────────────────────────────────────────
   // WOMEN'S PRODUCT 8: SHAAMI INDIGO MIDI DRESS
-  // ⚠️ NOTE: This link is from SHASMI brand (spelling differs)
   // ─────────────────────────────────────────
   {
     id: 'prod-shaami-indigo-midi-dress',
@@ -1047,6 +1532,566 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/716c3jMYy2L._SY550_.jpg',
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0FHBKXSPG?tag=topvent-21',
+  },
+
+    // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 14: LERIYA ABSTRACT SHIRT
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-leriya-abstract-shirt',
+    brand: 'Leriya Fashion',
+    name: "Abstract Printed Crepe Full Sleeve Shirt",
+    price: 399,
+    originalPrice: 1999,
+    discountPercent: 80,
+    rating: 3.6,
+    reviewCount: 741,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/91EhtQstn3L._SX679_.jpg',
+    altText: "Leriya Fashion Shirt for Women Abstract Printed Crepe Full Sleeve Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Leriya Fashion Shirt for Women S-3XL | Abstract Printed Crepe Full Sleeve Shirt Collared Silhouette | Office Wear Tops for Women.",
+    fabricBlend: 'Crepe',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Brown', hex: '#7a4b2a', imageUrl: 'https://m.media-amazon.com/images/I/91EhtQstn3L._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL', '3XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71SGymd--AL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71DxWIHZfjL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71Phj4iPecL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71fBApeb-HL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DQLK1LST?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 15: LERIYA FLORAL DRESS
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-leriya-floral-dress',
+    brand: 'Leriya Fashion',
+    name: "Floral Printed One Piece Dress",
+    price: 499,
+    originalPrice: 1999,
+    discountPercent: 75,
+    rating: 3.8,
+    reviewCount: 115,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/81FfQhic2NL._SX679_.jpg',
+    altText: "Leriya Fashion Dress for Women Western Floral Printed One Piece Dress",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Leriya Fashion Dress for Women | Western Floral Printed One Piece Dress for Women midi | Casual Sleeveless Summer Dresses for Beach & Stylish Party Outfits.",
+    fabricBlend: 'Polyester',
+    silhouettes: 'Midi Dress',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'White', hex: '#FFFFFF', imageUrl: 'https://m.media-amazon.com/images/I/81FfQhic2NL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81AQPia+m7L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81TKzbDIwEL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81sGbf8JefL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71Ra4X9JlvL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GDQFY4HC?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 16: TAGDO KURTA SET
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-tagdo-kurta-set',
+    brand: 'TAGDO',
+    name: "Linen Cotton Kurta Sets for Women",
+    price: 699,
+    originalPrice: 2799,
+    discountPercent: 75,
+    rating: 3.6,
+    reviewCount: 107,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/51zEGLFYQrL._SX425_.jpg',
+    altText: "TAGDO Linen Cotton Kurta Sets for Women",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "TAGDO Linen Cotton Kurta Sets for Women | Stylish Matching Co-Ord Set for Women | Mandarin with V-Neck Full Sleeve | Ethnic Kurti with Palazzo Pants.",
+    fabricBlend: 'Linen Cotton',
+    silhouettes: 'Co-Ord Set',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Chiku', hex: '#D2B48C', imageUrl: 'https://m.media-amazon.com/images/I/51zEGLFYQrL._SX425_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81R9PUckPhL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81vpYJgxVOL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81UPlDYs7WL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81rlm0HsCBL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GVZCPVLC?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 17: FERY LONDON TOP
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-fery-london-top',
+    brand: 'FERY LONDON',
+    name: "Floral Print Round Neck Full Sleeve TOP",
+    price: 517,
+    originalPrice: 1999,
+    discountPercent: 74,
+    rating: 3.7,
+    reviewCount: 115,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/71rImn06DoL._SY550_.jpg',
+    altText: "FERY LONDON Women's Floral Print Round Neck Full Sleeve TOP",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "FERY LONDON Women's Floral Print Round Neck Full Sleeve TOP | Women Top's || Tops for Womens|| Women Long sleeve tops.",
+    fabricBlend: 'Polyester',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Cream', hex: '#FFFDD0', imageUrl: 'https://m.media-amazon.com/images/I/71rImn06DoL._SY550_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81738L3hNrL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81XtD6+vbqL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81VSNzPm3kL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71rImn06DoL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GCM4CFNV?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 18: KERI PERRY BLAZER
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-keri-perry-blazer',
+    brand: 'KERI PERRY',
+    name: "Women's Blazers Open Front Jacket",
+    price: 449,
+    originalPrice: 1399,
+    discountPercent: 68,
+    rating: 3.8,
+    reviewCount: 115,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/815V6CIeZwL._SX679_.jpg',
+    altText: "KERI PERRY Women's Blazers Open Front Jacket",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "KERI PERRY Women's Blazers | Blazer for Women | Top | Tshirt | Tops for Woman | Open Front Jacket | Lightweight Coat | Round Neck Longline Jackets Blouse.",
+    fabricBlend: 'Polyester',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Beige', hex: '#F5F5DC', imageUrl: 'https://m.media-amazon.com/images/I/815V6CIeZwL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61V634B1ZzL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51NfaEZeY8L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51HYZrHlX5L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/41ElhCQQqpL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GSQC1WK9?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 19: VERO MODA POLO
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-vero-moda-polo',
+    brand: 'VERO MODA',
+    name: "Women Self Design Polo T-Shirt",
+    price: 1198,
+    originalPrice: 2499,
+    discountPercent: 52,
+    rating: 3.5,
+    reviewCount: 7,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/812pfY4TTbL._SX679_.jpg',
+    altText: "VERO Moda Women Self Design Polo T-Shirt",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "VERO Moda Women Self Design Polo T-Shirt. Stylish and comfortable for everyday wear.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Cloud Dancer', hex: '#F0F0F0', imageUrl: 'https://m.media-amazon.com/images/I/812pfY4TTbL._SX679_.jpg' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/613JJiax8NL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61mhvd0FTWL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51HOF9yJewL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61QGGcEJn1L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/VERO-MODA-Womens-Regular-White/dp/B0DKT6VNCC?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 20: FIORRA CO-ORD SET
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-fiorra-coord-set',
+    brand: 'FIORRA',
+    name: "Women's Linen-Blend Loose Relaxed Fit Co-Ord Set",
+    price: 1089,
+    originalPrice: 3499,
+    discountPercent: 69,
+    rating: 5.0,
+    reviewCount: 1,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/815SXE-C43L._SX679_.jpg',
+    altText: "FIORRA Women's Linen-Blend Loose Relaxed Fit Co-Ord Set",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "FIORRA Women's Linen-Blend Loose Relaxed Fit Co-Ord Set. Perfect for casual and semi-formal occasions.",
+    fabricBlend: 'Linen Blend',
+    silhouettes: 'Loose Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Light Pink', hex: '#FFB6C1', imageUrl: 'https://m.media-amazon.com/images/I/815SXE-C43L._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61yYa3z6sxL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61fB2ruBYgL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61VYfmUJg5L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61u34Xzmn8L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GT19L6S7?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 21: SHINE N SHOW PAJAMA
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-shine-n-show-pajama',
+    brand: 'SHINE N SHOW',
+    name: "Women's Pajama Set with Cute Bear and Heart Print",
+    price: 699,
+    originalPrice: 2999,
+    discountPercent: 77,
+    rating: 4.0,
+    reviewCount: 100,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/319p0Ljj8OL._SY500_.jpg',
+    altText: "SHINE N SHOW Women's Pajama Set with Cute Bear and Heart Print",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "SHINE N SHOW - FOREVER GORGEOUS Women's Pajama Set with Cute Bear and Heart Print, Long Sleeve Sleepwear, Beige.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Beige', hex: '#F5F5DC', imageUrl: 'https://m.media-amazon.com/images/I/319p0Ljj8OL._SY500_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/517xENkr+cL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/51USySGVPaL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/519MC42kN7L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/51VvYJMqxEL._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GLPP29QY?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 22: THECHIEF PAJAMA
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-thechief-pajama',
+    brand: 'Thechief',
+    name: "Women's Cotton Pyjama Set, Blue",
+    price: 699,
+    originalPrice: 2599,
+    discountPercent: 73,
+    rating: 1.0,
+    reviewCount: 1,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/81fvy4T+XDL._SX679_.jpg',
+    altText: "Thechief Women's Cotton Pyjama Set, Blue",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Thechief Women's Cotton Pyjama Set, Blue, Short Sleeve Top with Heart Print Plaid Pants, Regular Fit, Two-Piece Set.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Blue', hex: '#0000FF', imageUrl: 'https://m.media-amazon.com/images/I/81fvy4T+XDL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71eU3+una-L._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71AJKaAB63L._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71sQSAIzH5L._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71UGcDv63ZL._SX425_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H4637GKF?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 23: GENERIC PAJAMA SET
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-generic-pajama-set',
+    brand: 'Generic',
+    name: "Women Pajama Set with Top & Pants",
+    price: 699,
+    originalPrice: 999,
+    discountPercent: 30,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61MJWGUFCFL._SX425_.jpg',
+    altText: "Women Pajama Set with Top & Pants",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Women Pajama Set with Top & Pants| Night Dress | Night Suit Shirt Pant Set | Soft & Comfy Sleepwear for Girls & Women | Two Piece Night Suit Set.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Cream', hex: '#FFFDD0', imageUrl: 'https://m.media-amazon.com/images/I/61MJWGUFCFL._SX425_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/612SFXi9ahL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/617nGBgf8IL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/61Wj5mYIB9L._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/319SB5GOnwL._SX425_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HKMXFTZM?tag=topvent-21'
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 24: NAP STORY PAJAMA
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-nap-story-pajama',
+    brand: 'NAP STORY',
+    name: "Soft Hearts Pyjama Set, Grey",
+    price: 1399,
+    originalPrice: 2599,
+    discountPercent: 46,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/A11CMBz+RgL._SX679_.jpg',
+    altText: "NAP STORY Soft Hearts Pyjama Set, Grey",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Soft Hearts Pyjama Set, Grey. Comfortable and stylish sleepwear.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Grey', hex: '#808080', imageUrl: 'https://m.media-amazon.com/images/I/A11CMBz+RgL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71t7Z6ud10L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/817x1rFkNuL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71K8Ld+fiTL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81lcrhqz-tL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HCCF3QRK?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 25: BLACK FLORAL SHORT KURTI
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-black-floral-short-kurti',
+    brand: 'Generic',
+    name: "Women's Black Floral Printed Short Kurti with Bell Sleeves",
+    price: 499,
+    originalPrice: 1999,
+    discountPercent: 75,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61WIprPVR2L._SY741_.jpg',
+    altText: "Women's Black Floral Printed Short Kurti with Bell Sleeves",
+    tag: 'bazaar Crazy Prices',
+    isPrime: true,
+    description: "Women's Black Floral Printed Short Kurti with Bell Sleeves | Lace-Up Side Detail, Square Neck, Pink Floral Motifs, Full Sleeves, Casual Wear.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Short Kurta / Tunic Length',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/61WIprPVR2L._SY741_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', '2XL', '3XL', '4XL', '5XL', '6XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71cjpJXhS4L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/617AELtWN7L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71PEfUcQCQL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61WIprPVR2L._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HJFJH9LV?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 26: V NECK ANARKALI SHORT KURTI
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-v-neck-anarkali-kurti',
+    brand: 'Generic',
+    name: "Women's V Neck Anarkali Short Kurti for Women Full Sleeve Floral Print",
+    price: 235,
+    originalPrice: 699,
+    discountPercent: 66,
+    rating: 4.0,
+    reviewCount: 50,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/71Yok0vIcwL._SY741_.jpg',
+    altText: "Women's V Neck Anarkali Short Kurti with Floral Print",
+    tag: 'bazaar Crazy Prices',
+    isPrime: true,
+    description: "Women's V Neck Anarkali Short Kurti for Women Full Sleeve Floral Print | Stylish Kurtis & Short Kurtis for Women | Casual Kurti with Jeans | Kurtas for Woman.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Anarkali / Flared',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Black Beige', hex: '#1a1a1a', imageUrl: 'https://m.media-amazon.com/images/I/71Yok0vIcwL._SY741_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71Yok0vIcwL._SY741_.jpg',
+      'https://m.media-amazon.com/images/I/61+lH1HU-7L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71V5XmT5xuL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/719b6tii-YL._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0F2HBV75D?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 27: BLACK HANDBLOCK PRINTED KURTI
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-black-handblock-kurti',
+    brand: 'SANGOURI',
+    name: "Elegant Black Handblock Printed Viscose Rayon Kurti – Timeless Ethnic Charm Short Kurta",
+    price: 244,
+    originalPrice: 999,
+    discountPercent: 76,
+    rating: 3.7,
+    reviewCount: 24,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/81GjQmkyZbL._SX679_.jpg',
+    altText: "Elegant Black Handblock Printed Viscose Rayon Kurti",
+    tag: 'bazaar Crazy Prices',
+    isPrime: true,
+    description: "Elegant Black Handblock Printed Viscose Rayon Kurti – Timeless Ethnic Charm Short Kurta 1083.",
+    fabricBlend: 'Viscose Rayon',
+    silhouettes: 'Short Kurta',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/81GjQmkyZbL._SX679_.jpg' }
+    ],
+    sizes: ['XS', 'S', 'M', 'L'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81GjQmkyZbL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/611f8CJ2YdL._SX569_.jpg',
+      'https://m.media-amazon.com/images/I/71lbmZpY09L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71lbmZpY09L._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HJ312DGS?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 28: SQUARE NECK FLORAL KURTI
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-square-neck-floral-kurti',
+    brand: 'Generic',
+    name: "Women's Short Kurti for Women | Square Neck Floral Printed Kurti | Full Sleeve Casual Kurti Top",
+    price: 289,
+    originalPrice: 799,
+    discountPercent: 64,
+    rating: 3.9,
+    reviewCount: 6,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/81Bi7r-+QuL._SX679_.jpg',
+    altText: "Women's Short Kurti with Square Neck and Floral Print",
+    tag: 'bazaar Crazy Prices',
+    isPrime: true,
+    description: "Women's Short Kurti for Women | Square Neck Floral Printed Kurti | Full Sleeve Casual Kurti Top | Stylish Ethnic Tunic for Jeans | Regular Fit Office Wear.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Blue', hex: '#1560bd', imageUrl: 'https://m.media-amazon.com/images/I/81Bi7r-+QuL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81Er4gbqaXL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61j7nncLrcL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81JSwRqeNDL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81zsx+ybNVL._SY550_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H7MWMBJJ?tag=topvent-21'
+  },
+
+    // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 29: PIVL WOMEN SWEATER
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-pivl-women-sweater',
+    brand: 'Pivl',
+    name: "Pivl Women Sweater Solid Round Neck Warm Winter Wear",
+    price: 579,
+    originalPrice: 1999,
+    discountPercent: 71,
+    rating: 5.0,
+    reviewCount: 30,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61gp8kpfnoL._SX679_.jpg',
+    altText: "Pivl Women Sweater Solid Round Neck Warm Winter Wear",
+    tag: 'Fulfilled',
+    isPrime: true,
+    description: "Pivl Women Sweater Solid Round Neck Warm Winter Wear. Comfortable and stylish for everyday winter wear.",
+    fabricBlend: 'Acrylic',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Magenta', hex: '#ff00ff', imageUrl: 'https://m.media-amazon.com/images/I/61gp8kpfnoL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/613uwq1oKgL._SY741_.jpg',
+      'https://m.media-amazon.com/images/I/71Jyb1RrysL._SY741_.jpg',
+      'https://m.media-amazon.com/images/I/71koCVYZnUL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71Jyb1RrysL._SY741_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H61WSX7P?tag=topvent-21'
   },
 
   // ═════════════════════════════════════════

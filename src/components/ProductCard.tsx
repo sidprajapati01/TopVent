@@ -33,6 +33,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     FALLBACK_CATEGORY_IMAGES[product.category] ||
     'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80';
 
+
   return (
     <article
       onClick={() => onSelect(product)}

@@ -226,7 +226,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex justify-center overflow-y-auto animate-in fade-in duration-200"
+      className="fixed inset-0 z-[9999] bg-[#0d0417] flex justify-center overflow-y-auto animate-in fade-in duration-200"
     >
       <div className="w-full max-w-lg min-h-screen bg-slate-50 dark:bg-[#120422] flex flex-col relative text-slate-900 dark:text-slate-100 shadow-2xl pb-24">
         {/* Dynamic Feedback Toasts */}
@@ -244,36 +244,38 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
         )}
 
         {/* =================================================================== */}
-        {/* 1. PRODUCT PHOTO (TOP OF THE PAGE) — SWIPEABLE */}
+        {/* 1. PRODUCT PHOTO (TOP OF THE PAGE) — SWIPEABLE                      */}
         {/* =================================================================== */}
         <section className="relative w-full bg-[#18072e] flex flex-col">
-          <div className="absolute top-0 left-0 right-0 z-30 px-4 pt-3 pb-2 flex items-center justify-between bg-gradient-to-b from-black/70 via-black/30 to-transparent pointer-events-none">
+
+          {/* ⭐ STICKY TOP BAR — Back, Share, Wishlist */}
+          <div className="sticky top-0 z-50 px-3 pt-2.5 pb-2 flex items-center justify-between bg-[#16062a]/95 backdrop-blur-md">
             <button
               onClick={onClose}
               aria-label="Back to catalog"
-              className="pointer-events-auto w-10 h-10 rounded-full bg-[#16062a]/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-orange-500 active:scale-95 transition-all shadow-md"
+              className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-orange-500 active:scale-95 transition-all shadow-md"
             >
-              <span className="material-symbols-outlined text-[20px]">arrow_back_ios_new</span>
+              <span className="material-symbols-outlined text-[18px]">arrow_back_ios_new</span>
             </button>
 
-            <div className="flex items-center gap-2 pointer-events-auto">
+            <div className="flex items-center gap-2">
               <button
                 onClick={handleShare}
                 aria-label="Share product"
-                className="w-10 h-10 rounded-full bg-[#16062a]/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-orange-500 active:scale-95 transition-all shadow-md"
+                className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-orange-500 active:scale-95 transition-all shadow-md"
                 title="Share"
               >
-                <span className="material-symbols-outlined text-[18px]">share</span>
+                <span className="material-symbols-outlined text-[16px]">share</span>
               </button>
 
               <button
                 onClick={(e) => onToggleWishlist(product.id, e)}
                 aria-label={isWishlisted ? 'Saved in Wishlist' : 'Add to Wishlist'}
-                className="w-10 h-10 rounded-full bg-[#16062a]/80 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-orange-500 active:scale-95 transition-all shadow-md"
+                className="w-9 h-9 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white flex items-center justify-center hover:bg-orange-500 active:scale-95 transition-all shadow-md"
                 title="Save to Wishlist"
               >
                 <span
-                  className={`material-symbols-outlined text-[20px] ${isWishlisted ? 'text-rose-500' : ''}`}
+                  className={`material-symbols-outlined text-[18px] ${isWishlisted ? 'text-rose-500' : ''}`}
                   style={isWishlisted ? { fontVariationSettings: "'FILL' 1" } : {}}
                 >
                   favorite
@@ -282,9 +284,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
           </div>
 
-          {/* ⭐ SWIPEABLE IMAGE AREA */}
+          {/* ⭐ IMAGE AREA — 380px */}
           <div
-            className="relative w-full aspect-[4/5] max-h-[480px] flex items-center justify-center overflow-hidden bg-slate-950 select-none cursor-grab active:cursor-grabbing"
+            className="relative w-full h-[380px] flex items-center justify-center overflow-hidden bg-slate-950 select-none cursor-grab active:cursor-grabbing"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -292,30 +294,19 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             onMouseUp={handleMouseUp}
             onMouseLeave={() => { isDragging.current = false; }}
           >
-            {/* Slides container — horizontal slide */}
             <div
               className="flex h-full w-full transition-transform duration-300 ease-out"
-              style={{
-                transform: `translateX(-${activeSlide * 100}%)`,
-              }}
+              style={{ transform: `translateX(-${activeSlide * 100}%)` }}
             >
               {gallery.map((imgUrl, idx) => (
-                <div
-                  key={idx}
-                  className="w-full h-full shrink-0 flex items-center justify-center"
-                >
+                <div key={idx} className="w-full h-full shrink-0 flex items-center justify-center">
                   <img
                     src={imgUrl}
                     alt={`${product.name} - view ${idx + 1}`}
                     draggable={false}
                     loading={idx === 0 ? 'eager' : 'lazy'}
-                    onError={() => {
-                      if (idx === activeSlide) setImgLoadError(true);
-                    }}
-                    onClick={() => {
-                      // Only toggle zoom if not dragging
-                      if (!isDragging.current) setIsZoomed(!isZoomed);
-                    }}
+                    onError={() => { if (idx === activeSlide) setImgLoadError(true); }}
+                    onClick={() => { if (!isDragging.current) setIsZoomed(!isZoomed); }}
                     className={`w-full h-full object-cover transition-transform duration-500 ease-out pointer-events-none select-none ${
                       isZoomed && idx === activeSlide ? 'scale-125 cursor-zoom-out' : 'cursor-zoom-in'
                     }`}
@@ -324,61 +315,48 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               ))}
             </div>
 
-            <div className="absolute top-16 left-4 flex flex-col gap-1.5 z-10 pointer-events-none">
-              <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-orange-500 text-white text-xs font-extrabold shadow-lg tracking-wider">
-                <span className="material-symbols-outlined text-[14px]">bolt</span>
+            {/* Discount + Tag Badges */}
+            <div className="absolute top-3 left-3 flex flex-col gap-1.5 z-10 pointer-events-none">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-orange-500 text-white text-[10px] font-extrabold shadow-lg tracking-wider">
+                <span className="material-symbols-outlined text-[12px]">bolt</span>
                 {product.discountPercent}% OFF
               </span>
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#16062a]/90 backdrop-blur-md text-purple-200 text-[10px] font-bold tracking-wider">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#16062a]/90 backdrop-blur-md text-purple-200 text-[9px] font-bold tracking-wider">
                 {product.tag || 'TOPVENT CURATED'}
               </span>
             </div>
 
-            {/* ⭐ Non-clickable slide indicator */}
-            <div className="absolute bottom-3 inset-x-0 flex justify-center items-center gap-2 z-10 pointer-events-none">
+            {/* Slide Indicator */}
+            <div className="absolute bottom-2.5 inset-x-0 flex justify-center items-center gap-1.5 z-10 pointer-events-none">
               {gallery.map((_, index) => (
                 <span
                   key={index}
                   className={`transition-all rounded-full ${
-                    activeSlide === index
-                      ? 'w-6 h-1.5 bg-orange-500'
-                      : 'w-1.5 h-1.5 bg-white/60'
+                    activeSlide === index ? 'w-5 h-1 bg-orange-500' : 'w-1 h-1 bg-white/60'
                   }`}
                 />
               ))}
             </div>
 
-            {/* ⭐ Image counter (top-right of image area) */}
-            <div className="absolute top-3 right-3 z-10 px-2.5 py-1 rounded-full bg-[#16062a]/80 backdrop-blur-md border border-white/15 pointer-events-none">
-              <span className="text-[10px] font-bold text-white tabular-nums">
-                {activeSlide + 1} / {gallery.length}
-              </span>
-            </div>
-
+            {/* Zoom Button */}
             <button
-              onClick={(e) => {
-                e.stopPropagation();
-                setIsZoomed(!isZoomed);
-              }}
+              onClick={(e) => { e.stopPropagation(); setIsZoomed(!isZoomed); }}
               aria-label={isZoomed ? 'Zoom out' : 'Zoom in'}
-              className="absolute bottom-3 right-4 w-9 h-9 rounded-full bg-[#16062a]/80 backdrop-blur-md text-white flex items-center justify-center hover:bg-orange-500 transition-colors shadow-lg z-10"
+              className="absolute bottom-2.5 right-3 w-8 h-8 rounded-full bg-[#16062a]/80 backdrop-blur-md text-white flex items-center justify-center hover:bg-orange-500 transition-colors shadow-lg z-10"
             >
-              <span className="material-symbols-outlined text-[18px]">
+              <span className="material-symbols-outlined text-[16px]">
                 {isZoomed ? 'zoom_out' : 'zoom_in'}
               </span>
             </button>
           </div>
 
-          {/* Thumbnails (still clickable) */}
-          <div className="px-4 py-3 flex gap-2.5 overflow-x-auto no-scrollbar bg-[#16062a]/80 backdrop-blur-md border-b border-purple-950/50">
+          {/* ⭐ Thumbnails */}
+          <div className="px-3 py-2 flex gap-2 overflow-x-auto no-scrollbar bg-[#16062a]/80 backdrop-blur-md border-b border-purple-950/50">
             {gallery.map((thumbUrl, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  setActiveSlide(index);
-                  setImgLoadError(false);
-                }}
-                className={`w-14 h-16 rounded-xl overflow-hidden shrink-0 transition-all border ${
+                onClick={() => { setActiveSlide(index); setImgLoadError(false); }}
+                className={`w-12 h-14 rounded-lg overflow-hidden shrink-0 transition-all border ${
                   activeSlide === index
                     ? 'ring-2 ring-orange-500 border-orange-500 opacity-100 scale-105 shadow-md'
                     : 'border-transparent opacity-60 hover:opacity-100'
@@ -393,7 +371,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             ))}
           </div>
         </section>
-
         {/* =================================================================== */}
         {/* 2. PRODUCT DETAILS */}
         {/* =================================================================== */}

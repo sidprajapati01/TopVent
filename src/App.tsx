@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, lazy, Suspense, useCallback, useRef } from 'react';
 import { CartItem, Order, Product, Story, TabType, ThemeMode, UserProfile } from './types';
 import { PRODUCTS_DATA, STORIES_DATA } from './data/mockData';
 import { Header } from './components/Header';
@@ -12,8 +12,14 @@ import { DealsView } from './views/DealsView';
 import { WishlistView } from './views/WishlistView';
 import { AccountView } from './views/AccountView';
 
+// ⭐ 3D Background — Lazy Load
+const Background3D = lazy(() => import('./components/Background3D'));
+
 export default function App() {
-  // Theme State
+  // ═════════════════════════════════════════
+  // 1. બધા STATE પહેલા
+  // ═════════════════════════════════════════
+
   const [theme, setTheme] = useState<ThemeMode>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('topvent_theme');
@@ -23,17 +29,13 @@ export default function App() {
     return 'light';
   });
 
-  // ⭐ User State — Defaults to Guest User (no login required)
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
     if (typeof window !== 'undefined') {
       try {
         const savedUser = localStorage.getItem('topvent_user');
         if (savedUser) return JSON.parse(savedUser);
-      } catch {
-        // Fallback
-      }
+      } catch {}
     }
-    // Default Guest User
     return {
       id: 'guest-user',
       fullName: 'Guest User',
@@ -50,11 +52,9 @@ export default function App() {
     };
   });
 
-  // Active Tab & Search
   const [currentTab, setCurrentTab] = useState<TabType>('home');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Wishlist State
   const [wishlist, setWishlist] = useState<string[]>(() => {
     if (typeof window !== 'undefined') {
       try {
@@ -65,7 +65,6 @@ export default function App() {
     return [];
   });
 
-  // Cart State
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window !== 'undefined') {
       try {
@@ -76,7 +75,6 @@ export default function App() {
     return [];
   });
 
-  // Orders State
   const [orders, setOrders] = useState<Order[]>(() => {
     if (typeof window !== 'undefined') {
       try {
@@ -87,59 +85,35 @@ export default function App() {
     return [];
   });
 
-  // Modals & Drawers
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [activeStory, setActiveStory] = useState<Story | null>(null);
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // Toast notification state
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+
+  // ═════════════════════════════════════════
+  // 2. REFS
+  // ═════════════════════════════════════════
+
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+
+  // ═════════════════════════════════════════
+  // 3. CALLBACKS
+  // ═════════════════════════════════════════
+
+  const handleSearchChange = useCallback((query: string) => {
+    if (debounceRef.current) clearTimeout(debounceRef.current);
+    debounceRef.current = setTimeout(() => {
+      setSearchQuery(query);
+      if (query && currentTab !== 'explore') {
+        setCurrentTab('explore');
+      }
+    }, 300);
+  }, [currentTab]);
 
   const showToast = (message: string, type: 'success' | 'error' = 'success') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3000);
   };
-
-  // Sync theme with document
-  useEffect(() => {
-    const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-    } else {
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('topvent_theme', theme);
-  }, [theme]);
-
-  // Sync user with localStorage
-  useEffect(() => {
-    if (currentUser) {
-      localStorage.setItem('topvent_user', JSON.stringify(currentUser));
-    } else {
-      localStorage.removeItem('topvent_user');
-    }
-  }, [currentUser]);
-
-  // Sync wishlist
-  useEffect(() => {
-    try {
-      localStorage.setItem('topvent_wishlist', JSON.stringify(wishlist));
-    } catch {}
-  }, [wishlist]);
-
-  // Sync cart
-  useEffect(() => {
-    try {
-      localStorage.setItem('topvent_cart', JSON.stringify(cart));
-    } catch {}
-  }, [cart]);
-
-  // Sync orders
-  useEffect(() => {
-    try {
-      localStorage.setItem('topvent_orders', JSON.stringify(orders));
-    } catch {}
-  }, [orders]);
 
   const handleToggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
@@ -168,14 +142,6 @@ export default function App() {
     setCurrentTab('explore');
   };
 
-  const handleSearchChange = (query: string) => {
-    setSearchQuery(query);
-    if (query && currentTab !== 'explore') {
-      setCurrentTab('explore');
-    }
-  };
-
-  // Add to Cart
   const handleAddToCart = (
     product: Product,
     size?: string,
@@ -209,7 +175,6 @@ export default function App() {
     showToast(`✅ ${product.name.substring(0, 30)}... added to cart!`);
   };
 
-  // BUY NOW — no-op (direct Amazon link used)
   const handleBuyNow = (_product: Product, _size?: string, _color?: string) => {
     // No-op
   };
@@ -259,7 +224,6 @@ export default function App() {
     setCart([]);
   };
 
-  // Check Now — opens all cart products on Amazon
   const handleClearCartAndCheckout = () => {
     if (cart.length === 0) return;
 
@@ -279,7 +243,6 @@ export default function App() {
     }, reversedCart.length * 600);
   };
 
-  // Update user sizes
   const handleUpdateUserSizes = (clothingSize: string, shoeSize: string) => {
     if (currentUser) {
       setCurrentUser({
@@ -290,7 +253,6 @@ export default function App() {
     }
   };
 
-  // ⭐ NEW: Update full user profile (for Edit Profile feature)
   const handleUpdateUserProfile = (updates: Partial<UserProfile>) => {
     if (currentUser) {
       setCurrentUser({
@@ -302,7 +264,6 @@ export default function App() {
   };
 
   const handleLogout = () => {
-    // Reset to guest user instead of null
     setCurrentUser({
       id: 'guest-user',
       fullName: 'Guest User',
@@ -320,11 +281,64 @@ export default function App() {
     showToast('👋 Signed out successfully');
   };
 
+  // ═════════════════════════════════════════
+  // 4. EFFECTS
+  // ═════════════════════════════════════════
+
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('topvent_theme', theme);
+  }, [theme]);
+
+  useEffect(() => {
+    if (currentUser) {
+      localStorage.setItem('topvent_user', JSON.stringify(currentUser));
+    } else {
+      localStorage.removeItem('topvent_user');
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('topvent_wishlist', JSON.stringify(wishlist));
+    } catch {}
+  }, [wishlist]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('topvent_cart', JSON.stringify(cart));
+    } catch {}
+  }, [cart]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('topvent_orders', JSON.stringify(orders));
+    } catch {}
+  }, [orders]);
+
+  // ═════════════════════════════════════════
+  // 5. DERIVED VALUES
+  // ═════════════════════════════════════════
+
   const wishlistedProducts = PRODUCTS_DATA.filter((p) => wishlist.includes(p.id));
   const totalCartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  // ═════════════════════════════════════════
+  // 6. RETURN
+  // ═════════════════════════════════════════
+
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0d0417] text-slate-900 dark:text-slate-100 transition-colors duration-200">
+
+      {/* ⭐ 3D Background — Lazy Load */}
+      <Suspense fallback={null}>
+        <Background3D />
+      </Suspense>
 
       {/* Toast Notification */}
       {toast && (
@@ -444,6 +458,7 @@ export default function App() {
         onOpenCart={() => setIsCartOpen(true)}
       />
 
+      {/* ⭐ Modals — બધાની ઉપર */}
       <ProductDetailModal
         product={selectedProduct}
         isOpen={Boolean(selectedProduct)}

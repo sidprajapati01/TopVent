@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import { TabType, ThemeMode, UserProfile } from '../types';
 import { TopventBrandLogo } from './TopventBrandLogo';
 
@@ -15,7 +15,7 @@ interface HeaderProps {
   user: UserProfile | null;
 }
 
-export const Header: React.FC<HeaderProps> = ({
+const HeaderComponent: React.FC<HeaderProps> = ({
   currentTab,
   onTabChange,
   searchQuery,
@@ -41,7 +41,7 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 bg-[#16062a]/95 dark:bg-[#0f041d]/95 backdrop-blur-xl border-b border-purple-950/40 shadow-[0_4px_24px_rgba(20,5,38,0.25)] transition-colors">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#16062a]/95 dark:bg-[#0f041d]/95 backdrop-blur-sm border-b border-purple-950/40 shadow-[0_4px_24px_rgba(20,5,38,0.25)] transition-colors">
       <div className="max-w-2xl mx-auto px-4 pt-3 pb-3 flex flex-col gap-2.5">
         <div className="flex items-center justify-between gap-3">
           <button
@@ -65,11 +65,11 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </button>
 
-          <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center gap-1.5 shrink-0 relative z-50 pointer-events-auto">
             <button
               onClick={onToggleTheme}
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-              className="w-9 h-9 flex items-center justify-center rounded-full text-purple-200/80 hover:text-orange-400 hover:bg-white/10 active:scale-95 transition-all"
+              className="w-9 h-9 flex items-center justify-center rounded-full text-purple-200/80 hover:text-orange-400 hover:bg-white/10 active:scale-95 transition-all pointer-events-auto"
             >
               <span className="material-symbols-outlined text-[20px]">
                 {theme === 'dark' ? 'light_mode' : 'dark_mode'}
@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={onOpenCart}
               aria-label="Shopping Cart"
-              className="relative w-9 h-9 flex items-center justify-center rounded-full text-purple-200/80 hover:text-orange-400 hover:bg-white/10 active:scale-95 transition-all"
+              className="relative w-9 h-9 flex items-center justify-center rounded-full text-purple-200/80 hover:text-orange-400 hover:bg-white/10 active:scale-95 transition-all pointer-events-auto"
             >
               <span className="material-symbols-outlined text-[20px]">shopping_cart</span>
               {cartCount > 0 && (
@@ -92,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => onTabChange('account')}
               aria-label="User Account"
-              className="pl-1 flex items-center focus:outline-none"
+              className="pl-1 flex items-center focus:outline-none pointer-events-auto"
             >
               <div className="w-8 h-8 rounded-full overflow-hidden ring-1 ring-orange-500/80 p-0.5 bg-gradient-to-tr from-purple-800 to-orange-500">
                 {user?.avatarUrl ? (
@@ -107,8 +107,8 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        <div className="relative w-full">
-          <div className="flex items-center h-10 w-full px-3 rounded-full bg-white/10 border border-white/10 text-white backdrop-blur-md focus-within:ring-2 focus-within:ring-orange-500/80 transition-all">
+        <div className="relative w-full z-50 pointer-events-auto">
+          <div className="flex items-center h-10 w-full px-3 rounded-full bg-white/10 border border-white/10 text-white backdrop-blur-sm focus-within:ring-2 focus-within:ring-orange-500/80 transition-all pointer-events-auto">
             <span className="material-symbols-outlined text-orange-400 text-[18px] mr-2 shrink-0">
               search
             </span>
@@ -133,3 +133,5 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+
+export const Header = memo(HeaderComponent);

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TabType } from '../types';
 
 interface BottomNavProps {
@@ -8,7 +8,7 @@ interface BottomNavProps {
   onOpenCart?: () => void;
 }
 
-export const BottomNav: React.FC<BottomNavProps> = ({
+const BottomNavComponent: React.FC<BottomNavProps> = ({
   currentTab,
   onTabChange,
   cartCount,
@@ -50,7 +50,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
         <nav
           role="navigation"
           aria-label="Bottom Navigation"
-          className="pointer-events-auto flex items-center justify-around h-16 w-full rounded-2xl sm:rounded-full bg-[#1b0833]/95 dark:bg-[#120524]/95 backdrop-blur-xl border border-purple-900/40 shadow-[0_8px_32px_rgba(10,2,20,0.5)] px-1 sm:px-2"
+          className="pointer-events-auto flex items-center justify-around h-16 w-full rounded-2xl sm:rounded-full bg-[#1b0833]/95 dark:bg-[#120524]/95 backdrop-blur-sm border border-purple-900/40 shadow-[0_8px_32px_rgba(10,2,20,0.5)] px-1 sm:px-2"
         >
           {tabs.map((tab) => {
             const isActive = currentTab === tab.id;
@@ -64,14 +64,12 @@ export const BottomNav: React.FC<BottomNavProps> = ({
                     : 'text-purple-200/70 hover:text-white'
                 }`}
               >
-                {/* Sale Pill Badge */}
                 {tab.badge && (
                   <span className="absolute -top-1 px-1.5 py-0.2 rounded-full bg-orange-500 text-white text-[8px] font-extrabold tracking-wider leading-tight shadow-sm animate-pulse">
                     {tab.badge}
                   </span>
                 )}
 
-                {/* Cart Quantity Badge */}
                 {typeof tab.count === 'number' && tab.count > 0 && (
                   <span className="absolute -top-1 right-2 min-w-[16px] h-3.5 px-1 rounded-full bg-orange-500 text-white text-[8px] font-extrabold flex items-center justify-center leading-tight shadow-sm">
                     {tab.count}
@@ -95,3 +93,5 @@ export const BottomNav: React.FC<BottomNavProps> = ({
     </div>
   );
 };
+
+export const BottomNav = memo(BottomNavComponent);
