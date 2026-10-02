@@ -20,7 +20,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
   onBuyNow,
   onAddToCart,
 }) => {
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'men' | 'women' | 'watches' | 'under-999'>('all');
+  const [selectedFilter, setSelectedFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'under-999'>('all');
   const [secondsLeft, setSecondsLeft] = useState(4 * 3600 + 22 * 60 + 15);
 
   useEffect(() => {
@@ -42,7 +42,8 @@ export const DealsView: React.FC<DealsViewProps> = ({
     if (selectedFilter === 'all') return p.discountPercent >= 50;
     if (selectedFilter === 'men') return p.category === 'men' || p.category === 'footwear';
     if (selectedFilter === 'women') return p.category === 'women' || p.category === 'jewellery';
-    if (selectedFilter === 'watches') return p.category === 'watches';
+    if (selectedFilter === 'cup') return p.category === 'cup';
+    if (selectedFilter === 'unisex') return p.category === 'unisex';
     if (selectedFilter === 'under-999') return p.price <= 999;
     return true;
   });
@@ -142,14 +143,25 @@ export const DealsView: React.FC<DealsViewProps> = ({
           </button>
 
           <button
-            onClick={() => setSelectedFilter('watches')}
+            onClick={() => setSelectedFilter('cup')}
             className={`shrink-0 px-3.5 py-2 rounded-full text-xs font-bold transition-all active:scale-95 ${
-              selectedFilter === 'watches'
+              selectedFilter === 'cup'
                 ? 'bg-orange-500 text-white shadow-md'
                 : 'bg-white dark:bg-[#1a0833] text-slate-700 dark:text-purple-200 border border-slate-200 dark:border-purple-950'
             }`}
           >
-            Watches & Jewellery
+            Mugs
+          </button>
+
+          <button
+            onClick={() => setSelectedFilter('unisex')}
+            className={`shrink-0 px-3.5 py-2 rounded-full text-xs font-bold transition-all active:scale-95 ${
+              selectedFilter === 'unisex'
+                ? 'bg-orange-500 text-white shadow-md'
+                : 'bg-white dark:bg-[#1a0833] text-slate-700 dark:text-purple-200 border border-slate-200 dark:border-purple-950'
+            }`}
+          >
+            Unisex
           </button>
 
           <button

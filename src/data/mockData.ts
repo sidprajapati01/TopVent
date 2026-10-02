@@ -30,6 +30,15 @@ export const STORIES_DATA: Story[] = [
     storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
     subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
     featuredProductCount: 12,
+  },
+  {
+    id: 'story-unisex',
+    title: 'Unisex',
+    category: 'unisex',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dapz8J76iaPx6W2H_zSZmz3AbklUj9GoDn149RMjvt9iYnj0L1_fYas2&s=10',
+    storyImage: 'https://media.vneconomy.vn/images/upload/2023/09/14/my-pham-2.jpg',
+    subtitle: 'Inclusive Fashion & Lifestyle Essentials',
+    featuredProductCount: 24,
   }
 ];
 
@@ -2413,7 +2422,117 @@ export const PRODUCTS_DATA: Product[] = [
     amazonUrl: 'https://www.amazon.in/dp/B0H955J7BY?tag=topvent-21',
   },
 
+  // ═════════════════════════════════════════
+  // UNISEX COLLECTION
+  // ═════════════════════════════════════════
+
+  // ─────────────────────────────────────────
+  // UNISEX PRODUCT 1: MINIMALIST FACE WASH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-minimalist-niacinamide-facewash',
+    brand: 'MINIMALIST',
+    name: "Minimalist Niacinamide 10% + Salicylic Acid 2% Face Wash | Acne Marks Reduction, Oil Control, Pore Minimizing",
+    price: 468,
+    originalPrice: 548,
+    discountPercent: 15,
+    rating: 3.9,
+    reviewCount: 28,
+    category: 'unisex',
+    imageUrl: 'https://m.media-amazon.com/images/I/41uYWw1eT6L._SL1000_.jpg',
+    altText: 'Minimalist Niacinamide 10% + Salicylic Acid 2% Face Wash for oily and acne-prone skin',
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "Minimalist Niacinamide 10% + Salicylic Acid 2% Face Wash | Acne Marks Reduction, Oil Control, Pore Minimizing & Deep Cleansing Skincare Combo for Oily & Acne-Prone Skin. Formulated with 10% Niacinamide and 2% Salicylic Acid for clearer, smoother skin.",
+    fabricBlend: 'Niacinamide + Salicylic Acid',
+    silhouettes: 'Face Wash 100ml',
+    garmentCare: 'Store in cool dry place',
+    innerLining: 'Sulphate-Free, Paraben-Free',
+    colors: [
+      { name: 'White', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/41uYWw1eT6L._SL1000_.jpg' },
+    ],
+    sizes: ['100ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51-bXG4gZ2L._SL1000_.jpg',
+      'https://m.media-amazon.com/images/I/61VGDMtIFPL._SL1000_.jpg',
+      'https://m.media-amazon.com/images/I/41ox88I76cL.jpg',
+      'https://m.media-amazon.com/images/I/71389BYUVbL._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B07J6TCPK6?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // UNISEX PRODUCT 2: SIMPLE REFRESHING FACIAL WASH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-simple-refreshing-facewash',
+    brand: 'SIMPLE',
+    name: "Simple Kind to Skin Refreshing Facial Wash | 100% Soap-Free Gentle Cleanser with Vitamin E & Glycerin",
+    price: 599,
+    originalPrice: 699,
+    discountPercent: 14,
+    rating: 4.2,
+    reviewCount: 37281,
+    category: 'unisex',
+    imageUrl: 'https://m.media-amazon.com/images/I/51ubiOvelJL._SL1000_.jpg',
+    altText: 'Simple Kind to Skin Refreshing Facial Wash 250ml gentle cleanser for all skin types',
+    tag: '#1 BEST SELLER',
+    isPrime: true,
+    description: "Simple Kind to Skin Refreshing Facial Wash | 100% Soap-Free Gentle Cleanser with Vitamin E & Glycerin | For All Skin Types | Perfect for Sensitive Skin, 250ml. Dermatologically tested, no artificial perfume, no harsh chemicals.",
+    fabricBlend: 'Vitamin E + Glycerin',
+    silhouettes: 'Facial Wash 250ml',
+    garmentCare: 'Store in cool dry place',
+    innerLining: 'Soap-Free, Dermatologically Tested',
+    colors: [
+      { name: 'Green', hex: '#93c572', imageUrl: 'https://m.media-amazon.com/images/I/619tWi-4-JL._SL1000_.jpg' },
+    ],
+    sizes: ['250ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61leJOExIcL._SL1000_.jpg',
+      'https://m.media-amazon.com/images/I/61dHwn1SWQL._SL1000_.jpg',
+      'https://m.media-amazon.com/images/I/61SiJq2OElL._SL1000_.jpg',
+      'https://m.media-amazon.com/images/I/61Ell07ZvvL._SL1000_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FJMB2NZM?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // UNISEX PRODUCT 3: CETAPHIL GENTLE SKIN CLEANSER
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-cetaphil-gentle-cleanser',
+    brand: 'CETAPHIL',
+    name: "Cetaphil Gentle Skin Hydrating Face Wash 473ml | Paraben Free, Sulphate-Free Cleanser with Niacinamide, Vitamin B5",
+    price: 1231,
+    originalPrice: 1299,
+    discountPercent: 5,
+    rating: 4.3,
+    reviewCount: 73570,
+    category: 'unisex',
+    imageUrl: 'https://m.media-amazon.com/images/I/61auyKGwckL._SL1500_.jpg',
+    altText: 'Cetaphil Gentle Skin Hydrating Face Wash 473ml for dry to normal sensitive skin',
+    tag: 'LUXURY PICK',
+    isPrime: true,
+    description: "Cetaphil Gentle Skin Hydrating Face Wash 473ml, Paraben Free, Sulphate-Free Gentle Skin Hydrating Cleanser with Niacinamide, Vitamin B5 for Dry to Normal, Sensitive Skin. #1 Best Seller in Face Wash. Hydrates as it cleanses, soothes and helps replenish skin's moisture.",
+    fabricBlend: 'Niacinamide + Vitamin B5',
+    silhouettes: 'Face Wash 473ml',
+    garmentCare: 'Store in cool dry place',
+    innerLining: 'Paraben-Free, Sulphate-Free',
+    colors: [
+      { name: 'White', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/71KQXWr3ExL._SL1500_.jpg' },
+    ],
+    sizes: ['473ml'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51ycmKvLmDL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/61iMz8rM-ML._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/61y9LQxLQ-L._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71d1M3NnL9L._SL1500_.jpg'
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GV7NZ1P6?tag=topvent-21',
+  },
+
 ];
+
 
 
 export const INITIAL_USER_PROFILE: UserProfile = {
