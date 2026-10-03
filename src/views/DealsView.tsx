@@ -20,7 +20,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
   onBuyNow,
   onAddToCart,
 }) => {
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'under-999' | 'Accessories'>('all');
+  const [selectedFilter, setSelectedFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories' | 'under-999'>('all');
   const [secondsLeft, setSecondsLeft] = useState(4 * 3600 + 22 * 60 + 15);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
     if (selectedFilter === 'women') return p.category === 'women' || p.category === 'jewellery';
     if (selectedFilter === 'cup') return p.category === 'cup';
     if (selectedFilter === 'unisex') return p.category === 'unisex';
-    if (selectedFilter === 'Accessories') return p.category === 'Accessories';
+    if (selectedFilter === 'accessories') return p.category === 'accessories';
     if (selectedFilter === 'under-999') return p.price <= 999;
     return true;
   });

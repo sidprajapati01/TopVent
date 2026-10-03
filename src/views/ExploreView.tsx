@@ -45,7 +45,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     { id: 'women', label: 'Women' },
     { id: 'cup', label: 'Mugs' },
     { id: 'unisex', label: 'Unisex' },
-    { id: 'Accessories', label: 'Accessories' },
+    { id: 'accessories', label: 'Accessories' },
   ];
 
   // ⭐ STEP 1: Filtering Logic
@@ -186,12 +186,13 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
       {/* Filter & Sort Strip */}
       <div className="w-full px-4 py-2 flex items-center justify-between gap-2 relative" style={{ zIndex: 10 }}>
         <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 flex-1">
-          {(selectedPriceTier !== 'all' || minRating > 0 || selectedCategory !== 'all') && (
-            <button
-              onClick={() => {
+          {(selectedPriceTier !== 'all' || minRating > 0 || selectedCategory !== 'all' || searchQuery.trim()) && (
+        <button
+          onClick={() => {
                 setSelectedPriceTier('all');
                 setMinRating(0);
                 setSelectedCategory('all');
+                onSearchChange?.('');   // ⭐ NEW
               }}
               className="shrink-0 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-orange-500/15 text-orange-600 dark:text-orange-400 text-xs font-bold"
             >
