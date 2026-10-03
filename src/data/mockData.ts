@@ -39,6 +39,15 @@ export const STORIES_DATA: Story[] = [
     storyImage: 'https://media.vneconomy.vn/images/upload/2023/09/14/my-pham-2.jpg',
     subtitle: 'Inclusive Fashion & Lifestyle Essentials',
     featuredProductCount: 24,
+  },
+  {
+    id: 'story-Accessories',
+    title: 'Accessories',
+    category: 'accessories',
+    imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
+    storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
+    subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
+    featuredProductCount: 12,
   }
 ];
 
@@ -1963,7 +1972,7 @@ export const PRODUCTS_DATA: Product[] = [
     amazonUrl: 'https://www.amazon.in/dp/B0HJFJH9LV?tag=topvent-21'
   },
 
-    // ─────────────────────────────────────────
+  // ─────────────────────────────────────────
   // WOMEN'S PRODUCT 26: V NECK ANARKALI SHORT KURTI
   // ─────────────────────────────────────────
   {
@@ -2103,6 +2112,40 @@ export const PRODUCTS_DATA: Product[] = [
     amazonUrl: 'https://www.amazon.in/dp/B0H61WSX7P?tag=topvent-21'
   },
 
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 30: VAN HEUSEN STRIPED SWEATER
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-van-heusen-striped-sweater',
+    brand: 'VAN HEUSEN',
+    name: "Van Heusen Women's Round Neck Striped Regular Fit Sweater | Full Sleeve Ribbed Hem Casual Winterwear",
+    price: 1019,
+    originalPrice: 1699,
+    discountPercent: 40,
+    rating: 4.1,
+    reviewCount: 37,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/81dyq5VweWL._SX679_.jpg',
+    altText: "Van Heusen women's pink and cream striped round neck sweater with ribbed hem",
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "Van Heusen Women's Round Neck Striped Regular Fit Sweater with Full Sleeve and Ribbed Hem. Premium quality casual winterwear for women, perfect for everyday styling, office wear, and winter outings. Soft and comfortable fabric with elegant striped pattern.",
+    fabricBlend: 'Premium Acrylic Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Pink', hex: '#ffb6c1', imageUrl: 'https://m.media-amazon.com/images/I/81dyq5VweWL._SX679_.jpg' }
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71gl7LAPYZL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71T01oLDAAL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81nUyyMxNpL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71v6se8jGrL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FHB5VJ95?tag=topvent-21',
+  },
   // ═════════════════════════════════════════
   // COFFEE CUP COLLECTION
   // ═════════════════════════════════════════
@@ -2531,6 +2574,81 @@ export const PRODUCTS_DATA: Product[] = [
     amazonUrl: 'https://www.amazon.in/dp/B0GV7NZ1P6?tag=topvent-21',
   },
 
+  
+  // ═════════════════════════════════════════
+  // ACCESSORIES COLLECTION
+  // ═════════════════════════════════════════
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 1: VOGARD CARD HOLDER
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-vogard-card-holder',
+    brand: 'VOGARD',
+    name: "VOGARD Men Metal Card Holder with Money Pocket Pop Up Wallet RFID Blocking Slim Bank Card Case Holds 7 to 9 Cards and Notes (Grey)",
+    price: 447,
+    originalPrice: 1799,
+    discountPercent: 75,
+    rating: 4.1,
+    reviewCount: 460,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/41oD4VQ+XwL._SY741_.jpg',
+    altText: "VOGARD men grey metal RFID blocking card holder wallet with pop-up mechanism",
+    tag: 'LIMITED DEAL',
+    isPrime: true,
+    description: "VOGARD Men Metal Card Holder with Money Pocket Pop Up Wallet RFID Blocking Slim Bank Card Case. Holds 7 to 9 Cards and Notes. Premium metal construction with pop-up card mechanism, RFID blocking technology for security, slim design fits in front pocket, elegant grey finish.",
+    fabricBlend: 'Premium Metal Alloy',
+    silhouettes: 'Slim Card Holder',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'RFID Blocking Layer',
+    colors: [
+      { name: 'Grey', hex: '#808080', imageUrl: 'https://m.media-amazon.com/images/I/41oD4VQ+XwL._SY741_.jpg' },
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/816Y+q4dtvL._SY450_.jpg' },
+    ],
+    sizes: ['7-9 Cards'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61O+ruYlzaL.jpg',
+      'https://m.media-amazon.com/images/I/51CCWgTLT1L.jpg',
+      'https://m.media-amazon.com/images/I/414tv3p6B6L.jpg',
+      'https://m.media-amazon.com/images/I/61Qwi3PGIrL.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0D968ZCNC?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 2: V2A IMPACT WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-v2a-impact-watch',
+    brand: 'V2A',
+    name: "V2A Impact 50mm Analog Digital Watch for Men | Tonneau Sports Case Design | Alarm Stopwatch Countdown Dual Time | TPU Strap | 50M Water Resistant | Gift for Men",
+    price: 1504,
+    originalPrice: 2999,
+    discountPercent: 50,
+    rating: 3.8,
+    reviewCount: 16,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/71MIsP3oUPL._SY741_.jpg',
+    altText: "V2A Impact 50mm black analog digital sports watch with tonneau case and TPU strap",
+    tag: 'SPORTS PICK',
+    isPrime: true,
+    description: "V2A Impact 50mm Analog Digital Watch for Men with Tonneau Sports Case Design. Features Alarm, Stopwatch, Countdown, Dual Time display. Durable TPU Strap, 50M Water Resistant. Perfect gift for men who love sporty and functional timepieces.",
+    fabricBlend: 'TPU Strap + Metal Case',
+    silhouettes: 'Tonneau Sports Design',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: '50M Water Resistant',
+    colors: [
+      { name: 'Phantom Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/71MIsP3oUPL._SY741_.jpg' },
+    ],
+    sizes: ['50mm'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71GElmG3GsL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/81CdnU9pLwL._SX385_.jpg',
+      'https://m.media-amazon.com/images/I/613GRDQa9XL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61kxFgUcryL._SX522_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GRW194CK?tag=topvent-21',
+  },
 ];
 
 

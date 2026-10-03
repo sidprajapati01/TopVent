@@ -7,7 +7,7 @@ export interface Product {
   discountPercent: number;
   rating: number;
   reviewCount: number;
-  category: 'men' | 'women' | 'cup' | 'unisex' |  'jewellery' | 'watches' | 'footwear' | 'accessories';
+  category: 'men' | 'women' | 'cup' | 'unisex' | 'jewellery' | 'watches' | 'footwear' | 'accessories';
   imageUrl: string;
   altText: string;
   tag?: string;
