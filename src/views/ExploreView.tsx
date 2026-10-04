@@ -46,7 +46,7 @@ export const ExploreView: React.FC<ExploreViewProps> = ({
     { id: 'cup', label: 'Mugs' },
     { id: 'unisex', label: 'Unisex' },
     { id: 'accessories', label: 'Accessories' },
-    { id: 'Footwear', label: 'Footwear' },
+    { id: 'footwear', label: 'Shoes' },
   ];
 
   // ⭐ STEP 1: Filtering Logic
