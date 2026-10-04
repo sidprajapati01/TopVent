@@ -2685,6 +2685,251 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0BQRPLS37?tag=topvent-21',
   },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 4: AMERICANVIBER CRONO PRINT WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-americanviber-crono-watch',
+    brand: 'AMERICANVIBER',
+    name: "AMERICANVIBER Minimalist Crono Print Date Dial with Softest Adjustable Flexible Rubber Belt Quartz Analog Wrist Watch for Men and Boys (White Textured Dial)",
+    price: 297,
+    originalPrice: 1999,
+    discountPercent: 85,
+    rating: 4.0,
+    reviewCount: 66,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/61L7-ETs6NL._SY741_.jpg',
+    altText: "AMERICANVIBER minimalist crono print quartz analog wrist watch with black rubber belt and white textured dial",
+    tag: 'LIMITED DEAL',
+    isPrime: true,
+    description: "AMERICANVIBER Minimalist Crono Print Date Dial Analog Wrist Watch. Features soft adjustable flexible rubber belt, quartz movement, date display, and premium chronograph-inspired design. Comfortable for daily wear, 50+ bought in past month.",
+    fabricBlend: 'Rubber Belt + Stainless Steel Case',
+    silhouettes: 'Round Chrono Design',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Mineral Glass',
+    colors: [
+      { name: 'Full Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/61L7-ETs6NL._SY741_.jpg' },
+    ],
+    sizes: ['One Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61-DSHRmo8L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61E0mffmw5L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61MQEL4kN8L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61eIbH6fJoL._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0G8MFVLBL?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 5: AMERICANVIBER STEEL BELT WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-americanviber-steel-watch',
+    brand: 'AMERICANVIBER',
+    name: "AMERICANVIBER Affordable Men's Watch Under 500 | Classic Round Dial | Quartz Movement | Stainless Steel Black Belt | Trendy Party & Office Wear",
+    price: 435,
+    originalPrice: 1299,
+    discountPercent: 67,
+    rating: 3.8,
+    reviewCount: 371,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/51iuBoHBHDL._SX679_.jpg',
+    altText: "AMERICANVIBER classic round dial quartz watch with stainless steel black belt for men",
+    tag: 'BEST VALUE',
+    isPrime: true,
+    description: "AMERICANVIBER Affordable Men's Watch with Classic Round Dial, Quartz Movement, and Stainless Steel Black Belt. Perfect for trendy party and office wear. Premium build quality at budget price, 900+ bought in past month.",
+    fabricBlend: 'Stainless Steel Belt',
+    silhouettes: 'Classic Round Dial',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Mineral Glass',
+    colors: [
+      { name: 'Black Steel', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/51iuBoHBHDL._SX679_.jpg' },
+    ],
+    sizes: ['One Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81FdLCLszZL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/81fqhgleGjL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61feUAxrb9L._SX385_.jpg',
+      'https://m.media-amazon.com/images/I/51iuBoHBHDL._SX679_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0G1HM7TNK?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 6: LOUIS DEVIN MEN'S METAL CHAIN WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-louis-devin-men-metal-watch',
+    brand: 'LOUIS DEVIN',
+    name: "LOUIS DEVIN Men's Watch (Metal Chain Analog Wrist Watch G036)",
+    price: 379,
+    originalPrice: 1999,
+    discountPercent: 81,
+    rating: 3.7,
+    reviewCount: 810,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/81M4ZUpmQRL._SX679_.jpg',
+    altText: "LOUIS DEVIN men's metal chain analog wrist watch G036 with black chronograph dial",
+    tag: 'LIMITED DEAL',
+    isPrime: true,
+    description: "LOUIS DEVIN Men's Metal Chain Analog Wrist Watch G036. Premium metal chain strap with black chronograph-style dial. Elegant design perfect for office wear, parties, and formal occasions.",
+    fabricBlend: 'Stainless Steel Metal Chain',
+    silhouettes: 'Chronograph Round',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Mineral Glass',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/81M4ZUpmQRL._SX679_.jpg' },
+    ],
+    sizes: ['One Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71Aozoin6fL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71iI4MdeXaL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71+-IFVxDUL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71tZ2dAZUfS._SX522_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B097TKDDHP?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 7: LOUIS DEVIN STEEL CHAIN WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-louis-devin-steel-chain-watch',
+    brand: 'LOUIS DEVIN',
+    name: "LOUIS DEVIN Steel Chain Analog Wrist Watch for Men (White/Blue/Black Dial) | LD-GR062-CH",
+    price: 368,
+    originalPrice: 1999,
+    discountPercent: 82,
+    rating: 3.7,
+    reviewCount: 310,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/71l7gug368L._SX679_.jpg',
+    altText: "LOUIS DEVIN steel chain analog wrist watch LD-GR062-CH with blue dial and Roman numerals",
+    tag: 'LIMITED DEAL',
+    isPrime: true,
+    description: "LOUIS DEVIN Steel Chain Analog Wrist Watch for Men. Features Roman numerals on dial, textured pattern, and premium steel chain strap. Available in White, Blue, and Black dial options. 100+ bought in past month.",
+    fabricBlend: 'Stainless Steel Chain',
+    silhouettes: 'Round Roman Design',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Mineral Glass',
+    colors: [
+      { name: 'Blue', hex: '#1560bd', imageUrl: 'https://m.media-amazon.com/images/I/71l7gug368L._SX679_.jpg' },
+    ],
+    sizes: ['One Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71YXh5EMoVL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71HJozU2N9L._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71BxPNrfO2L._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61EtxftQulL._SX522_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0D3HX3929?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 8: CRESTELLO STEEL CHAIN WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-crestello-steel-watch',
+    brand: 'CRESTELLO',
+    name: "CRESTELLO Stainless Steel Chain Analog Wrist Watch for Men (Blue/Black/Silver Dial) | CR-G021",
+    price: 389,
+    originalPrice: 1999,
+    discountPercent: 81,
+    rating: 3.4,
+    reviewCount: 79,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/71Onl+2wxsL._SX679_.jpg',
+    altText: "CRESTELLO stainless steel chain analog wrist watch CR-G021 with blue dial and silver case",
+    tag: 'LIMITED DEAL',
+    isPrime: true,
+    description: "CRESTELLO Stainless Steel Chain Analog Wrist Watch for Men. Premium blue dial with silver case design. Durable stainless steel construction, perfect for everyday wear and formal occasions.",
+    fabricBlend: 'Stainless Steel Chain',
+    silhouettes: 'Round Classic Design',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Mineral Glass',
+    colors: [
+      { name: 'Blue', hex: '#1560bd', imageUrl: 'https://m.media-amazon.com/images/I/71Onl+2wxsL._SX679_.jpg' },
+    ],
+    sizes: ['One Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71vye06yAkL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71lRPPFeEhL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71nNpKY-g5L._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61Rr3-JKQ5L._SX522_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0BQYXKYJX?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 9: ZALVEX LEATHER RFID WALLET
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-zalvex-leather-wallet',
+    brand: 'ZALVEX',
+    name: "ZALVEX Men Leather Wallet, Minimalist Wallet 9-13 Cards, Slim Compact Wallet with Money Clip & ID Window, RFID Blocking Smart Pop Up Card Wallet, Metal Aluminum Credit Card Holder Bifold Wallet (Blue)",
+    price: 4189,
+    originalPrice: 10849,
+    discountPercent: 61,
+    rating: 4.5,
+    reviewCount: 4608,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/71NjJ1YgR5L._SL1500_.jpg',
+    altText: "ZALVEX men's minimalist carbon fiber leather wallet with RFID blocking and pop up card holder",
+    tag: '#1 BEST SELLER',
+    isPrime: true,
+    description: "ZALVEX Men Leather Wallet with RFID Blocking Technology. Holds 9-13 cards with smart pop-up mechanism. Features money clip, ID window, and premium carbon fiber finish. Sleek metal aluminum credit card holder design. 4,608+ verified reviews, #1 Best Seller.",
+    fabricBlend: 'Leather + Carbon Fiber + Aluminum',
+    silhouettes: 'Slim Bifold Pop-Up',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'RFID Blocking Layer',
+    colors: [
+      { name: 'Carbon Fiber', hex: '#1a1a1a', imageUrl: 'https://m.media-amazon.com/images/I/71NjJ1YgR5L._SL1500_.jpg' },
+    ],
+    sizes: ['9-13 Cards'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71DcuSu6MuL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71MuaRaRshL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71dozAbXvWL._SL1500_.jpg',
+      'https://m.media-amazon.com/images/I/71r9wgqRI2L._SL1500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DCRZ5P2H?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 10: OLEVS CHRONOGRAPH SQUARE WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-olevs-chronograph-watch',
+    brand: 'OLEVS',
+    name: "OLEVS Watch for Men Chronograph Analog Quartz Original Stylish Mens Watches 3ATM Waterproof Square Large Dial Branded Wrist Watch for Man",
+    price: 5220,
+    originalPrice: 5900,
+    discountPercent: 12,
+    rating: 4.2,
+    reviewCount: 43,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/71q6iZwTTPL._SX569_.jpg',
+    altText: "OLEVS men's chronograph square large dial analog wrist watch with black and rose gold design",
+    tag: 'LUXURY PICK',
+    isPrime: true,
+    description: "OLEVS Watch for Men with Chronograph Analog Quartz Movement. Features unique square large dial design, 3ATM waterproof rating, and premium branded construction. Stylish timepiece for modern men. 50+ bought in past month.",
+    fabricBlend: 'Stainless Steel + Rubber',
+    silhouettes: 'Square Large Dial',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: '3ATM Waterproof',
+    colors: [
+      { name: 'J-All Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/71q6iZwTTPL._SX569_.jpg' },
+    ],
+    sizes: ['45mm'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/612AoyQbUaL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61x2+JWFQyL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/61Jo9N3OcYL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/61k5BYfHosL._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FDF7CYGP?tag=topvent-21',
+  },
 ];
 
 
