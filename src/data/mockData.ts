@@ -2649,6 +2649,42 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0GRW194CK?tag=topvent-21',
   },
+
+  
+  // ─────────────────────────────────────────
+  // ACCESSORIES PRODUCT 3: LOUIS DEVIN WOMEN'S WATCH
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-louis-devin-women-watch',
+    brand: 'LOUIS DEVIN',
+    name: "LOUIS DEVIN Rose Gold Plated Mesh Chain Analog Wrist Watch for Women (Black/Blue/Rose Gold Dial) | RG162",
+    price: 368,
+    originalPrice: 2599,
+    discountPercent: 86,
+    rating: 4.0,
+    reviewCount: 3051,
+    category: 'accessories',
+    imageUrl: 'https://m.media-amazon.com/images/I/71SMpLB1n5L._SX679_.jpg',
+    altText: "LOUIS DEVIN rose gold plated mesh chain analog wrist watch for women with floral dial design",
+    tag: '#1 BEST SELLER',
+    isPrime: true,
+    description: "LOUIS DEVIN Rose Gold Plated Mesh Chain Analog Wrist Watch for Women. Elegant floral pattern dial with premium rose gold finish. Features adjustable mesh chain strap, precise analog movement, and durable build. Perfect gift for women on birthdays, anniversaries, and special occasions. 700+ bought in past month.",
+    fabricBlend: 'Rose Gold Plated Stainless Steel',
+    silhouettes: 'Mesh Chain Analog',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Mineral Glass',
+    colors: [
+      { name: 'Rose Gold', hex: '#b76e79', imageUrl: 'https://m.media-amazon.com/images/I/71SMpLB1n5L._SX679_.jpg' },
+    ],
+    sizes: ['One Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/617ydzDm2tL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/81mq7Pa-sOL._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71CliVKCjML._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/71nZbZbSI9L._SX522_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0BQRPLS37?tag=topvent-21',
+  },
 ];
 
 
