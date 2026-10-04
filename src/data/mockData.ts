@@ -2939,6 +2939,366 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0FDF7CYGP?tag=topvent-21',
   },
+
+
+  // ═════════════════════════════════════════
+  // FOOTWEAR (SHOES) COLLECTION
+  // ═════════════════════════════════════════
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 1: BACCA BUCCI MEN HIGH TOP (White/Tan)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-bacca-bucci-men-hightop-white-tan',
+    brand: 'BACCA BUCCI',
+    name: "Bacca Bucci Men Lace Up Shoes | High Top Sneakers (White/Tan)",
+    price: 1580,
+    originalPrice: 2999,
+    discountPercent: 47,
+    rating: 4.3,
+    reviewCount: 361,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/61XTGJvUoFL._SY535_.jpg',
+    altText: "Bacca Bucci men's white and tan high top lace up sneakers",
+    tag: 'LIMITED DEAL',
+    isPrime: true,
+    description: "Bacca Bucci Men Lace Up Shoes — Premium high-top sneakers crafted with durable synthetic leather and cushioned sole. Elegant white and tan colorway, perfect for casual outings, parties, and everyday wear.",
+    fabricBlend: 'Synthetic Leather + Rubber Sole',
+    silhouettes: 'High Top Sneakers',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Cushioned Insole',
+    colors: [
+      { name: 'White & Tan', hex: '#f5f5dc', imageUrl: 'https://m.media-amazon.com/images/I/61rNU4hnRQL._SX625_.jpg' },
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/814X+Pl6VbL._SX500_.jpg' },
+      { name: 'Grey', hex: '#808080', imageUrl: 'https://m.media-amazon.com/images/I/81NW6g7kOUL._SX500_.jpg' },
+    ],
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10', 'UK 11'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61rNU4hnRQL._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/61g7AQ9pyIL._SY535_.jpg',
+      'https://m.media-amazon.com/images/I/71d+NLl2S7L._SY535_.jpg',
+      'https://m.media-amazon.com/images/I/81niTG1kXjL._SY535_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CVF1XKWP?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 2: ASIAN CARNIVAL-13
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-asian-carnival-13',
+    brand: 'ASIAN',
+    name: "ASIAN Carnival-13 Men's High Top Casual Chunky Fashion Sneakers | Basketball Shoes with Rubber Outsole for Boys",
+    price: 999,
+    originalPrice: 1999,
+    discountPercent: 50,
+    rating: 3.9,
+    reviewCount: 892,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/A1b6WLauLyL._SX500_.jpg',
+    altText: "ASIAN Carnival-13 men's light grey high top chunky fashion sneakers",
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "ASIAN Carnival-13 Men's High Top Casual Chunky Fashion Sneakers with Basketball Shoe design. Durable rubber outsole for grip, chunky silhouette for style. Perfect for dancing, casual wear, and street fashion.",
+    fabricBlend: 'Synthetic + Rubber Outsole',
+    silhouettes: 'High Top Chunky',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Cushioned Insole',
+    colors: [
+      { name: 'Light Grey', hex: '#d3d3d3', imageUrl: 'https://m.media-amazon.com/images/I/81x+bWeeCUL._SY535_.jpg' },
+      { name: 'White', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/81x+bWeeCUL._SY535_.jpg' },
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/81x+bWeeCUL._SY535_.jpg' },
+    ],
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/A1b6WLauLyL._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/81z19-pAdeL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/A1KcHaS5xfL._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/712w2TAUY3L._SY535_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0C38MP19X?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 3: ASIAN KID'S THUNDER-11
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-asian-kids-thunder-11',
+    brand: 'ASIAN',
+    name: "ASIAN Kid's THUNDER-11 Casual White Sneaker Outdoor, High Neck Shoes with Extra Jump Casual Lace-Up Shoes for Boy's",
+    price: 637,
+    originalPrice: 1299,
+    discountPercent: 51,
+    rating: 4.0,
+    reviewCount: 490,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/81Hcovs0owL._SY535_.jpg',
+    altText: "ASIAN kid's THUNDER-11 white and black high neck casual lace-up sneakers",
+    tag: 'KIDS PICK',
+    isPrime: true,
+    description: "ASIAN Kid's THUNDER-11 Casual White Sneaker with High Neck design and Extra Jump support. Premium lace-up design for boys, ideal for outdoor play, school, and everyday wear.",
+    fabricBlend: 'Synthetic + Rubber',
+    silhouettes: 'High Neck Kids Sneakers',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Soft Cushioned Insole',
+    colors: [
+      { name: 'Light Grey', hex: '#d3d3d3', imageUrl: 'https://m.media-amazon.com/images/I/81x+bWeeCUL._SY535_.jpg' },
+      { name: 'Black White', hex: '#1a1a1a', imageUrl: 'https://m.media-amazon.com/images/I/81x+bWeeCUL._SY535_.jpg' },
+    ],
+    sizes: ['UK 10C', 'UK 11C', 'UK 12C', 'UK 13C', 'UK 1', 'UK 2', 'UK 3'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/A1nW-6pLi1L._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/71kDcWzjiQL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/91Yreiy5n9L._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/712w2TAUY3L._SY535_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0BZ4T6LQC?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 4: ASIAN MOJO-54 MEN'S HIGH-TOP
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-asian-mojo-54',
+    brand: 'ASIAN',
+    name: "ASIAN Mojo-54 Men's High-Top Sneakers | Stylish High Neck Casual Shoes with Cushioned Comfort, Durable Build & Grip Sole",
+    price: 1999,
+    originalPrice: 3999,
+    discountPercent: 50,
+    rating: 4.2,
+    reviewCount: 4,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/91FxxCETEAL._SX500_.jpg',
+    altText: "ASIAN Mojo-54 men's grey and yellow high top sneakers with cushioned comfort",
+    tag: 'NEW ARRIVAL',
+    isPrime: true,
+    description: "ASIAN Mojo-54 Men's High-Top Sneakers with premium cushioned comfort, durable build, and excellent grip sole. Stylish high neck casual shoes perfect for streetwear and everyday fashion.",
+    fabricBlend: 'Synthetic Leather + Rubber',
+    silhouettes: 'High Top Sneakers',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Memory Foam Insole',
+    colors: [
+      { name: 'Black Grey', hex: '#3a3a3a', imageUrl: 'https://m.media-amazon.com/images/I/91FxxCETEAL._SX500_.jpg' },
+    ],
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71QxpRsktzL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/717kUyiLcVL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71lG5nq7ljL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71a-Ham1WzL._SY535_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GW8LKD8T?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 5: BRUTON THUNDER STRIKE-219
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-bruton-thunder-strike-219',
+    brand: 'BRUTON',
+    name: "BRUTON Thunder Strike-219 Men's High Top | Lightweight Shoes for Men | Comfortable Walking Jogging Gym Shoes | Lace-Up Training Footwear",
+    price: 750,
+    originalPrice: 2999,
+    discountPercent: 75,
+    rating: 3.6,
+    reviewCount: 77,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/718tJkIdzlL._SY500_.jpg',
+    altText: "BRUTON Thunder Strike-219 men's beige and green high top lightweight training shoes",
+    tag: 'BEST DEAL',
+    isPrime: true,
+    description: "BRUTON Thunder Strike-219 Men's High Top Shoes — Lightweight design ideal for walking, jogging, and gym training. Comfortable lace-up footwear with grippy sole for all-day wear.",
+    fabricBlend: 'Mesh + Rubber Sole',
+    silhouettes: 'High Top Training',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Cushioned Insole',
+    colors: [
+      { name: 'Beige/Green', hex: '#6b8e23', imageUrl: 'https://m.media-amazon.com/images/I/718tJkIdzlL._SY500_.jpg' },
+    ],
+    sizes: ['UK 6', 'UK 7', 'UK 8', 'UK 9', 'UK 10'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/918DnGddFBL._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/71-1K+m5-UL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/717C17-gCdL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71emLu8yM6L._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GL32D76S?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 6: SPARX WOMEN SHOES (Black Pink)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-sparx-women-black-pink',
+    brand: 'SPARX',
+    name: "SPARX Women Shoes | Comfortable Lightweight Running Sneakers (Black Pink)",
+    price: 891,
+    originalPrice: 1099,
+    discountPercent: 19,
+    rating: 4.2,
+    reviewCount: 10641,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/51eXsasMfXL._SY535_.jpg',
+    altText: "SPARX women's black and pink lightweight running sneakers with cushioning",
+    tag: '#1 BEST SELLER',
+    isPrime: true,
+    description: "SPARX Women Shoes — Comfortable and lightweight running sneakers with premium cushioning. Black and pink colorway, perfect for workouts, walking, and everyday casual wear. 50+ bought in past month, 10,641+ verified reviews.",
+    fabricBlend: 'Mesh + EVA Sole',
+    silhouettes: 'Running Sneakers',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Memory Foam Insole',
+    colors: [
+      { name: 'Black Pink', hex: '#ff69b4', imageUrl: 'https://m.media-amazon.com/images/I/51eXsasMfXL._SY535_.jpg' },
+    ],
+    sizes: ['UK 3', 'UK 4', 'UK 5', 'UK 6', 'UK 7', 'UK 8'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/41SPLa5-EsL._SY535_.jpg',
+      'https://m.media-amazon.com/images/I/51CPcXIAmBL._SY535_.jpg',
+      'https://m.media-amazon.com/images/I/A1ddQ+mupTL._SX625_.jpg',
+      'https://m.media-amazon.com/images/I/51i0Af+OMbL._SX500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B08JW14JKF?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 7: BACCA BUCCI BLOSSOM WOMEN'S SNEAKERS
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-bacca-bucci-blossom-women',
+    brand: 'BACCA BUCCI',
+    name: "Bacca Bucci Blossom Women's Sneakers — Genuine Leather Casual Shoes with Floral Accents & Metal Lace Charms | High-Energy Colorways | All-Season Comfort & Style (Sunlit Lavender)",
+    price: 1952,
+    originalPrice: 4999,
+    discountPercent: 61,
+    rating: 4.1,
+    reviewCount: 34,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/71DuJtAeEGL._SX625_.jpg',
+    altText: "Bacca Bucci Blossom women's lavender floral leather sneakers with metal lace charms",
+    tag: 'PREMIUM PICK',
+    isPrime: true,
+    description: "Bacca Bucci Blossom Women's Sneakers — Genuine leather casual shoes with floral accents and metal lace charms. Sunlit Lavender colorway offers high-energy style with all-season comfort. Premium craftsmanship for the fashion-forward woman.",
+    fabricBlend: 'Genuine Leather',
+    silhouettes: 'Low Top Casual Sneakers',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Soft Leather Lining',
+    colors: [
+      { name: 'Sunlit Lavender', hex: '#b19cd9', imageUrl: 'https://m.media-amazon.com/images/I/71DuJtAeEGL._SX625_.jpg' },
+    ],
+    sizes: ['UK 4', 'UK 5', 'UK 6', 'UK 7', 'UK 8'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61XEUxUWP8L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/51WB+-Hg8vL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/513b-cuC0IL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/51S-jyFtCbL._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0G48JZZZD?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 8: SPARX WOMEN'S SX0265L RUNNING SHOE
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-sparx-women-sx0265l',
+    brand: 'SPARX',
+    name: "SPARX Womens Sx0265l Running Shoe (Tulip Purple)",
+    price: 916,
+    originalPrice: 1049,
+    discountPercent: 13,
+    rating: 4.2,
+    reviewCount: 194,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/61g8-pBMC7L._SY500_.jpg',
+    altText: "SPARX women's tulip purple running shoes with pink accents",
+    tag: 'RUNNING PICK',
+    isPrime: true,
+    description: "SPARX Women's Sx0265l Running Shoe in Tulip Purple. Lightweight mesh upper for breathability and cushioned sole for long-distance comfort. Perfect for running, gym, and everyday workouts.",
+    fabricBlend: 'Mesh + EVA Sole',
+    silhouettes: 'Running Shoes',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Cushioned Insole',
+    colors: [
+      { name: 'Tulip Purple', hex: '#b19cd9', imageUrl: 'https://m.media-amazon.com/images/I/61g8-pBMC7L._SY500_.jpg' },
+    ],
+    sizes: ['UK 4', 'UK 5', 'UK 6', 'UK 7', 'UK 8'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71hlLhwH61L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61CBcnvPTHL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71sP4rH+NQL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/617NdXBEGkL._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0D8TNJHJH?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 9: BACCA BUCCI WOMEN LACE UP SNEAKER (Pink)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-bacca-bucci-women-pink',
+    brand: 'BACCA BUCCI',
+    name: "Bacca Bucci Women Lace Up Sneaker Shoes (Pink)",
+    price: 1349,
+    originalPrice: 2999,
+    discountPercent: 55,
+    rating: 4.3,
+    reviewCount: 38,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/71XQoRxLzfL._SY500_.jpg',
+    altText: "Bacca Bucci women's pink and white high top lace up sneakers",
+    tag: 'SALE LIVE',
+    isPrime: true,
+    description: "Bacca Bucci Women Lace Up Sneaker Shoes in elegant Pink colorway. Premium high-top design with cushioned comfort, perfect for casual outings and everyday styling.",
+    fabricBlend: 'Synthetic Leather + Rubber Sole',
+    silhouettes: 'High Top Sneakers',
+    garmentCare: 'Wipe with soft dry cloth',
+    innerLining: 'Cushioned Insole',
+    colors: [
+      { name: 'Pink', hex: '#ffb6c1', imageUrl: 'https://m.media-amazon.com/images/I/71XQoRxLzfL._SY500_.jpg' },
+    ],
+    sizes: ['UK 4', 'UK 5', 'UK 6', 'UK 7'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/717In-NA5qL._SY535_.jpg',
+      'https://m.media-amazon.com/images/I/81+avPH-GQL._SY535_.jpg',
+      'https://m.media-amazon.com/images/I/61uOdAT5mVL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71c0G8zZPpL._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CRZB2YLJ?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // SHOES PRODUCT 10: SPARX WOMEN'S RUNNING SHOE (B0CRZB2YLJ)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-sparx-women-running-last',
+    brand: 'SPARX',
+    name: "SPARX Women's Lightweight Running Sports Shoes | Comfortable Athletic Sneakers",
+    price: 889,
+    originalPrice: 1049,
+    discountPercent: 15,
+    rating: 4.2,
+    reviewCount: 150,
+    category: 'footwear',
+    imageUrl: 'https://m.media-amazon.com/images/I/813j7WwevIL._SY500_.jpg',
+    altText: "SPARX women's lightweight running sports shoes for everyday workouts",
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "SPARX Women's Lightweight Running Sports Shoes with breathable mesh upper and cushioned EVA sole. Perfect for running, gym, walking, and everyday athletic wear.",
+    fabricBlend: 'Mesh + EVA Sole',
+    silhouettes: 'Running Shoes',
+    garmentCare: 'Wipe with soft cloth',
+    innerLining: 'Cushioned Insole',
+    colors: [
+      { name: 'Purple', hex: '#b19cd9', imageUrl: 'https://m.media-amazon.com/images/I/813j7WwevIL._SY500_.jpg' },
+    ],
+    sizes: ['UK 4', 'UK 5', 'UK 6', 'UK 7', 'UK 8'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81vdVularEL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/71Xyh6jutLL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/919BkrNMUpL._SX500_.jpg',
+      'https://m.media-amazon.com/images/I/81UjAm5Yo4L._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0C6TZX4HH?tag=topvent-21',
+  },
 ];
 
 
