@@ -31,7 +31,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
   onAddToCart,
   onNavigateToCategory,   // ⭐ NEW
 }) => {
-  const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories'>('all');
+  const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories' | 'Footwear'>('all');
 
   // ⭐ Hero slideshow state
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -61,6 +61,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         ...getTopFromCategory('cup', LIMIT),
         ...getTopFromCategory('unisex', LIMIT),
         ...getTopFromCategory('accessories', LIMIT),
+        ...getTopFromCategory('footwear', LIMIT),
       ];
     }
 
@@ -300,6 +301,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           { key: 'cup', label: 'Mugs' },
           { key: 'unisex', label: 'Unisex' },
           { key: 'accessories', label: 'Accessories' },
+          { key: 'footwear', label: 'Footwear' },
         ].map((tab) => (
           <button
             key={tab.key}

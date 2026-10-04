@@ -136,7 +136,7 @@ const HeaderComponent: React.FC<HeaderProps> = ({
               type="text"
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              placeholder="Search blazers, watches, sarees, brogues, cocktail gowns..."
+              placeholder="Search blazers, watches, shoes, kurtas, accessories..."
               className="w-full bg-transparent text-sm text-purple-100 placeholder:text-purple-300/60 focus:outline-none"
             />
             {searchQuery && (

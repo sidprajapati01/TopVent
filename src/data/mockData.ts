@@ -48,6 +48,15 @@ export const STORIES_DATA: Story[] = [
     storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
     subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
     featuredProductCount: 12,
+  },
+  {
+    id: 'story-Footwear',
+    title: 'Footwear',
+    category: 'footwear',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dapz8J76iaPx6W2H_zSZmz3AbklUj9GoDn149RMjvt9iYnj0L1_fYas2&s=10',
+    storyImage: 'https://media.vneconomy.vn/images/upload/2023/09/14/my-pham-2.jpg',
+    subtitle: 'Inclusive Fashion & Lifestyle Essentials',
+    featuredProductCount: 24,
   }
 ];
 

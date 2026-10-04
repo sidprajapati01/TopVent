@@ -20,7 +20,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
   onBuyNow,
   onAddToCart,
 }) => {
-  const [selectedFilter, setSelectedFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories' | 'under-999'>('all');
+  const [selectedFilter, setSelectedFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories' | 'Footwear' | 'under-999'>('all');
   const [secondsLeft, setSecondsLeft] = useState(4 * 3600 + 22 * 60 + 15);
 
   useEffect(() => {
@@ -45,6 +45,7 @@ export const DealsView: React.FC<DealsViewProps> = ({
     if (selectedFilter === 'cup') return p.category === 'cup';
     if (selectedFilter === 'unisex') return p.category === 'unisex';
     if (selectedFilter === 'accessories') return p.category === 'accessories';
+    if (selectedFilter === 'Footwear') return p.category === 'footwear';
     if (selectedFilter === 'under-999') return p.price <= 999;
     return true;
   });
@@ -175,7 +176,17 @@ export const DealsView: React.FC<DealsViewProps> = ({
           >
             Accessories
           </button>
-
+          
+          <button
+            onClick={() => setSelectedFilter('footwear')}
+            className={`shrink-0 px-3.5 py-2 rounded-full text-xs font-bold transition-all active:scale-95 ${
+              selectedFilter === 'footwear'
+                ? 'bg-orange-500 text-white shadow-md'
+                : 'bg-white dark:bg-[#1a0833] text-slate-700 dark:text-purple-200 border border-slate-200 dark:border-purple-950'
+            }`}
+          >
+            Shoes
+          </button>
 
           <button
             onClick={() => setSelectedFilter('under-999')}
