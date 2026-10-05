@@ -306,9 +306,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     alt={`${product.name} - view ${idx + 1}`}
                     draggable={false}
                     loading={idx === 0 ? 'eager' : 'lazy'}
-                    onError={() => { if (idx === activeSlide) setImgLoadError(true); }}
-                    onClick={() => { if (!isDragging.current) setIsZoomed(!isZoomed); }}
-                    className={`w-full h-full object-cover transition-transform duration-500 ease-out pointer-events-none select-none ${
+                    onError={() => {
+                      if (idx === activeSlide) setImgLoadError(true);
+                    }}
+                    onClick={() => {
+                      if (!isDragging.current) setIsZoomed(!isZoomed);
+                    }}
+                    className={`w-full h-full object-contain transition-transform duration-500 ease-out pointer-events-none select-none ${
                       isZoomed && idx === activeSlide ? 'scale-125 cursor-zoom-out' : 'cursor-zoom-in'
                     }`}
                   />
