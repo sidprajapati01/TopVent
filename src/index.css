@@ -144,3 +144,23 @@ nav {
   will-change: opacity, filter;
   transform: translateZ(0);
 }
+
+/* ═════════════════════════════════════════ */
+/* Brand Design Tokens                       */
+/* ═════════════════════════════════════════ */
+
+:root {
+  --brand-orange: #f97316;
+  --brand-orange-light: #fb923c;
+  --brand-orange-dark: #ea580c;
+  --brand-purple: #7c3aed;
+  --brand-purple-light: #a855f7;
+  --brand-purple-dark: #6d28d9;
+  --brand-dark: #16062a;
+  --brand-dark-2: #0f041d;
+  --brand-dark-3: #1a0833;
+  --brand-gold: #fbbf24;
+  --text-primary: #0f172a;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+}

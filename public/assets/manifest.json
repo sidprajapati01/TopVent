@@ -1,0 +1,24 @@
+{
+  "name": "TopVent - Luxury Fashion Drops",
+  "short_name": "TopVent",
+  "description": "Hand-curated luxury fashion drops with verified Amazon deals",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#16062a",
+  "theme_color": "#f97316",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/assets/topvent-brand-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/topvent-brand-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

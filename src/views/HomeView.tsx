@@ -3,6 +3,7 @@ import { Product, Story, TabType } from '../types';
 import { ProductCard } from '../components/ProductCard';
 import { ScrollBackground3D } from '../components/ScrollBackground3D';
 import { FloatingFashionIcons } from '../components/FloatingFashionIcons';
+import { BLOG_DATA } from '../data/blogData';
 
 interface HomeViewProps {
   products: Product[];
@@ -15,7 +16,8 @@ interface HomeViewProps {
   isDark: boolean;
   onBuyNow?: (product: Product) => void;
   onAddToCart?: (product: Product) => void;
-  onNavigateToCategory?: (category: string) => void;   // ⭐ NEW
+  onNavigateToCategory?: (category: string) => void;
+  recentlyViewed?: string[];
 }
 
 export const HomeView: React.FC<HomeViewProps> = ({
@@ -29,14 +31,12 @@ export const HomeView: React.FC<HomeViewProps> = ({
   isDark,
   onBuyNow,
   onAddToCart,
-  onNavigateToCategory,   // ⭐ NEW
+  onNavigateToCategory,
+  recentlyViewed,
 }) => {
-  const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories' | 'Footwear'>('all');
-
-  // ⭐ Hero slideshow state
+  const [trendingFilter, setTrendingFilter] = useState<'all' | 'men' | 'women' | 'cup' | 'unisex' | 'accessories' | 'footwear'>('all');
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-advance slide every 3.5 seconds
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % 4);
@@ -44,7 +44,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
     return () => clearInterval(timer);
   }, []);
 
-  // ⭐ Smart Filter: All tab shows 2 from each category | Category tab shows 2 from that category
   const filteredTrending = (() => {
     const LIMIT = 4;
 
@@ -68,35 +67,28 @@ export const HomeView: React.FC<HomeViewProps> = ({
     return getTopFromCategory(trendingFilter, LIMIT);
   })();
 
-  // ⭐ Story click handler — direct to explore with category
   const handleStoryClick = (story: Story) => {
     if (onNavigateToCategory) {
-      // Direct navigation with category filter
       onNavigateToCategory(story.category);
     } else {
-      // Fallback: open story modal (old behavior)
       onOpenStory(story);
     }
   };
 
   return (
     <div className="w-full flex flex-col relative" style={{ zIndex: 10 }}>
-
-      {/* ⭐ Background layers (behind everything) */}
       <ScrollBackground3D />
       <FloatingFashionIcons />
 
-      {/* ⭐ Editorial Brand Hero Section with Blur Frame Slideshow */}
+      {/* Hero Section */}
       <section
         className="relative w-full overflow-hidden bg-gradient-to-b from-[#16062a] via-[#1a0833] to-[#270845] px-4 pt-5 pb-7 text-white shadow-xl"
         style={{ zIndex: 10 }}
       >
-        {/* Ambient atmospheric glowing shapes */}
         <div className="absolute -top-16 -right-12 w-64 h-64 rounded-full bg-orange-500/15 blur-3xl pointer-events-none" />
         <div className="absolute top-1/2 -left-16 w-56 h-56 rounded-full bg-purple-500/15 blur-3xl pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center text-center">
-          {/* Hand-Curated Drops Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/20 backdrop-blur-md mb-3 border border-orange-500/30">
             <span className="material-symbols-outlined text-orange-400 text-[16px]">verified</span>
             <span className="text-[10px] uppercase font-bold tracking-widest text-orange-300">
@@ -114,7 +106,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
             Discover timeless style, trending fashion, and premium finds — all in one place.
           </p>
 
-          {/* BLUR-BORDER FRAME + SLIDESHOW HERO CARD */}
           <div className="relative w-full mb-4">
             <div className="absolute -inset-3 rounded-3xl bg-gradient-to-r from-orange-500/40 via-purple-500/40 to-orange-500/40 blur-2xl opacity-70 animate-pulse-slow pointer-events-none" />
 
@@ -128,7 +119,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     currentSlide === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
                   }`}
                 />
-
                 <img
                   src="https://img.magnific.com/free-photo/cheerful-model-sitting-floor-wearing-modern-oversize-black-jacket-creamy-long-dress-high-heel-shoes-her-feet-curly-hairstyle-makeup_343629-61.jpg?semt=ais_hybrid&w=740&q=80"
                   alt="TopVent Luxury Editorial 2"
@@ -137,7 +127,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     currentSlide === 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
                   }`}
                 />
-
                 <img
                   src="https://img.magnific.com/premium-photo/young-man-relaxed-pose-casual-style-natural-light-fashion-photography-modern-aesthetics-brown_1288522-2032.jpg"
                   alt="TopVent Luxury Editorial 3"
@@ -146,7 +135,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
                     currentSlide === 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-110'
                   }`}
                 />
-
                 <img
                   src="https://plus.unsplash.com/premium_photo-1716196101576-db778a2e7e5f?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="TopVent Luxury Editorial 4"
@@ -205,7 +193,6 @@ export const HomeView: React.FC<HomeViewProps> = ({
             </div>
           </div>
 
-          {/* Quick Micro Metrics */}
           <div className="grid grid-cols-3 gap-2 w-full max-w-xs mt-4 pt-3 bg-white/5 rounded-2xl backdrop-blur-sm p-3 border border-white/10">
             <div className="flex flex-col items-center">
               <span className="text-base sm:text-lg text-orange-400 font-extrabold tabular-nums">50k+</span>
@@ -223,7 +210,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* Category Visual Stories Carousel */}
+      {/* Stories */}
       <section className="w-full py-4 px-4 bg-slate-50 dark:bg-[#120422] transition-colors relative z-10">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
@@ -237,12 +224,11 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </span>
         </div>
 
-        {/* Stories Horizontal Ribbon — Story click navigates to Explore with category */}
         <div className="flex items-center gap-3.5 overflow-x-auto pb-2 pt-1 no-scrollbar -mx-4 px-4">
           {stories.map((story) => (
             <div
               key={story.id}
-              onClick={() => handleStoryClick(story)}   // ⭐ Updated
+              onClick={() => handleStoryClick(story)}
               className="flex flex-col items-center shrink-0 w-16 cursor-pointer group active:scale-95 transition-transform"
             >
               <div className="relative p-0.5 rounded-full bg-gradient-to-tr from-orange-500 via-purple-600 to-amber-400 shadow-sm group-hover:shadow-md">
@@ -264,7 +250,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
-      {/* VIP Lightning Deals Live Pulse Banner */}
+      {/* VIP Deals Banner */}
       <section className="px-4 mb-4 relative z-10">
         <div
           onClick={() => onNavigateTab('deals')}
@@ -292,6 +278,57 @@ export const HomeView: React.FC<HomeViewProps> = ({
         </div>
       </section>
 
+      {/* Featured Blog */}
+      {BLOG_DATA.length > 0 && (
+        <section className="px-4 mb-4 relative z-10">
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-orange-500 text-[20px]">article</span>
+              <h2 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
+                Fashion Guides
+              </h2>
+            </div>
+            <button
+              onClick={() => onNavigateTab('blog')}
+              className="text-xs font-bold text-orange-600 dark:text-orange-400 flex items-center gap-0.5 hover:underline"
+            >
+              <span>See All</span>
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </button>
+          </div>
+
+          <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-4 px-4 pb-2">
+            {BLOG_DATA.slice(0, 3).map((post) => (
+              <div
+                key={post.id}
+                onClick={() => onNavigateTab('blog')}
+                className="shrink-0 w-64 bg-white dark:bg-[#1a0833] rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-all border border-slate-200/80 dark:border-purple-950/60 cursor-pointer active:scale-95"
+              >
+                <img
+                  src={post.coverImage}
+                  alt={post.title}
+                  loading="lazy"
+                  className="w-full h-32 object-cover"
+                />
+                <div className="p-3">
+                  <span className="text-[10px] text-orange-500 font-bold uppercase tracking-wider">
+                    {post.category}
+                  </span>
+                  <h3 className="font-bold text-sm mt-1 text-slate-900 dark:text-white line-clamp-2">
+                    {post.title}
+                  </h3>
+                  <div className="flex items-center gap-2 mt-2 text-[10px] text-slate-500 dark:text-purple-300/60">
+                    <span>{post.publishedAt}</span>
+                    <span>•</span>
+                    <span>{post.readTime} read</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* Category Filter Pills */}
       <div className="px-4 flex items-center gap-2 overflow-x-auto pb-3 no-scrollbar relative z-10">
         {[
@@ -301,7 +338,7 @@ export const HomeView: React.FC<HomeViewProps> = ({
           { key: 'cup', label: 'Mugs' },
           { key: 'unisex', label: 'Unisex' },
           { key: 'accessories', label: 'Accessories' },
-          { key: 'footwear', label: 'Footwear' },
+          { key: 'footwear', label: 'Shoes' },
         ].map((tab) => (
           <button
             key={tab.key}
@@ -317,7 +354,26 @@ export const HomeView: React.FC<HomeViewProps> = ({
         ))}
       </div>
 
-      {/* Curated Trending Drops: ALL Products Grid */}
+      {/* Trust Badges */}
+      <div className="grid grid-cols-3 gap-2 px-4 mb-4 relative z-10">
+        <div className="bg-white dark:bg-[#1a0833] rounded-xl p-3 text-center border border-slate-200/80 dark:border-purple-950/60">
+          <span className="material-symbols-outlined text-orange-500 text-[24px]">verified</span>
+          <p className="text-[10px] font-bold text-slate-900 dark:text-white mt-1">Verified Deals</p>
+          <p className="text-[9px] text-slate-500 dark:text-purple-300/60 mt-0.5">Real-time prices</p>
+        </div>
+        <div className="bg-white dark:bg-[#1a0833] rounded-xl p-3 text-center border border-slate-200/80 dark:border-purple-950/60">
+          <span className="material-symbols-outlined text-orange-500 text-[24px]">local_shipping</span>
+          <p className="text-[10px] font-bold text-slate-900 dark:text-white mt-1">Fast Shipping</p>
+          <p className="text-[9px] text-slate-500 dark:text-purple-300/60 mt-0.5">Amazon Prime</p>
+        </div>
+        <div className="bg-white dark:bg-[#1a0833] rounded-xl p-3 text-center border border-slate-200/80 dark:border-purple-950/60">
+          <span className="material-symbols-outlined text-orange-500 text-[24px]">support_agent</span>
+          <p className="text-[10px] font-bold text-slate-900 dark:text-white mt-1">24/7 Support</p>
+          <p className="text-[9px] text-slate-500 dark:text-purple-300/60 mt-0.5">WhatsApp alerts</p>
+        </div>
+      </div>
+
+      {/* Trending Drops */}
       <section className="px-4 mb-6 relative z-10">
         <div className="flex items-baseline justify-between mb-3">
           <div>
@@ -366,6 +422,47 @@ export const HomeView: React.FC<HomeViewProps> = ({
           </div>
         )}
       </section>
+
+      {/* Recently Viewed */}
+      {recentlyViewed && recentlyViewed.length > 0 && (
+        <section className="px-4 mb-6 relative z-10">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="material-symbols-outlined text-orange-500 text-[20px]">history</span>
+            <h2 className="font-bold text-sm sm:text-base text-slate-900 dark:text-white">
+              Recently Viewed
+            </h2>
+          </div>
+          <div className="flex gap-3 overflow-x-auto no-scrollbar -mx-4 px-4">
+            {recentlyViewed
+              .map((id) => products.find((p) => p.id === id))
+              .filter(Boolean)
+              .slice(0, 6)
+              .map((product) => (
+                <div
+                  key={product!.id}
+                  onClick={() => onSelectProduct(product!)}
+                  className="shrink-0 w-32 bg-white dark:bg-[#1a0833] rounded-xl overflow-hidden shadow-sm border border-slate-200/80 dark:border-purple-950/60 cursor-pointer active:scale-95 transition-transform"
+                >
+                  <img
+                    src={product!.imageUrl}
+                    alt={product!.name}
+                    loading="lazy"
+                    className="w-full h-32 object-cover"
+                  />
+                  <div className="p-2">
+                    <p className="text-[9px] font-bold text-orange-500 uppercase">{product!.brand}</p>
+                    <p className="text-[11px] font-bold text-slate-900 dark:text-white line-clamp-2 mt-0.5">
+                      {product!.name}
+                    </p>
+                    <p className="text-xs font-extrabold text-slate-900 dark:text-white mt-1">
+                      ₹{product!.price}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 };

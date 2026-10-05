@@ -10,6 +10,8 @@ interface ProductDetailModalProps {
   onToggleWishlist: (productId: string, e: React.MouseEvent) => void;
   onAddToCart: (product: Product, size: string, color: string) => void;
   onBuyNow: (product: Product, size: string, color: string) => void;
+  allProducts?: Product[];   // ⭐ NEW
+  onSelectProduct?: (product: Product) => void;   // ⭐ NEW
 }
 
 // Guaranteed high-resolution Unsplash fashion fallbacks by category
@@ -59,6 +61,81 @@ const CATEGORY_IMAGE_FALLBACKS: Record<string, string[]> = {
 
 };
 
+// ⭐ Smart sub-type detection from product name/description
+const detectStyleType = (product: Product): string => {
+  const text = `${product.name} ${product.description || ''}`.toLowerCase();
+
+  // Formal
+  if (
+    text.includes('formal') ||
+    text.includes('office') ||
+    text.includes('business') ||
+    text.includes('blazer') ||
+    text.includes('suit') ||
+    text.includes('tie')
+  ) return 'formal';
+
+  // Casual
+  if (
+    text.includes('casual') ||
+    text.includes('everyday') ||
+    text.includes('relaxed') ||
+    text.includes('comfort')
+  ) return 'casual';
+
+  // Western
+  if (
+    text.includes('western') ||
+    text.includes('dress') ||
+    text.includes('gown') ||
+    text.includes('maxi') ||
+    text.includes('midi') ||
+    text.includes('co-ord') ||
+    text.includes('coord')
+  ) return 'western';
+
+  // Ethnic / Traditional
+  if (
+    text.includes('kurta') ||
+    text.includes('kurti') ||
+    text.includes('ethnic') ||
+    text.includes('traditional') ||
+    text.includes('saree') ||
+    text.includes('dupatta') ||
+    text.includes('palazzo')
+  ) return 'ethnic';
+
+  // Sporty / Athletic
+  if (
+    text.includes('sport') ||
+    text.includes('running') ||
+    text.includes('training') ||
+    text.includes('gym') ||
+    text.includes('athletic') ||
+    text.includes('sneaker')
+  ) return 'sporty';
+
+  // Party / Evening
+  if (
+    text.includes('party') ||
+    text.includes('evening') ||
+    text.includes('cocktail') ||
+    text.includes('club')
+  ) return 'party';
+
+  // Winter
+  if (
+    text.includes('winter') ||
+    text.includes('sweater') ||
+    text.includes('sweatshirt') ||
+    text.includes('hoodie') ||
+    text.includes('jacket') ||
+    text.includes('fleece')
+  ) return 'winter';
+
+  return 'general';
+};
+
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   product,
   isOpen,
@@ -67,6 +144,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   onToggleWishlist,
   onAddToCart,
   onBuyNow,
+  allProducts = [],
+  onSelectProduct,
 }) => {
   const [activeSlide, setActiveSlide] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
@@ -112,6 +191,49 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   }, [product?.id]);
 
   if (!isOpen || !product) return null;
+
+  // ⭐ Smart Related Products — same category + same style type
+  const currentStyle = detectStyleType(product);
+
+  const relatedProducts = (() => {
+    // Step 1: Same category products (exclude current)
+    const sameCategory = allProducts.filter(
+      p => p.category === product.category && p.id !== product.id
+    );
+
+    // Step 2: Priority 1 — Same category + same style type
+    const sameStyle = sameCategory.filter(
+      p => detectStyleType(p) === currentStyle && currentStyle !== 'general'
+    );
+
+    // Step 3: Priority 2 — Same category (any style)
+    const sameCategoryOnly = sameCategory.filter(
+      p => !sameStyle.includes(p)
+    );
+
+    // Step 4: Priority 3 — Any category, same style
+    const anyCategorySameStyle = allProducts.filter(
+      p =>
+        p.id !== product.id &&
+        p.category !== product.category &&
+        detectStyleType(p) === currentStyle &&
+        currentStyle !== 'general'
+    );
+
+    // Step 5: Combine — same style first, then same category, then any same style
+    const combined = [
+      ...sameStyle,
+      ...sameCategoryOnly,
+      ...anyCategorySameStyle,
+    ];
+
+    // Remove duplicates
+    const unique = combined.filter(
+      (p, idx, arr) => arr.findIndex(x => x.id === p.id) === idx
+    );
+
+    return unique.slice(0, 4);
+  })();
 
   const categoryFallbackList =
     CATEGORY_IMAGE_FALLBACKS[product.category] || CATEGORY_IMAGE_FALLBACKS.men;
@@ -829,7 +951,62 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             )}
           </div>
         </section>
-      </div>
+
+        {/* ⭐ Related Products */}
+      {relatedProducts.length > 0 && (
+        <section className="px-4 pt-6 pb-4">
+          <div className="flex items-center gap-2 mb-3">
+            <span className="material-symbols-outlined text-orange-500 text-[20px]">auto_awesome</span>
+            <h3 className="font-extrabold text-base text-slate-900 dark:text-white">
+              {currentStyle === 'formal' && 'More Formal Picks'}
+              {currentStyle === 'casual' && 'More Casual Styles'}
+              {currentStyle === 'western' && 'More Western Looks'}
+              {currentStyle === 'ethnic' && 'More Ethnic Wear'}
+              {currentStyle === 'sporty' && 'More Sporty Picks'}
+              {currentStyle === 'party' && 'More Party Styles'}
+              {currentStyle === 'winter' && 'More Winter Wear'}
+              {currentStyle === 'general' && 'You May Also Like'}
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            {relatedProducts.map((rp) => (
+              <div
+                key={rp.id}
+                onClick={() => {
+                  if (onSelectProduct) {
+                    onSelectProduct(rp);
+                  }
+                }}
+                className="bg-white dark:bg-[#1a0833] rounded-2xl overflow-hidden shadow-sm border border-slate-200/80 dark:border-purple-950/60 cursor-pointer active:scale-95 transition-transform"
+              >
+                <img
+                  src={rp.imageUrl}
+                  alt={rp.name}
+                  loading="lazy"
+                  className="w-full h-32 object-cover"
+                />
+                <div className="p-2.5">
+                  <p className="text-[10px] font-bold text-orange-500 uppercase tracking-wider">
+                    {rp.brand}
+                  </p>
+                  <p className="text-xs font-bold text-slate-900 dark:text-white mt-0.5 line-clamp-2">
+                    {rp.name}
+                  </p>
+                  <div className="flex items-center gap-1.5 mt-1.5">
+                    <span className="text-sm font-extrabold text-slate-900 dark:text-white">
+                      ₹{rp.price.toLocaleString('en-IN')}
+                    </span>
+                    <span className="text-[10px] text-slate-400 line-through">
+                      ₹{rp.originalPrice.toLocaleString('en-IN')}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
 
       <SizeGuideModal
         isOpen={showSizeModal}

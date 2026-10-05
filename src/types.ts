@@ -41,9 +41,9 @@ export interface UserProfile {
   id: string;
   fullName: string;
   email: string;
-  mobile: string;              
-  isEmailVerified: boolean;    
-  isMobileVerified: boolean;   
+  mobile: string;
+  isEmailVerified: boolean;
+  isMobileVerified: boolean;
   avatarUrl: string;
   clothingSize: string;
   shoeSize: string;
@@ -53,7 +53,7 @@ export interface UserProfile {
 }
 
 export interface CartItem {
-  id: string; // `${productId}-${size}-${color}`
+  id: string;
   productId: string;
   product: Product;
   size: string;
@@ -73,7 +73,7 @@ export interface Order {
   trackingNumber: string;
 }
 
-export type TabType = 'home' | 'explore' | 'deals' | 'blog' | 'wishlist' | 'cart' | 'account';
+export type TabType = 'home' | 'explore' | 'deals' | 'blog' | 'wishlist' | 'cart' | 'account' | 'privacy' | 'about' | 'contact';
 
 export type ThemeMode = 'dark' | 'light';
 
@@ -87,6 +87,6 @@ export interface BlogPost {
   publishedAt: string;
   readTime: string;
   author: string;
-  content: string;   // HTML string
+  content: string;
   relatedProducts?: string[];
 }

@@ -14,6 +14,9 @@ import { AccountView } from './views/AccountView';
 import { BlogView } from './views/BlogView';
 import { ArticleView } from './views/ArticleView';
 import { BlogPost } from './types';
+import { Footer } from './components/Footer';
+import { BackToTop } from './components/BackToTop';
+import { PrivacyView, AboutView, ContactView } from './views/StaticPages';
 
 // ⭐ 3D Background — Lazy Load
 const Background3D = lazy(() => import('./components/Background3D'));
@@ -30,6 +33,16 @@ export default function App() {
       return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
     return 'light';
+  });
+
+  const [recentlyViewed, setRecentlyViewed] = useState<string[]>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem('topvent_recently_viewed');
+        if (saved) return JSON.parse(saved);
+      } catch {}
+    }
+    return [];
   });
 
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(() => {
@@ -139,6 +152,10 @@ export default function App() {
 
   const handleSelectProduct = (product: Product) => {
     setSelectedProduct(product);
+    setRecentlyViewed((prev) => {
+      const filtered = prev.filter((id) => id !== product.id);
+      return [product.id, ...filtered].slice(0, 10);
+    });
   };
 
   const handleOpenStory = (story: Story) => {
@@ -331,6 +348,12 @@ export default function App() {
     } catch {}
   }, [orders]);
 
+  useEffect(() => {
+    try {
+      localStorage.setItem('topvent_recently_viewed', JSON.stringify(recentlyViewed));
+    } catch {}
+  }, [recentlyViewed]);
+
   // ═════════════════════════════════════════
   // 5. DERIVED VALUES
   // ═════════════════════════════════════════
@@ -345,12 +368,10 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0d0417] text-slate-900 dark:text-slate-100 transition-colors duration-200">
 
-      {/* ⭐ 3D Background — Lazy Load */}
       <Suspense fallback={null}>
         <Background3D />
       </Suspense>
 
-      {/* Toast Notification */}
       {toast && (
         <div
           className={`fixed top-5 left-1/2 -translate-x-1/2 z-[100] px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2 animate-in slide-in-from-top-2 fade-in ${
@@ -365,32 +386,33 @@ export default function App() {
       )}
 
       <Header
-  currentTab={currentTab}
-  onTabChange={(tab) => {
-    if (tab === 'explore') setExploreCategory('all');
-    setCurrentTab(tab);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }}
-  searchQuery={searchQuery}
-  onSearchChange={handleSearchChange}
-  theme={theme}
-  onToggleTheme={handleToggleTheme}
-  wishlistCount={wishlist.length}
-  cartCount={totalCartCount}
-  onOpenCart={() => setIsCartOpen(true)}
-  user={currentUser}
-  onOpenBlog={() => {
-    setActivePost(null);
-    setCurrentTab('blog');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }}
-/>
+        currentTab={currentTab}
+        onTabChange={(tab) => {
+          if (tab === 'explore') setExploreCategory('all');
+          setCurrentTab(tab);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        searchQuery={searchQuery}
+        onSearchChange={handleSearchChange}
+        theme={theme}
+        onToggleTheme={handleToggleTheme}
+        wishlistCount={wishlist.length}
+        cartCount={totalCartCount}
+        onOpenCart={() => setIsCartOpen(true)}
+        user={currentUser}
+        onOpenBlog={() => {
+          setActivePost(null);
+          setCurrentTab('blog');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
 
       <main className="max-w-2xl mx-auto pt-24 pb-32 min-h-screen">
         {currentTab === 'home' && (
           <HomeView
             products={PRODUCTS_DATA}
             stories={STORIES_DATA}
+            recentlyViewed={recentlyViewed}
             onSelectProduct={handleSelectProduct}
             wishlist={wishlist}
             onToggleWishlist={handleToggleWishlist}
@@ -467,7 +489,6 @@ export default function App() {
           />
         )}
 
-        {/* ⭐ Blog Views */}
         {currentTab === 'blog' && !activePost && (
           <BlogView onSelectPost={setActivePost} />
         )}
@@ -484,7 +505,18 @@ export default function App() {
             onAddToCart={handleAddToCart}
           />
         )}
+
+        {currentTab === 'privacy' && <PrivacyView />}
+        {currentTab === 'about' && <AboutView />}
+        {currentTab === 'contact' && <ContactView />}
       </main>
+
+      <Footer
+        onNavigateTab={(tab) => {
+          setCurrentTab(tab as TabType);
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      />
 
       <BottomNav
         currentTab={currentTab}
@@ -505,6 +537,8 @@ export default function App() {
         onToggleWishlist={handleToggleWishlist}
         onAddToCart={handleAddToCart}
         onBuyNow={handleBuyNow}
+        allProducts={PRODUCTS_DATA}
+        onSelectProduct={handleSelectProduct}
       />
 
       <CartDrawer
@@ -526,6 +560,8 @@ export default function App() {
         onClose={() => setActiveStory(null)}
         onShopCategory={handleShopCategoryFromStory}
       />
+
+      <BackToTop />
     </div>
   );
 }

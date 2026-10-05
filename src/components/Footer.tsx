@@ -1,84 +1,168 @@
-import Link from "next/link";
-import { BrandLockup, Wordmark } from "@/components/Logo";
-import { AFFILIATE_DISCLOSURE, BRAND } from "@/lib/constants";
+import React from 'react';
 
-export function Footer() {
+interface FooterProps {
+  onNavigateTab?: (tab: string) => void;
+}
+
+export const Footer: React.FC<FooterProps> = ({ onNavigateTab }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="mt-20 bg-[#0d0018] text-white">
-      <div className="h-px bg-gradient-to-r from-transparent via-[#ff6a00] to-transparent" />
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-16 md:grid-cols-4">
-        <div>
-          <BrandLockup />
-          <p className="mt-4 max-w-xs font-display text-xl italic text-white/80">
-            Elevate your everyday, Timeless style.
+    <footer className="w-full bg-[#16062a] text-white mt-8 border-t border-purple-900/40">
+      <div className="max-w-2xl mx-auto px-4 py-8">
+        {/* Top Section */}
+        <div className="grid grid-cols-2 gap-6 mb-6">
+          {/* Brand Column */}
+          <div>
+            <h3 className="font-bold text-orange-400 mb-2 text-sm">TOPVENT</h3>
+            <p className="text-purple-200/70 text-xs leading-relaxed">
+              Hand-curated luxury fashion drops with verified Amazon deals up to 80% off.
+            </p>
+            <div className="flex items-center gap-2 mt-3">
+              <span className="material-symbols-outlined text-orange-500 text-[16px]">verified</span>
+              <span className="text-[10px] text-purple-200/60 font-bold uppercase tracking-wider">
+                Amazon Affiliate Partner
+              </span>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-bold text-orange-400 mb-2 text-sm">Quick Links</h3>
+            <ul className="space-y-1.5 text-xs text-purple-200/70">
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('home')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Home
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('explore')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Explore Catalog
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('deals')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  VIP Deals
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('blog')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Fashion Blog
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Legal Row */}
+        <div className="grid grid-cols-3 gap-4 mb-6 pt-4 border-t border-purple-900/40">
+          <div>
+            <h4 className="font-bold text-orange-400 mb-1.5 text-xs">Legal</h4>
+            <ul className="space-y-1 text-[11px] text-purple-200/60">
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('privacy')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Privacy Policy
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('terms')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Terms of Service
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('disclaimer')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Affiliate Disclaimer
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-orange-400 mb-1.5 text-xs">Support</h4>
+            <ul className="space-y-1 text-[11px] text-purple-200/60">
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('about')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  About Us
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('contact')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  Contact
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => onNavigateTab?.('faq')}
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  FAQ
+                </button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-orange-400 mb-1.5 text-xs">Follow</h4>
+            <ul className="space-y-1 text-[11px] text-purple-200/60">
+              <li>
+                <a
+                  href="https://whatsapp.com/channel/0029Vb8pTwMHFxP6oifwK32V"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  WhatsApp Men's
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://whatsapp.com/channel/0029Vb9OJd63GJOxv9DntB1r"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-orange-400 transition-colors"
+                >
+                  WhatsApp Women's
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="pt-4 border-t border-purple-900/40 text-center">
+          <p className="text-[11px] text-purple-300/50">
+            © {currentYear} TopVent. All rights reserved. | Prices verified at time of publishing.
           </p>
-          <p className="mt-3 text-sm text-white/50">{BRAND.email}</p>
+          <p className="text-[10px] text-purple-300/40 mt-1 max-w-md mx-auto">
+            As an Amazon Associate, TopVent earns from qualifying purchases at no extra cost to you.
+          </p>
         </div>
-        <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff8a1f]">Quick Links</h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/75">
-            {[
-              ["/", "Home"],
-              ["/men", "Men"],
-              ["/women", "Women"],
-              ["/jewellery", "Jewellery"],
-              ["/accessories", "Accessories"],
-              ["/deals", "Deals"],
-              ["/trending", "Trending"],
-              ["/about", "About"],
-              ["/contact", "Contact"],
-            ].map(([href, label]) => (
-              <li key={href}>
-                <Link href={href} className="hover:text-[#ff8a1f]">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff8a1f]">Customer</h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/75">
-            {[
-              ["/help", "Help"],
-              ["/privacy", "Privacy Policy"],
-              ["/terms", "Terms & Conditions"],
-              ["/affiliate-disclosure", "Affiliate Disclosure"],
-            ].map(([href, label]) => (
-              <li key={href}>
-                <Link href={href} className="hover:text-[#ff8a1f]">
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-xs font-bold uppercase tracking-[0.18em] text-[#ff8a1f]">Connect</h3>
-          <ul className="mt-4 space-y-2 text-sm text-white/75">
-            <li>
-              <a href={BRAND.instagram} target="_blank" rel="noreferrer" className="hover:text-[#ff8a1f]">
-                Instagram {BRAND.instagramHandle}
-              </a>
-            </li>
-            <li>
-              <a href={BRAND.whatsappMen} target="_blank" rel="noreferrer" className="hover:text-[#ff8a1f]">
-                Men&apos;s WhatsApp Channel
-              </a>
-            </li>
-            <li>
-              <a href={BRAND.whatsappWomen} target="_blank" rel="noreferrer" className="hover:text-[#ff8a1f]">
-                Women&apos;s WhatsApp Channel
-              </a>
-            </li>
-          </ul>
-          <Wordmark className="mt-6 text-lg opacity-80" />
-        </div>
-      </div>
-      <div className="border-t border-white/10 px-6 py-6 text-center text-xs text-white/45">
-        <p>{AFFILIATE_DISCLOSURE}</p>
-        <p className="mt-2">© {new Date().getFullYear()} TopVent. All rights reserved.</p>
       </div>
     </footer>
   );
-}
+};
