@@ -53,7 +53,7 @@ export const STORIES_DATA: Story[] = [
     id: 'story-Footwear',
     title: 'Footwear',
     category: 'footwear',
-    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0dapz8J76iaPx6W2H_zSZmz3AbklUj9GoDn149RMjvt9iYnj0L1_fYas2&s=10',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_6UIvjbkSgffBJpFmv2WPnOFfj2Inkz_LdCytKUgxnw&s=10',
     storyImage: 'https://media.vneconomy.vn/images/upload/2023/09/14/my-pham-2.jpg',
     subtitle: 'Inclusive Fashion & Lifestyle Essentials',
     featuredProductCount: 24,
