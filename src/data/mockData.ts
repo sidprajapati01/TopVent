@@ -44,7 +44,7 @@ export const STORIES_DATA: Story[] = [
     id: 'story-Accessories',
     title: 'Accessories',
     category: 'accessories',
-    imageUrl: 'https://www.octavius.in/cdn/shop/files/Ideal_for_stylish_gifting.png?v=1759148786&width=1100',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNE0Gf1SSTv7TZJcicIOZheI7ec87MlSHrM_qQIyYJBA&s=10',
     storyImage: 'https://m.media-amazon.com/images/I/51DOu9skaCL._AC_UF894,1000_QL80_.jpg',
     subtitle: 'Artisan Ceramics & Handcrafted Morning Rituals',
     featuredProductCount: 12,
@@ -57,7 +57,7 @@ export const STORIES_DATA: Story[] = [
     storyImage: 'https://media.vneconomy.vn/images/upload/2023/09/14/my-pham-2.jpg',
     subtitle: 'Inclusive Fashion & Lifestyle Essentials',
     featuredProductCount: 24,
-  }
+  },
 ];
 
 // ============================================
@@ -1080,6 +1080,256 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0FQL1PJX2?tag=topvent-21'
   },
+  
+  // ═════════════════════════════════════════
+  // MEN'S KURTA COLLECTION
+  // ═════════════════════════════════════════
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 1: DIWAS ART SILK (Purple)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-diwas-art-silk-purple-kurta',
+    brand: 'DIWAS BY MANYAVAR',
+    name: "DIWAS BY MANYAVAR Men's Art Silk Self Design Kurta (1pc) — Purple",
+    price: 1049,
+    originalPrice: 1199,
+    discountPercent: 13,
+    rating: 4.1,
+    reviewCount: 98,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/916O7eXyCML._SX679_.jpg',
+    altText: "DIWAS BY MANYAVAR men's purple art silk self design kurta",
+    tag: 'FESTIVE PICK',
+    isPrime: true,
+    description: "DIWAS BY MANYAVAR Men's Art Silk Self Design Kurta. Premium art silk fabric with elegant self design pattern. Perfect for weddings, festivals, and traditional occasions. Only 3 left in stock.",
+    fabricBlend: 'Art Silk',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Dry Clean Recommended',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Purple', hex: '#800080', imageUrl: 'https://m.media-amazon.com/images/I/916O7eXyCML._SX679_.jpghttps://m.media-amazon.com/images/I/71KURTA1._SY741_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/612WtTFxjcL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91inDKYp-cL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61fx2F52JjL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81-gyhRiCpL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DG8PN4GB?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 2: DAYLOOM COACH SILK KURTA PANT SET
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-dayloom-coach-silk-kurta-pant',
+    brand: 'DAYLOOM',
+    name: "Men's Coach Silk Kurta Pant Set Teal Blue Multi Sequence & Zari Embroidery Kurta Plain Matching Pants Festive Ethnic Wedding Party",
+    price: 1999,
+    originalPrice: 3599,
+    discountPercent: 44,
+    rating: 4.2,
+    reviewCount: 15,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/6113H9qai6L._SY741_.jpg',
+    altText: "DAYLOOM men's coach silk black kurta pant set with sequence and zari embroidery",
+    tag: 'PREMIUM PICK',
+    isPrime: true,
+    description: "Men's Coach Silk Kurta Pant Set with Multi Sequence & Zari Embroidery. Complete ethnic set with kurta and matching pants. Premium festive and wedding wear for traditional occasions.",
+    fabricBlend: 'Coach Silk',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Black', hex: '#111111', imageUrl: 'https://m.media-amazon.com/images/I/6113H9qai6L._SY741_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61MKAiYcyCL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71ECoNO9L5L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71zDJD8za1L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61FFosNm+8L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HKN9Z7GR?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 3: TAVASYA LINEN KURTA (Blue)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-tavasya-linen-kurta-blue',
+    brand: 'TAVASYA',
+    name: "Amazon Brand - Tavasya Men Linen Traditional Regular Kurta | Ethnic Wear — Blue",
+    price: 589,
+    originalPrice: 1499,
+    discountPercent: 61,
+    rating: 3.6,
+    reviewCount: 52,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81tbu+xlZkL._SX679_.jpg',
+    altText: "Tavasya men's blue linen traditional regular fit kurta",
+    tag: 'BEST DEAL',
+    isPrime: true,
+    description: "Amazon Brand - Tavasya Men Linen Traditional Regular Kurta. Soft linen fabric, ideal for daily wear, festive occasions, and casual ethnic styling. Available in Blue, White, Maroon, and Pink.",
+    fabricBlend: 'Linen',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Blue', hex: '#1560bd', imageUrl: 'https://m.media-amazon.com/images/I/81tbu+xlZkL._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81njJrymzIL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/916DCc+-TML._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81O5K+TkRiL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91m4iNxHF3L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FG8C6WQH?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 4: DIWAS AZTEC PRINTED (Teal Blue)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-diwas-aztec-teal-kurta',
+    brand: 'DIWAS BY MANYAVAR',
+    name: "DIWAS BY MANYAVAR Men's Viscose Blend Aztec Printed Kurta (1pc) — Teal Blue",
+    price: 1399,
+    originalPrice: 1799,
+    discountPercent: 22,
+    rating: 4.3,
+    reviewCount: 29,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/91ZKMZ-5o6L._SX679_.jpg',
+    altText: "DIWAS BY MANYAVAR men's teal blue viscose blend aztec printed kurta",
+    tag: 'NEW ARRIVAL',
+    isPrime: true,
+    description: "DIWAS BY MANYAVAR Men's Viscose Blend Aztec Printed Kurta. Unique Aztec pattern in teal blue. Premium viscose blend fabric, perfect for festive and semi-formal ethnic occasions.",
+    fabricBlend: 'Viscose Blend',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Dry Clean Recommended',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Teal Blue', hex: '#008080', imageUrl: 'https://m.media-amazon.com/images/I/91ZKMZ-5o6L._SX679_.jpg' },
+    ],
+    sizes: ['M', 'L', 'XL', '2XL', '3XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71IfOM84rwL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71R7SU5zmDL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91EqvpMgigL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91rtzhSn4nL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DG8QVG37?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 5: DIWAS ART SILK PRINTED (Rust)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-diwas-art-silk-rust-kurta',
+    brand: 'DIWAS BY MANYAVAR',
+    name: "DIWAS BY MANYAVAR Men's Art Silk Printed Kurta (1pc) — Rust",
+    price: 1399,
+    originalPrice: 1799,
+    discountPercent: 22,
+    rating: 4.2,
+    reviewCount: 59,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81tnw75girL._SY741_.jpg',
+    altText: "DIWAS BY MANYAVAR men's rust art silk printed kurta",
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "DIWAS BY MANYAVAR Men's Art Silk Printed Kurta in rich Rust color. Premium art silk fabric with detailed print. Ideal for festive, wedding, and traditional occasions.",
+    fabricBlend: 'Art Silk',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Dry Clean Recommended',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Rust', hex: '#b7410e', imageUrl: 'https://m.media-amazon.com/images/I/81tnw75girL._SY741_.jpg' },
+    ],
+    sizes: ['M', 'L', 'XL', '2XL', '3XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81CpKatHTgL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81edpqRXeKL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91xDt5m18YL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91bGZE6wx+L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DG8RX9L3?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 6: SHVAAS COTTON PRINTED (Aqua)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-shvaas-cotton-aqua-kurta',
+    brand: 'SHVAAS BY VASTRAMAY',
+    name: "Shvaas By Vastramay Men's Cotton Printed Kurta — Aqua",
+    price: 1269,
+    originalPrice: 2399,
+    discountPercent: 47,
+    rating: 4.0,
+    reviewCount: 69,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81YunRoiN3L._SX679_.jpg',
+    altText: "Shvaas by Vastramay men's aqua cotton printed kurta",
+    tag: 'TOPVENT PICK',
+    isPrime: true,
+    description: "Shvaas By Vastramay Men's Cotton Printed Kurta in Aqua color. Soft cotton fabric with elegant print. Perfect for casual ethnic wear, festivals, and daily styling.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Aqua', hex: '#7fffd4', imageUrl: 'https://m.media-amazon.com/images/I/81YunRoiN3L._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71DYs-KqVIL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/612TVivSe8L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81WKfcZ4gEL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71iOnaJuy7L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0CQ8PFPVD?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S KURTA 7: SOJANYA GOLD EMBROIDERED KURTA
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-sojanya-gold-embroidered-kurta',
+    brand: 'SOJANYA',
+    name: "SOJANYA (Since 1958) Men's Cotton Gold Thread Embroidered Long Kurta",
+    price: 1967,
+    originalPrice: 6663,
+    discountPercent: 70,
+    rating: 3.7,
+    reviewCount: 20,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81-y5mecU3L._SX679_.jpg',
+    altText: "SOJANYA men's gold thread embroidered long cotton kurta",
+    tag: 'PREMIUM PICK',
+    isPrime: true,
+    description: "SOJANYA (Since 1958) Men's Cotton Gold Thread Embroidered Long Kurta. Premium cotton fabric with intricate gold thread embroidery. Perfect for weddings, receptions, and special festive occasions.",
+    fabricBlend: 'Cotton',
+    silhouettes: 'Long Kurta',
+    garmentCare: 'Dry Clean Recommended',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Gold & Multi', hex: '#d4af37', imageUrl: 'https://m.media-amazon.com/images/I/81-y5mecU3L._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81Q0PbS+fML._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/815S1mFiIzL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81coHEJIEjL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/815esRjD-8L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DVPZJP8R?tag=topvent-21',
+  },
+
 
   // ═════════════════════════════════════════
   // WOMEN'S WEAR
@@ -2329,6 +2579,186 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/71Wleo6C8SL._SY550_.jpg',
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0H5D1DQ8D?tag=topvent-21',
+  },
+
+  
+  // ═════════════════════════════════════════
+  // WOMEN'S LEHENGA CHOLI COLLECTION
+  // ═════════════════════════════════════════
+
+  // ─────────────────────────────────────────
+  // LEHENGA 1: FLORAL PATOLA DOLLA SILK (Navy Blue)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-patola-navy-blue',
+    brand: 'Generic',
+    name: "Women's Floral & Patola Print With Foil Work Dolla Silk Lehenga Choli With Unstitched Blouse | Designer Ethnic Wear Semi Stitched Wedding Special",
+    price: 976,
+    originalPrice: 1999,
+    discountPercent: 51,
+    rating: 1.0,
+    reviewCount: 1,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61yPhp1qOeL.jpg',
+    altText: "Women's navy blue floral Patola print Dolla silk lehenga choli with foil work and dupatta",
+    tag: 'FESTIVE PICK',
+    isPrime: true,
+    description: "Women's Floral & Patola Print With Foil Work Dolla Silk Lehenga Choli. Includes semi-stitched lehenga, unstitched blouse, and dupatta. Perfect for weddings, festive occasions, and Navratri. Premium Dolla silk fabric with intricate foil work design.",
+    fabricBlend: 'Dolla Silk',
+    silhouettes: 'Flared Lehenga',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Kutch Work Navy Blue', hex: '#1a2a5e', imageUrl: 'https://m.media-amazon.com/images/I/61yPhp1qOeL.jpg' },
+    ],
+    sizes: ['Semi-Stitched', 'Free Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61yPhp1qOeL.jpg',
+      'https://m.media-amazon.com/images/I/61RQwDuxtVL.jpg',
+      'https://m.media-amazon.com/images/I/61LpERSvtQL.jpg',
+      'https://m.media-amazon.com/images/I/61LpERSvtQL.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GS73CZWL?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // LEHENGA 2: DAYLOOM TRADITIONAL EMBROIDERED SET
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-dayloom-embroidered',
+    brand: 'DAYLOOM',
+    name: "Women's Traditional Ethnic Lehenga Choli Set with Embroidered Jacket, Floral Printed Crop Top, Flared Skirt and Long Shrug for Festive Wedding Party",
+    price: 2199,
+    originalPrice: 4999,
+    discountPercent: 56,
+    rating: 4.2,
+    reviewCount: 25,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61xOHYG1VGL._SY550_.jpg',
+    altText: "DAYLOOM women's traditional ethnic lehenga choli with embroidered jacket and floral printed crop top",
+    tag: 'PREMIUM PICK',
+    isPrime: true,
+    description: "DAYLOOM Women's Traditional Ethnic Lehenga Choli Set with Embroidered Jacket. Includes floral printed crop top, flared skirt, and long shrug. Premium cotton blend fabric, hand wash only. Perfect for festive, wedding, and party occasions.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Flared Skirt + Crop Top',
+    garmentCare: 'Hand Wash Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Cream & Multi', hex: '#f5f5dc', imageUrl: 'https://m.media-amazon.com/images/I/61xOHYG1VGL._SY550_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71T5iV830LL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71OhXvlQSzL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71Hmy+d6jyL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71C+oe+fk+L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HHJ2TV1T?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // LEHENGA 3: FLOSIVE RAYON LEHENGA (Green)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-flosive-green',
+    brand: 'FLOSIVE',
+    name: "Flosive Women's Rayon Lehenga Choli Set | Traditional Ethnic Wear for Women | Designer Festive Lehenga Choli with Dupatta | Navratri Wear",
+    price: 1489,
+    originalPrice: 4599,
+    discountPercent: 67,
+    rating: 2.3,
+    reviewCount: 5,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/814HqwC0lFL._SY500_.jpg',
+    altText: "Flosive women's dark green rayon lehenga choli set with dupatta for Navratri",
+    tag: 'NAVRATRI SPECIAL',
+    isPrime: true,
+    description: "Flosive Women's Rayon Lehenga Choli Set with Dupatta. Traditional ethnic wear perfect for Navratri, festive occasions, and weddings. Premium rayon fabric with rich embroidery work and mirror detailing. 50+ bought in past month.",
+    fabricBlend: 'Rayon',
+    silhouettes: 'Flared Lehenga',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Dark Green', hex: '#1a4d2e', imageUrl: 'https://m.media-amazon.com/images/I/814HqwC0lFL._SY500_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81-QA3AVXpL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/81mMSveq+yL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71Ydr+thKbL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71ijo0W5b2L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HHHYXCVM?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // LEHENGA 4: DOLA SILK MIL FOIL (Chameli Green)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-dola-silk-chameli',
+    brand: 'Generic',
+    name: "Women's Trending Dola Silk Lehenga Choli with Mil Foil Print | Traditional Solid Print Navratri Chaniya Choli | Ethnic Wear with Dupatta Unstitched Blouse",
+    price: 999,
+    originalPrice: 1999,
+    discountPercent: 50,
+    rating: 3.6,
+    reviewCount: 8,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/616PqpFmbJL._SY500_.jpg',
+    altText: "Women's chameli green Dola silk lehenga choli with mil foil print for Navratri",
+    tag: 'TRENDING NOW',
+    isPrime: true,
+    description: "Women's Trending Dola Silk Lehenga Choli with Mil Foil Print. Traditional solid print Navratri Chaniya Choli with dupatta and unstitched blouse. Perfect ethnic wear for Navratri, garba, and festive occasions.",
+    fabricBlend: 'Dola Silk',
+    silhouettes: 'Flared Chaniya',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Chameli Green', hex: '#c9e265', imageUrl: 'https://m.media-amazon.com/images/I/616PqpFmbJL._SY500_.jpg' },
+    ],
+    sizes: ['Semi-Stitched', 'Free Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/91nrr+sDHxL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91VQbXzlEpL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91-MuaxzAbL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91NUZj0g9dL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0GQCLYLLV?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // LEHENGA 5: BLUE TUSSAR SILK LEHENGA
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-tussar-silk-blue',
+    brand: 'GHARSTUDY',
+    name: "Blue Lehenga Choli for Women, Chaniya Choli Set with Dupatta, Tussar Silk",
+    price: 1499,
+    originalPrice: 5999,
+    discountPercent: 75,
+    rating: 5.0,
+    reviewCount: 5,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/71f87T83C7L._SL1280_.jpg',
+    altText: "Blue Tussar silk lehenga choli for women with dupatta",
+    tag: "AMAZON'S CHOICE",
+    isPrime: true,
+    description: "Blue Lehenga Choli for Women with Dupatta in premium Tussar Silk. Exquisite traditional design with intricate embroidery. Perfect for weddings, festivals, and special occasions. Amazon's Choice product with 5-star rating.",
+    fabricBlend: 'Tussar Silk',
+    silhouettes: 'Flared Lehenga',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Blue', hex: '#1560bd', imageUrl: 'https://m.media-amazon.com/images/I/71f87T83C7L._SL1280_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71ZenxSq1EL._SL1280_.jpg',
+      'https://m.media-amazon.com/images/I/71aOceA-rFL._SL1280_.jpg',
+      'https://m.media-amazon.com/images/I/71MiDTDC3DL._SL1280_.jpg',
+      'https://m.media-amazon.com/images/I/71f87T83C7L._SL1280_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HJ5VWVBS?tag=topvent-21',
   },
 
   // ═════════════════════════════════════════
