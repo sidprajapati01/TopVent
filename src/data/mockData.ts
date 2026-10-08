@@ -176,7 +176,7 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/61xRumyHSXL._SY550_.jpg',
       'https://m.media-amazon.com/images/I/71zcfWQdvPL._SY550_.jpg',
     ],
-    amazonUrl: 'https://www.amazon.in/dp/B0BXLMFN4R?tag=topvent-21',
+    amazonUrl: 'https://www.amazon.in/dp/B0HBR1BH9Z?tag=topvent-21',
   },
 
   // ─────────────────────────────────────────
@@ -214,7 +214,7 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/51GyvnVdlvL._SX425_.jpg',
       'https://m.media-amazon.com/images/I/6160BtO24AL._SX425_.jpg',
     ],
-    amazonUrl: 'https://www.amazon.in/dp/B0BXLMFN4R?tag=topvent-21',
+    amazonUrl: 'https://www.amazon.in/dp/B0BXLN8TZ1?tag=topvent-21',
   },
 
   // ─────────────────────────────────────────
