@@ -1080,7 +1080,147 @@ export const PRODUCTS_DATA: Product[] = [
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0FQL1PJX2?tag=topvent-21'
   },
-  
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 29: LEOTUDE MEN GREY RAGLAN
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-leotude-men-grey-raglan',
+    brand: 'LEOTUDE',
+    name: "LEOTUDE Men Polycotton Classy Look Regular Fit Round Neck Half Sleeve T-Shirt (Grey)",
+    price: 269,
+    originalPrice: 1099,
+    discountPercent: 76,
+    rating: 3.7,
+    reviewCount: 1005,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/815T2L1EZ1L._SX679_.jpg',
+    altText: "LEOTUDE men's grey polycotton classy look regular fit raglan sleeve t-shirt",
+    tag: 'GREAT INDIAN FESTIVAL',
+    isPrime: true,
+    description: "LEOTUDE Men Polycotton Classy Look Regular Fit Round Neck Half Sleeve T-Shirt. Soft polycotton fabric with stylish raglan sleeve design. Perfect for casual wear, gym, and everyday styling. 200+ bought in past month.",
+    fabricBlend: 'Polycotton',
+    silhouettes: 'Regular Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Grey', hex: '#808080', imageUrl: 'https://m.media-amazon.com/images/I/815T2L1EZ1L._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61rNYsJueqL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/517Hr6opADL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61RHTDQzyKL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61j4-mWu7UL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FH4T159F?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 30: LEOTUDE BOSTON OVERSIZED NAVY
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-leotude-men-boston-oversized',
+    brand: 'LEOTUDE',
+    name: "LEOTUDE Men's Half Sleeve Round Neck Cottonblend Graphic Print Oversized T-Shirt (Boston Navy)",
+    price: 268,
+    originalPrice: 1099,
+    discountPercent: 76,
+    rating: 3.9,
+    reviewCount: 1357,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81ocnUqGfEL._SX679_.jpg',
+    altText: "LEOTUDE men's navy oversized cotton blend graphic print t-shirt with Boston design",
+    tag: 'GREAT INDIAN FESTIVAL',
+    isPrime: true,
+    description: "LEOTUDE Men's Half Sleeve Round Neck Cottonblend Graphic Print Oversized T-Shirt. Premium cotton blend fabric with bold Boston graphic print. Trendy oversized fit perfect for streetwear and casual styling. 400+ bought in past month.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Oversized Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Navy Blue', hex: '#0a1929', imageUrl: 'https://m.media-amazon.com/images/I/81ocnUqGfEL._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61bC4SQpWoL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61ZBufYhdxL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61qOOwYhW-L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61fozsdujKL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FHDJZFJN?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 31: VEIRDO OVERSIZED BROWN
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-veirdo-oversized-brown',
+    brand: 'VEIRDO',
+    name: "Veirdo Oversize Loose Baggy Fit Drop Shoulder Cool and Stylish Latest Pocket Print Designs Half Sleeve T-Shirt for Men & Boys (Brown)",
+    price: 368,
+    originalPrice: 1199,
+    discountPercent: 69,
+    rating: 3.8,
+    reviewCount: 560,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/81dKrTM6gTL._SX679_.jpg',
+    altText: "Veirdo men's brown oversized baggy fit drop shoulder t-shirt with pocket print",
+    tag: 'GREAT INDIAN FESTIVAL',
+    isPrime: true,
+    description: "Veirdo Oversize Loose Baggy Fit Drop Shoulder T-Shirt with Cool and Stylish Latest Pocket Print Designs. Trendy streetwear style for men and boys. Perfect for casual outings, travel, and everyday wear.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Oversized Baggy Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Brown', hex: '#654321', imageUrl: 'https://m.media-amazon.com/images/I/81dKrTM6gTL._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/51VsZ5HrcaL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61woeIxpP1L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/51DNSW9SJ4L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71iO0AZxtzL._SX522_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0BF7WXCY8?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // MEN'S PRODUCT 32: URGEAR OVERSIZED NAVY
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-urgear-oversized-navy',
+    brand: 'URGEAR',
+    name: "URGEAR Men Oversized Printed Round Neck Cotton Blend Navy T-Shirt",
+    price: 299,
+    originalPrice: 1299,
+    discountPercent: 77,
+    rating: 3.8,
+    reviewCount: 8,
+    category: 'men',
+    imageUrl: 'https://m.media-amazon.com/images/I/71IG8Z9Y+-L._SX679_.jpg',
+    altText: "URGEAR men's navy oversized printed round neck cotton blend t-shirt",
+    tag: 'BAZAAR CRAZY PRICES',
+    isPrime: true,
+    description: "URGEAR Men Oversized Printed Round Neck Cotton Blend Navy T-Shirt. Trendy oversized fit with minimal front print. Perfect for casual wear and streetwear styling.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Oversized Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Navy', hex: '#0a1929', imageUrl: 'https://m.media-amazon.com/images/I/71IG8Z9Y+-L._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', '2XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71IG8Z9Y+-L._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/51uLo4SsI3L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/41ajdmPmB1L._SX522_.jpg',
+      'https://m.media-amazon.com/images/I/51uLo4SsI3L._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FK2HWP13?tag=topvent-21',
+  },
+
   // ═════════════════════════════════════════
   // MEN'S KURTA COLLECTION
   // ═════════════════════════════════════════
@@ -2581,6 +2721,181 @@ export const PRODUCTS_DATA: Product[] = [
     amazonUrl: 'https://www.amazon.in/dp/B0H5D1DQ8D?tag=topvent-21',
   },
 
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 36: LEOTUDE BOSTON NAVY OVERSIZED
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-leotude-women-boston-navy',
+    brand: 'LEOTUDE',
+    name: "LEOTUDE Women Cottonblend Drop Shoulder Oversized Round Neck Half Sleeve T-Shirt (Boston Navy)",
+    price: 269,
+    originalPrice: 1099,
+    discountPercent: 76,
+    rating: 4.0,
+    reviewCount: 374,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/91r3n1d16nL._SX679_.jpg',
+    altText: "LEOTUDE women's navy oversized cotton blend drop shoulder t-shirt with Boston print",
+    tag: 'BAZAAR CRAZY PRICES',
+    isPrime: true,
+    description: "LEOTUDE Women Cottonblend Drop Shoulder Oversized Round Neck Half Sleeve T-Shirt with trendy Boston graphic print. Comfortable loose fit, perfect for casual outings and everyday styling. 200+ bought in past month.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Oversized Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Navy Blue', hex: '#0a1929', imageUrl: 'https://m.media-amazon.com/images/I/91r3n1d16nL._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61JOX-w4RIL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61ZmZCXla3L._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61ZAeF4ytfL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/6189KcuMMiL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0FHDJMQ55?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 37: JAWDROBE VINTAGE WHITE
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-jawdrobe-vintage-white',
+    brand: 'JAWDROBE',
+    name: "Women's Cotton Blend Oversized Fit Half Sleeve Printed Round Neck T-Shirt (Vintage White)",
+    price: 317,
+    originalPrice: 1599,
+    discountPercent: 80,
+    rating: 3.9,
+    reviewCount: 1340,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/91+6F3O7EuL._SX679_.jpg',
+    altText: "Jawdrobe women's white oversized graphic print vintage t-shirt",
+    tag: 'BAZAAR CRAZY PRICES',
+    isPrime: true,
+    description: "Women's Cotton Blend Oversized Fit Half Sleeve Printed Round Neck T-Shirt. Vintage graphic print, soft and breathable fabric. Perfect for everyday casual wear and streetwear styling. 300+ bought in past month.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Oversized Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'White', hex: '#ffffff', imageUrl: 'https://m.media-amazon.com/images/I/91+6F3O7EuL._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61CyQQ303fL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/61lmE-e8TxL._SX466_.jpg',
+      'https://m.media-amazon.com/images/I/71KnLxmhMeL._SX466_.jpg',
+      'https://m.media-amazon.com/images/I/71pLedVtWIL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DNZQ26HD?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 38: GENERIC OVERSIZED T-SHIRT COMBO
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-women-generic-tshirt-combo',
+    brand: 'Generic',
+    name: "Women's Oversized Graphic Print T-Shirt — Combo Pack (2 Pieces) (Beige Brown)",
+    price: 412,
+    originalPrice: 999,
+    discountPercent: 59,
+    rating: 4.0,
+    reviewCount: 100,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61G+pNBPHjL._SX425_.jpg',
+    altText: "Women's oversized graphic print t-shirts combo pack in brown and cream",
+    tag: 'COMBO PACK',
+    isPrime: true,
+    description: "Women's Oversized Graphic Print T-Shirt Combo Pack — 2 Pieces. Includes stylish graphic tees in brown and cream colorways. Soft cotton blend fabric, perfect for everyday casual wear. Only 2 left in stock.",
+    fabricBlend: 'Cotton Blend',
+    silhouettes: 'Oversized Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Beige Brown', hex: '#654321', imageUrl: 'https://m.media-amazon.com/images/I/61G+pNBPHjL._SX425_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/711NyGiZUIL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/61qiKM-84UL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/61G+pNBPHjL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/61WcyhVsRjL._SX569_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0HKG67PLP?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 39: JUNEBERRY NITRO GIRL BROWN
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-juneberry-nitro-girl-brown',
+    brand: 'JUNEBERRY',
+    name: "JUNEBERRY Women's Pure Cotton Drop Shoulder Printed T-Shirt | Oversized Baggy Fit Half Sleeve Round Neck Graphic Tee (Nitro Girl Brown)",
+    price: 359,
+    originalPrice: 1199,
+    discountPercent: 70,
+    rating: 4.2,
+    reviewCount: 62,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/61CPJlAiEcL._SY550_.jpg',
+    altText: "JUNEBERRY women's brown oversized nitro girl graphic print cotton t-shirt",
+    tag: 'GREAT INDIAN FESTIVAL',
+    isPrime: true,
+    description: "JUNEBERRY Women's Pure Cotton Drop Shoulder Printed T-Shirt with trendy Nitro Girl graphic print. Oversized baggy fit with round neck and half sleeves. Premium pure cotton fabric, perfect for casual styling. 50+ bought in past month.",
+    fabricBlend: 'Pure Cotton',
+    silhouettes: 'Oversized Baggy Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Brown', hex: '#654321', imageUrl: 'https://m.media-amazon.com/images/I/61CPJlAiEcL._SY550_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/81RMVCGC7NL._SX679_.jpg',
+      'https://m.media-amazon.com/images/I/613oF2H+wjL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71CCLF6UWtL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/61CyYDwkXXL._SY550_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0G13YJ5NM?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // WOMEN'S PRODUCT 40: JUNEBERRY CHANGE IS GOOD RAGLAN
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-juneberry-change-raglan',
+    brand: 'JUNEBERRY',
+    name: "JUNEBERRY 100% Pure Cotton Oversized Fit Drop Shoulder Graphic Printed Raglan Sleeves Boyfriend T-Shirt for Women (Beige Brown)",
+    price: 373,
+    originalPrice: 1199,
+    discountPercent: 69,
+    rating: 4.1,
+    reviewCount: 190,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/81FBo2yN-OL._SX679_.jpg',
+    altText: "JUNEBERRY women's beige and brown raglan sleeve boyfriend t-shirt with change is good print",
+    tag: 'LOWEST IN 30 DAYS',
+    isPrime: true,
+    description: "JUNEBERRY 100% Pure Cotton Oversized Fit Drop Shoulder Graphic Printed Raglan Sleeves Boyfriend T-Shirt. Stylish raglan design with positive 'Change is Good' print. Perfect for casual and relaxed styling. 50+ bought in past month.",
+    fabricBlend: '100% Pure Cotton',
+    silhouettes: 'Oversized Boyfriend Fit',
+    garmentCare: 'Machine Wash',
+    innerLining: 'Not specified',
+    colors: [
+      { name: 'Beige & Brown', hex: '#d2b48c', imageUrl: 'https://m.media-amazon.com/images/I/81FBo2yN-OL._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/11mvCSg36lL.jpg',
+      'https://m.media-amazon.com/images/I/11biAn0JroL.jpg',
+      'https://m.media-amazon.com/images/I/11fuhygNqjL.jpg',
+      'https://m.media-amazon.com/images/I/11WApN+eDbL.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DJQSS7TT?tag=topvent-21',
+  },
+
   
   // ═════════════════════════════════════════
   // WOMEN'S LEHENGA CHOLI COLLECTION
@@ -2759,6 +3074,76 @@ export const PRODUCTS_DATA: Product[] = [
       'https://m.media-amazon.com/images/I/71f87T83C7L._SL1280_.jpg',
     ],
     amazonUrl: 'https://www.amazon.in/dp/B0HJ5VWVBS?tag=topvent-21',
+  },
+    
+  // ─────────────────────────────────────────
+  // LEHENGA 6: WOMEN'S TUSSAR SILK LEHENGA (With Patola Print)
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-tussar-silk-patola',
+    brand: 'Generic',
+    name: "Women's Tussar Silk With Patola Printed Lehenga Choli With Dupatta Set | Women's Wedding Special Tussar Silk Printed Lehenga Choli",
+    price: 999,
+    originalPrice: 3999,
+    discountPercent: 28,
+    rating: 4.0,
+    reviewCount: 12,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/71HYLMk5G9L._SX679_.jpg',
+    altText: "Women's Tussar silk lehenga choli with Patola print and dupatta",
+    tag: 'FESTIVE PICK',
+    isPrime: true,
+    description: "Women's Tussar Silk Lehenga Choli with Patola Print and Dupatta. Perfect for weddings, festive occasions, and special events. Premium Tussar silk fabric with traditional Patola print design.",
+    fabricBlend: 'Tussar Silk',
+    silhouettes: 'Flared Lehenga',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Multi', hex: '#8B0000', imageUrl: 'https://m.media-amazon.com/images/I/71HYLMk5G9L._SX679_.jpg' },
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/61W59xqEWEL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/611kQ5Mnb2L._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61ePsoMkhrL._SY500_.jpg',
+      'https://m.media-amazon.com/images/I/61yJWtN1-8L._SY500_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0DZTM3M41?tag=topvent-21',
+  },
+
+  // ─────────────────────────────────────────
+  // LEHENGA 7: NAVRATRI APAREL RAYON SEMI STITCHED LEHENGA
+  // ─────────────────────────────────────────
+  {
+    id: 'prod-lehenga-navratri-rayon-semi-stitched',
+    brand: 'Navratri Aparel',
+    name: "Navratri Aparel Print Rayon Semi Stitched Lehenga Choli & Unstitched Blouse With Dupatta",
+    price: 929,
+    originalPrice: 2999,
+    discountPercent: 69,
+    rating: 4.0,
+    reviewCount: 15,
+    category: 'women',
+    imageUrl: 'https://m.media-amazon.com/images/I/71-Llis7LAL._SX425_.jpg',
+    altText: "Navratri Aparel print rayon semi stitched lehenga choli with unstitched blouse and dupatta",
+    tag: 'NAVRATRI SPECIAL',
+    isPrime: true,
+    description: "Navratri Aparel Print Rayon Semi Stitched Lehenga Choli with Unstitched Blouse and Dupatta. Traditional ethnic wear perfect for Navratri, garba, and festive occasions. Premium rayon fabric with vibrant print.",
+    fabricBlend: 'Rayon',
+    silhouettes: 'Flared Chaniya',
+    garmentCare: 'Dry Clean Only',
+    innerLining: 'Cotton Lining',
+    colors: [
+      { name: 'Multi', hex: '#FF6B6B', imageUrl: 'https://m.media-amazon.com/images/I/71-Llis7LAL._SX425_.jpg' },
+    ],
+    sizes: ['Semi-Stitched', 'Free Size'],
+    galleryImages: [
+      'https://m.media-amazon.com/images/I/71nN6AjDUWL._SX425_.jpg',
+      'https://m.media-amazon.com/images/I/71Qqzy0CaeL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/71aRaEJPRzL._SY550_.jpg',
+      'https://m.media-amazon.com/images/I/91QXMLz2ADL._SX679_.jpg',
+    ],
+    amazonUrl: 'https://www.amazon.in/dp/B0H8T94NDM?tag=topvent-21',
   },
 
   // ═════════════════════════════════════════
