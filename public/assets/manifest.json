@@ -3,10 +3,13 @@
   "short_name": "TopVent",
   "description": "Hand-curated luxury fashion drops with verified Amazon deals",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#16062a",
   "theme_color": "#f97316",
   "orientation": "portrait",
+  "lang": "en",
+  "categories": ["shopping", "lifestyle", "fashion"],
   "icons": [
     {
       "src": "/assets/topvent-brand-logo.svg",
