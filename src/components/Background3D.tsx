@@ -1,8 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-
+import * as THREE from 'three';
 export default function Background3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
+  const clock = { 
+  getElapsedTime: () => performance.now() / 1000 
+};
   useEffect(() => {
     // તમારો Three.js કોડ અહીં
     // requestAnimationFrame ને throttle કરો (30fps)
